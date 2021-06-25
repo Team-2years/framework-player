@@ -40,7 +40,7 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
 	//_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
 	_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
 
-
+	
 	_EnemyInfo.Hp = _Hp;
 
 	_EnemyInfo.isRight = true;
@@ -67,9 +67,6 @@ void Enemy_Basic::update(int targetX, int targetY)
 	//µð¹ö±ë¿ë
 	//ImageUpdateFunc();	
 	//Controller(_FieldImage);
-
-
-	
 
 }
 
@@ -99,7 +96,7 @@ void Enemy_Basic::render()
 
 	sprintf_s(str,testText);
 
-	TextOut(getMemDC(), _EnemyInfo.x - 20, _EnemyInfo.y - 60, str, strlen(str));
+	TextOut(getMemDC(), _EnemyInfo.x - 20, _EnemyInfo.y - 100, str, strlen(str));
 	
 }
 

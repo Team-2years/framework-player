@@ -278,24 +278,24 @@ void testScene::addEnemyImage_school_girl()
 {
 
 	//IDLE 이미지
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Idle_School_Girl", "img/enemy/school_girl/school_girl_Idle.bmp", 390, 118, 10, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Move_School_Girl", "img/enemy/school_girl/school_girl_Walk.bmp", 432, 124, 12, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Idle_School_Girl", "img/enemy/school_girl/school_girl_Idle.bmp", 1170, 354, 10, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Move_School_Girl", "img/enemy/school_girl/school_girl_Walk.bmp", 1296, 352, 12, 2, true, RGB(255, 0, 255));
 
 	//공격 이미지
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_1_School_Girl", "img/enemy/school_girl/school_girl_Attack_1.bmp", 275, 118, 5, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_2_School_Girl", "img/enemy/school_girl/school_girl_Attack_2.bmp", 420, 118, 7, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_3_School_Girl", "img/enemy/school_girl/school_girl_Attack_3.bmp", 544, 118, 8, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_1_School_Girl", "img/enemy/school_girl/school_girl_Attack_1.bmp", 825, 354, 5, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_2_School_Girl", "img/enemy/school_girl/school_girl_Attack_2.bmp", 1260, 354, 7, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_3_School_Girl", "img/enemy/school_girl/school_girl_Attack_3.bmp", 1632, 354, 8, 2, true, RGB(255, 0, 255));
 
 	//피격 이미지
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_1_School_Girl", "img/enemy/school_girl/school_girl_getHit_1.bmp", 159, 120, 3, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_2_School_Girl", "img/enemy/school_girl/school_girl_getHit_2.bmp", 159, 120, 3, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_3_School_Girl", "img/enemy/school_girl/school_girl_getHit_3.bmp", 159, 120, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_1_School_Girl", "img/enemy/school_girl/school_girl_getHit_1.bmp", 477, 360, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_2_School_Girl", "img/enemy/school_girl/school_girl_getHit_2.bmp", 477, 360, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_3_School_Girl", "img/enemy/school_girl/school_girl_getHit_3.bmp", 477, 360, 3, 2, true, RGB(255, 0, 255));
 
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Ground_Hitted_School_Girl", "img/enemy/school_girl/school_girl_Ground_Hitted.bmp", 225, 120, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Ground_Hitted_School_Girl", "img/enemy/school_girl/school_girl_Ground_Hitted.bmp", 675, 360, 3, 2, true, RGB(255, 0, 255));
 
 	//넉다운 이미지
-	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_1_School_Girl", "img/enemy/school_girl/school_girl_KnockDown_1.bmp", 225, 120, 3, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_2_School_Girl", "img/enemy/school_girl/school_girl_KnockDown_2.bmp", 150, 120, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_1_School_Girl", "img/enemy/school_girl/school_girl_KnockDown_1.bmp", 675, 360, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_2_School_Girl", "img/enemy/school_girl/school_girl_KnockDown_2.bmp", 450, 360, 3, 2, true, RGB(255, 0, 255));
 	//기상 이미지 
-	IMAGEMANAGER->addFrameImage("Enemy_Image_Wake_up_School_Girl", "img/enemy/school_girl/school_girl_Wake_up.bmp", 675, 120, 9, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Wake_up_School_Girl", "img/enemy/school_girl/school_girl_Wake_up.bmp", 2025, 360, 9, 2, true, RGB(255, 0, 255));
 }
