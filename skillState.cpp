@@ -18,6 +18,18 @@ void skillState::enter(player * player)
 	player->setTime(0);
 	player->setSpeed(0.f);
 	player->setImage(IMAGEMANAGER->findImage("ÄìÄÚ¹ßÂ÷±â"));
+	switch (player->getPlayerData()->frameY)
+	{
+	case 0:
+		player->getPlayerData()->imageErrorX = -66;
+		break;
+	case 1:
+		player->getPlayerData()->imageErrorX = 66;
+		break;
+	default:
+		break;
+	}
+	player->getPlayerData()->imageErrorY = -3;
 }
 
 void skillState::update(player * player)

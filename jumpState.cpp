@@ -23,6 +23,8 @@ void jumpState::enter(player * player)
 	player->setFrameX(0);
 	player->setTime(0);
 	player->setJumpPower(17.0f);
+	player->getPlayerData()->imageErrorX = 0;
+	player->getPlayerData()->imageErrorY = 0;
 }
 
 void jumpState::update(player * player)

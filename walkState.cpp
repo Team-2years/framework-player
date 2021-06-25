@@ -43,6 +43,8 @@ void walkState::enter(player * player)
 	player->setImage(IMAGEMANAGER->findImage("캐릭터무브"));
 	player->setFrameX(0);
 	player->setTime(0);
+	player->getPlayerData()->imageErrorX = 0;
+	player->getPlayerData()->imageErrorY = 0;
 }
 
 //방향키를 stay하는 동안 불값 true 떼면 false

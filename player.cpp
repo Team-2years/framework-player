@@ -5,12 +5,12 @@ HRESULT player::init()
 {
 	IMAGEMANAGER->addFrameImage("캐릭터기본", "img/player/KyokoIdle.bmp", 1404, 414, 12, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터무브", "img/player/KyokoMove.bmp", 1476, 402, 12, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("쿄코발차기", "img/player/KyokoKick.bmp", 9570, 426, 22, 2, true, RGB(255, 0, 255),true);
+	IMAGEMANAGER->addFrameImage("쿄코발차기", "img/player/KyokoKick.bmp", 6402, 432, 22, 2, true, RGB(255, 0, 255),true);
 	IMAGEMANAGER->addFrameImage("캐릭터달리기", "img/player/KyokoRun.bmp", 2736, 384, 16, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("캐릭터콤보1", "img/player/KyokoCombo1.bmp", 1494, 390, 6, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("캐릭터콤보2", "img/player/KyokoCombo2.bmp", 1953, 396, 7, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("캐릭터콤보3", "img/player/KyokoCombo3.bmp", 4428, 414, 12, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("캐릭터강공격", "img/player/KyokoStrongAttack.bmp", 3186, 474, 9, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터콤보1", "img/player/KyokoCombo1.bmp", 1062, 390, 6, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터콤보2", "img/player/KyokoCombo2.bmp", 1470, 402, 7, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터콤보3", "img/player/KyokoCombo3.bmp", 2952, 414, 12, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터강공격", "img/player/KyokoStrongAttack.bmp", 2040, 462, 8, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터점프", "img/player/KyokoJump.bmp", 405, 420, 3, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터점프강공격", "img/player/KyokoJumpStrongAttack.bmp", 1551, 522, 11, 2, true, RGB(255, 0, 255), true);
 	_player.state = new idleState;
@@ -31,6 +31,8 @@ HRESULT player::init()
 	_player.comboCount = 0;
 	_player.collsionRcWidth = 70;
 	_player.collsionRcHeight = 40;
+	_player.imageErrorX = 0.f;
+	_player.imageErrorY = 0.f;
 	_player.rc = RectMakeCenter(_player.x,
 		_player.y - 105,
 		_player.collsionRcWidth,
@@ -73,8 +75,8 @@ void player::render()
 	Rectangle(getMemDC(), _player.rc);
 	EllipseMakeCenter(getMemDC(), _player.x, _player.y, 90, 45);
 	RENDERMANAGER->push_BackFrameImageRenderInfo(_player.y, _player.image,
-		_player.x - _player.image->getFrameWidth() * 0.5,
-		_player.y - _player.image->getFrameHeight() - _player.z,
+		_player.x - _player.image->getFrameWidth() * 0.5 - _player.imageErrorX,
+		_player.y - _player.image->getFrameHeight() - _player.z - _player.imageErrorY,
 		_player.frameX,
 		_player.frameY, true);
 }

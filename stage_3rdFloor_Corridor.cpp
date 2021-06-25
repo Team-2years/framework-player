@@ -16,7 +16,6 @@ HRESULT stage_3rdFloor_Corridor::init()
 	_tagPlayer->state = new idleState;
 	_tagPlayer->state->enter(_player);
 	RENDERMANAGER->setCameraX(-(_tagPlayer->x - WINSIZEX / 2));
-	cout << "hi";
 	return S_OK;
 }
 
@@ -45,13 +44,12 @@ void stage_3rdFloor_Corridor::update()
 	{
 		RENDERMANAGER->setCameraX(-_background1->getWidth() + WINSIZEX);
 	}
-	cout << _tagPlayer->y << endl;
-	if (_tagPlayer->y - _tagPlayer->image->getFrameHeight() -_tagPlayer->z < _background1->getHeight() - WINSIZEY/2 + 114 )
+	if (_tagPlayer->y - 200 -_tagPlayer->z < _background1->getHeight() - WINSIZEY/2 + 114 )
 	{
-		RENDERMANAGER->setCameraY(-(_tagPlayer->y - WINSIZEY / 2 + 57 - _tagPlayer->image->getFrameHeight() - _tagPlayer->z));
+		RENDERMANAGER->setCameraY(-(_tagPlayer->y - WINSIZEY / 2 + 57 - 200 - _tagPlayer->z));
 	}
 	
-	if (_tagPlayer->y - _tagPlayer->z  < WINSIZEY / 2 - 57  + _tagPlayer->image->getFrameHeight())
+	if (_tagPlayer->y - _tagPlayer->z  < WINSIZEY / 2 - 57  + 200)
 	{
 		RENDERMANAGER->setCameraY(0);
 	}

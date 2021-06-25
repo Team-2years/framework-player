@@ -29,6 +29,8 @@ void runState::enter(player * player)
 	player->setImage(IMAGEMANAGER->findImage("캐릭터달리기"));
 	player->setFrameX(0);
 	player->setTime(0);
+	player->getPlayerData()->imageErrorX = 0;
+	player->getPlayerData()->imageErrorY = 0;
 }
 
 void runState::update(player * player)

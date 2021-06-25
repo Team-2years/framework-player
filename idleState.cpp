@@ -71,6 +71,8 @@ void idleState::enter(player * player)
 	player->setFrameX(0);
 	player->setTime(0);
 	player->setComboCount(0);
+	player->getPlayerData()->imageErrorX = 0;
+	player->getPlayerData()->imageErrorY = 0;
 }
 
 void idleState::update(player * player)

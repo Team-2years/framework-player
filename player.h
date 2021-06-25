@@ -22,6 +22,8 @@ struct tagPlayer
 	int comboCount;				//몇번커맨드 썼는지
 	float collsionRcWidth;		//이미지마다 렉트 크기 다르게 하려고 일단 만들어둠
 	float collsionRcHeight;		//이미지마다 렉트 크기 다르게 하려고 일단 만들어둠
+	float imageErrorX;			//이미지 렌더링 시 오차값X
+	float imageErrorY;			//이미지 렌더링 시 오차값Y
 };
 class player : public gameNode
 {
