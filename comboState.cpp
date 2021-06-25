@@ -85,6 +85,17 @@ void comboState::update(player * player)
 			player->setFrameX(0);
 			player->setTime(0);
 			player->setComboCount(2);
+			switch (player->getPlayerData()->frameY)
+			{
+			case 0:
+				player->getPlayerData()->imageErrorX = -20;
+				break;
+			case 1:
+				player->getPlayerData()->imageErrorX = 20;
+				break;
+			default:
+				break;
+			}
 		}
 		break;
 	default:

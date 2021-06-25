@@ -48,7 +48,7 @@ public:
 	void setMoveCommandInput(int input) { _player.moveCommandInput = input; }
 	void setAttackCommandInput(int input) { _player.attackCommandInput = input; }
 	void setComboCount(int input) { _player.comboCount = input; }
-	void setAttackRect(float x, float y);
+	void setAttackRect();
 	tagPlayer getPlayer() { return _player; }
 	tagPlayer* getPlayerData() { return &_player; }
 	void inputHandle();

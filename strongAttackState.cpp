@@ -18,6 +18,17 @@ void strongAttackState::enter(player * player)
 	player->setTime(0);
 	player->setFrameX(0);
 	player->setComboCount(0);
+	switch (player->getPlayerData()->frameY)
+	{
+	case 0:
+		player->getPlayerData()->imageErrorX = -8;
+		break;
+	case 1:
+		player->getPlayerData()->imageErrorX = 8;
+		break;
+	default:
+		break;
+	}
 }
 
 void strongAttackState::update(player * player)

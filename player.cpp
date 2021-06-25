@@ -81,7 +81,7 @@ void player::render()
 		_player.frameY, true);
 }
 
-void player::setAttackRect(float x, float y)
+void player::setAttackRect()
 {
 	
 }
