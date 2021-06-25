@@ -28,6 +28,18 @@ void comboState::enter(player * player)
 	player->setSpeed(0.f);
 	player->setComboCount(0);
 	_comboOn = false;
+	switch (player->getPlayerData()->frameY)
+	{
+	case 0:
+		player->getPlayerData()->imageErrorX = -35;
+		break;
+	case 1:
+		player->getPlayerData()->imageErrorX = 35;
+		break;
+	default:
+		break;
+	}
+	player->getPlayerData()->imageErrorY = 0;
 }
 
 void comboState::update(player * player)
