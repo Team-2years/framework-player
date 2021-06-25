@@ -2,6 +2,8 @@
 #include "gameNode.h"
 #include "player.h"
 
+#include "enemyManager.h"
+
 class testScene :
 	public gameNode
 {
@@ -21,6 +23,10 @@ private:
 
 	tagPlayer* _tagPlayer;
 	int _count;
+
+	enemyManager* _em;
+
+
 public:
 	testScene() {}
 	~testScene() {}
@@ -31,6 +37,9 @@ public:
 	virtual void render();
 
 	void pixelCollision();
+
+
+	void addEnemyImage_school_girl();
 
 };
 

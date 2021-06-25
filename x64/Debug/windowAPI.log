@@ -1,2 +1,11 @@
-﻿  comboState.cpp
-  windowAPI.vcxproj -> C:\Users\user\Desktop\Study\framework-player\x64\Debug\windowAPI.exe
+﻿  testScene.cpp
+c:\users\kga_am_25\documents\framework-player\enemy_basic.h(120): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.h(121): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\testscene.cpp(116): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\testscene.cpp(154): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\testscene.cpp(161): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\testscene.cpp(238): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\testscene.cpp(249): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\testscene.cpp(260): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\testscene.cpp(272): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  windowAPI.vcxproj -> C:\Users\KGA_AM_25\Documents\framework-player\x64\Debug\windowAPI.exe

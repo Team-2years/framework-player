@@ -57,6 +57,20 @@ HRESULT testScene::init()
 	_tagPlayer->state = new idleState;
 	_tagPlayer->state->enter(_player);
 	RENDERMANAGER->setCameraY(0);
+
+
+
+	//==================================================
+	//에너미
+	//==================================================
+	addEnemyImage_school_girl();
+
+	_em = new enemyManager;
+	_em->init();
+	_em->setAddressLinkPlayer(_player);
+
+
+
 	return S_OK;
 }
 
@@ -125,6 +139,12 @@ void testScene::update()
 
 	// 이거 주석시 애니메이션이 실행이 안되는 것을 우리는 확인할 수 있을 겁니다 ^^
 	KEYANIMANAGER->update();
+
+	//==================================================
+	//에너미
+	//==================================================
+
+	_em->update();
 }
 
 // 그리기는 여기에
@@ -187,12 +207,21 @@ void testScene::render()
 	EFFECTMANAGER->render();
 	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 1400, 300, true, true, doorAlpha);
 
+
+	//==================================================
+	//에너미
+	//==================================================
+
+	
+
 	RENDERMANAGER->render(getMemDC());
 	_background3->render(getMemDC());
 	if (KEYMANAGER->isToggleKey(VK_TAB))
 	{
 		Rectangle(getMemDC(), _tagPlayer->rc);
 	}
+
+	_em->render();
 }
 
 void testScene::pixelCollision()
@@ -243,4 +272,30 @@ void testScene::pixelCollision()
 			_tagPlayer->y = i - 210;
 		}
 	}
+}
+
+void testScene::addEnemyImage_school_girl()
+{
+
+	//IDLE 이미지
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Idle_School_Girl", "img/enemy/school_girl/school_girl_Idle.bmp", 390, 118, 10, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Move_School_Girl", "img/enemy/school_girl/school_girl_Walk.bmp", 432, 124, 12, 2, true, RGB(255, 0, 255));
+
+	//공격 이미지
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_1_School_Girl", "img/enemy/school_girl/school_girl_Attack_1.bmp", 275, 118, 5, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_2_School_Girl", "img/enemy/school_girl/school_girl_Attack_2.bmp", 420, 118, 7, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_3_School_Girl", "img/enemy/school_girl/school_girl_Attack_3.bmp", 544, 118, 8, 2, true, RGB(255, 0, 255));
+
+	//피격 이미지
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_1_School_Girl", "img/enemy/school_girl/school_girl_getHit_1.bmp", 159, 120, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_2_School_Girl", "img/enemy/school_girl/school_girl_getHit_2.bmp", 159, 120, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_3_School_Girl", "img/enemy/school_girl/school_girl_getHit_3.bmp", 159, 120, 3, 2, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Ground_Hitted_School_Girl", "img/enemy/school_girl/school_girl_Ground_Hitted.bmp", 225, 120, 3, 2, true, RGB(255, 0, 255));
+
+	//넉다운 이미지
+	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_1_School_Girl", "img/enemy/school_girl/school_girl_KnockDown_1.bmp", 225, 120, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_2_School_Girl", "img/enemy/school_girl/school_girl_KnockDown_2.bmp", 150, 120, 3, 2, true, RGB(255, 0, 255));
+	//기상 이미지 
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Wake_up_School_Girl", "img/enemy/school_girl/school_girl_Wake_up.bmp", 675, 120, 9, 2, true, RGB(255, 0, 255));
 }
