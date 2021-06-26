@@ -3,23 +3,28 @@
 #include "gameNode.h"
 #include "Enemy_State.h"
 
-#define MOVESPEED 2.0f
+
+#define MOVESPEED_RUN  5.0f
+#define MOVESPEED_LEFT_RIGHT 3.5f
+#define MOVESPEED_UP_DOWN 1.5f
+
+enum EnemyKind
+{
+	SCHOOL_GIRL,
+	SCHOOL_BOY,
+	CHEER_LEADER,
+	BOSS
+};
 
 
 enum EnemyTrigger
-{
-	ATTACK,
-	JUMP_ATTACK,
-	//DASH_ATTACK
+{	
+	OBSERVE_STATE_TRIGGER, //관찰하는 행동. 다음 공격 스테이트 입장 전까지 해당 스테이트로 만들어줌.
+	CANT_JESTURE, //다운, 피격 등에 의해 행동 못받을 경우
+	NORMAL_ATTACK_TRIGGER, //기본공격을 행하게 하는 트리거
+	DASH_ATTACK_TRIGGER,	//대쉬공격을 하기 위한 트리거 
+	JUMP_ATTACK_TRIGGER		//점프공격을 하기 위한 트리거.
 };
-
-typedef struct tagTrigger
-{
-	EnemyTrigger TriggerName;
-	int range;
-
-
-}AI_TRIGGER;
 
 
 enum Enemy_State_enum
@@ -80,9 +85,12 @@ protected:
 
 	const char* testText;
 
-	AI_TRIGGER _AI;
+	EnemyTrigger _AI;
 
-	
+	int triggerCount;//해당 트리거 업데이트까지의 카운터
+	int updateTriggerCount;//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
+
+	EnemyKind test;
 
 public:
 
@@ -108,7 +116,7 @@ public:
 
 	//에너미 구조체 정보 가져오기(getter)
 	tagEnemyInfo* getEnemyInfo() { return &_EnemyInfo; }
-	AI_TRIGGER getAI_TRIGGER() { return _AI; }
+	EnemyTrigger getAITRIGGER() { return _AI; }
 	Enemy_State* getEnemyStateInfo() { return _state; }
 	Enemy_State_enum getEnemyStateEnumInfo() { return _enum_state; }
 

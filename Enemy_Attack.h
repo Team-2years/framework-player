@@ -19,5 +19,7 @@ public:
 	void call_Attack_2_function(Enemy_Basic* _Enemy);
 
 
+	void ImageUpdateFunc(Enemy_Basic* _Enemy);
+
 };
 

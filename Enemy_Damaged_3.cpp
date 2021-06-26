@@ -11,11 +11,8 @@ Enemy_State * Enemy_Damaged_3::input_state(Enemy_Basic * _Enemy, bool reverse, i
 
 void Enemy_Damaged_3::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 {
-	/*
-
-	나중에 이미지 마지막 프레임일때 회복하도록 바꿀 예정.
-
-	*/
+	
+	//나중에 이미지 마지막 프레임일때 회복하도록 바꿀 예정.	
 	//recoverCount++;
 	//if (recoverCount > 100)
 	//{
@@ -24,6 +21,8 @@ void Enemy_Damaged_3::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 	//	_change_Idle = new Enemy_Idle;
 	//	_Enemy->set_Enemy_State(_change_Idle);
 	//}
+
+
 
 
 	frameCount++;
@@ -98,4 +97,8 @@ void Enemy_Damaged_3::call_Idle_function(Enemy_Basic * _Enemy)
 	Idle_ST = new Enemy_Idle();
 
 	_Enemy->set_Enemy_State(Idle_ST);
+}
+
+void Enemy_Damaged_3::ImageUpdateFunc(Enemy_Basic * _Enemy)
+{
 }

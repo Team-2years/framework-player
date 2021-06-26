@@ -67,6 +67,30 @@
     <Filter Include="playGround\player\state">
       <UniqueIdentifier>{66bf39bb-d7fc-4f0f-a4db-e1ffc4b5127e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="playGround\enemy\-BasicState-">
+      <UniqueIdentifier>{b3ab172d-940e-4394-bdd2-0fba5742b064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\Attacked">
+      <UniqueIdentifier>{aa8ba777-a28e-4f0b-905f-a5d913ef1799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\Attack">
+      <UniqueIdentifier>{fb8affbb-a884-4596-8754-b784ca04abfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\Attacked\StandUp">
+      <UniqueIdentifier>{4cfe8c22-e9f3-4561-93c7-82b0f28d6f82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\Attacked\else">
+      <UniqueIdentifier>{a3d93d02-1737-4d7e-94a3-770d624a3c16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\Idle">
+      <UniqueIdentifier>{dc1a93a3-3021-420c-bee5-82c2a8c4b1ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\Guard">
+      <UniqueIdentifier>{89832aef-3d14-4e67-8c09-6115594bac2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\Move">
+      <UniqueIdentifier>{9ca084e7-bd47-4421-af12-f0252e00eaca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -186,68 +210,68 @@
     <ClInclude Include="walkState.h">
       <Filter>playGround\player\state</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_knockDown.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_KnockDown_2.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Move.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Observe.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Run.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_State.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Wake_Up.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
     <ClInclude Include="enemyManager.h">
       <Filter>playGround\enemy</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack.h">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack_2.h">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack_3.h">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Basic.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Damaged_1.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Damaged_2.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Damaged_3.h">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\-BasicState-</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_DashAttack.h">
-      <Filter>playGround\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Die.h">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Ground_Hitted.h">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attacked</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Guard.h">
-      <Filter>playGround\enemy</Filter>
+    <ClInclude Include="Enemy_Damaged_1.h">
+      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Damaged_2.h">
+      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Damaged_3.h">
+      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Die.h">
+      <Filter>playGround\enemy\Attacked\else</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Idle.h">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Guard.h">
+      <Filter>playGround\enemy\Guard</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_JumpAttack.h">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_knockDown.h">
+      <Filter>playGround\enemy\Attacked\else</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_KnockDown_2.h">
+      <Filter>playGround\enemy\Attacked\else</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Move.h">
+      <Filter>playGround\enemy\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Run.h">
+      <Filter>playGround\enemy\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_State.h">
+      <Filter>playGround\enemy\-BasicState-</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Wake_Up.h">
+      <Filter>playGround\enemy\Attacked\else</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jump.h">
+      <Filter>playGround\enemy\Idle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -356,68 +380,68 @@
     <ClCompile Include="strongAttackState.cpp">
       <Filter>playGround\player\state</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_knockDown.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_KnockDown_2.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Move.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Observe.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Run.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_State.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Wake_Up.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
     <ClCompile Include="enemyManager.cpp">
       <Filter>playGround\enemy</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack.cpp">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack_2.cpp">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack_3.cpp">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Basic.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Damaged_1.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Damaged_2.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Damaged_3.cpp">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\-BasicState-</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_DashAttack.cpp">
-      <Filter>playGround\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Die.cpp">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Ground_Hitted.cpp">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attacked</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Guard.cpp">
-      <Filter>playGround\enemy</Filter>
+    <ClCompile Include="Enemy_Damaged_1.cpp">
+      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Damaged_2.cpp">
+      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Damaged_3.cpp">
+      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Die.cpp">
+      <Filter>playGround\enemy\Attacked\else</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Idle.cpp">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Idle</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Guard.cpp">
+      <Filter>playGround\enemy\Guard</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_JumpAttack.cpp">
-      <Filter>playGround\enemy</Filter>
+      <Filter>playGround\enemy\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_knockDown.cpp">
+      <Filter>playGround\enemy\Attacked\else</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_KnockDown_2.cpp">
+      <Filter>playGround\enemy\Attacked\else</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Move.cpp">
+      <Filter>playGround\enemy\Move</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Run.cpp">
+      <Filter>playGround\enemy\Move</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_State.cpp">
+      <Filter>playGround\enemy\-BasicState-</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Wake_Up.cpp">
+      <Filter>playGround\enemy\Attacked\else</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jump.cpp">
+      <Filter>playGround\enemy\Idle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

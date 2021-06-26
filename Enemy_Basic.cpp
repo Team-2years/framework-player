@@ -8,7 +8,7 @@
 
 void Enemy_Basic::input_state_data(int targetX, int targetY)
 {
-	Enemy_State* _newState = _state->input_state(this,true,targetX,targetY); //새로 넣어줄 state 클래스 임시변수
+	Enemy_State* _newState = _state->input_state(this,_EnemyInfo.isRight,targetX,targetY); //새로 넣어줄 state 클래스 임시변수
 
 
 
@@ -28,17 +28,15 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
 	_EnemyInfo.imageName = _imageName;
 	_EnemyInfo.imageName_RenderManager = _EnemyInfo.imageName;
 
-	//_EnemyInfo._image = new image;
-	//_EnemyInfo._image = IMAGEMANAGER->findImage(_EnemyInfo.imageName);
 
 	_state = new Enemy_Idle();
 	_state->enter_this_state(this);
 
 
-	TIMEMANAGER->init();
+	
 
-	//_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
 	_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
+	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo._rc.bottom, 80, 20);
 
 	
 	_EnemyInfo.Hp = _Hp;
@@ -47,9 +45,14 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
 
 	testText = "NON";
 
-	_EnemyInfo.range = 400;
+	_EnemyInfo.range = 9999;
 
-	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo._rc.bottom, 80, 20);
+
+	_AI = OBSERVE_STATE_TRIGGER;
+	
+
+	triggerCount =0;//해당 트리거 업데이트까지의 카운터
+	updateTriggerCount=RND->getFromIntTo(120,220);//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
 
 	return S_OK;
 }
@@ -64,6 +67,39 @@ void Enemy_Basic::update(int targetX, int targetY)
 	_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
 	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo._rc.bottom, 80, 20);
 
+
+	//탐색 상태 트리거일경우, 일정시간동안 탐색 후 랜덤한 스테이트로 바꿔줌
+	if (_AI == OBSERVE_STATE_TRIGGER)
+	{
+		triggerCount++;
+
+		if (triggerCount % updateTriggerCount == 0)
+		{
+			//int RandomPattern = RND->getFromIntTo(2,4);
+
+			int RandomPattern = 3;
+
+			switch (RandomPattern)
+			{
+			case 2:		//일반공격
+				_AI = NORMAL_ATTACK_TRIGGER;
+				break;
+			case 3:		//대쉬공격
+				_AI = DASH_ATTACK_TRIGGER;
+				break;
+			case 4:		//점프공격
+				_AI = JUMP_ATTACK_TRIGGER;
+				break;
+			}
+
+			//_AI.TriggerName = (EnemyTrigger)RandomPattern;
+		}
+	}
+
+	if (targetX > _EnemyInfo.x) _EnemyInfo.isRight = true;
+	else _EnemyInfo.isRight = false;
+
+
 	//디버깅용
 	//ImageUpdateFunc();	
 	//Controller(_FieldImage);
@@ -77,14 +113,20 @@ void Enemy_Basic::release()
 
 void Enemy_Basic::render()
 {
-	Rectangle(getMemDC(), _EnemyInfo._rc);
+	//Rectangle(getMemDC(), _EnemyInfo._rc);
 
 
-	_EnemyInfo._image->frameRender(getMemDC(), 
-		_EnemyInfo.x - _EnemyInfo._image->getFrameWidth()/2,
-		_EnemyInfo.y - _EnemyInfo._image->getFrameHeight()/2,
-		_EnemyInfo._image->getFrameX(), _EnemyInfo._image->getFrameY());
+	//_EnemyInfo._image->frameRender(getMemDC(), 
+	//	_EnemyInfo.x - _EnemyInfo._image->getFrameWidth()/2,
+	//	_EnemyInfo.y - _EnemyInfo._image->getFrameHeight()/2,
+	//	_EnemyInfo._image->getFrameX(), _EnemyInfo._image->getFrameY());
 	
+
+	RENDERMANAGER->push_BackFrameImageRenderInfo(_EnemyInfo._rc.bottom,
+		_EnemyInfo._image,
+		_EnemyInfo.x , _EnemyInfo.y ,
+		_state->getImageIndex(), _EnemyInfo._image->getFrameY());
+
 
 	Rectangle(getMemDC(), _EnemyInfo.ShedowRect);
 
@@ -95,9 +137,26 @@ void Enemy_Basic::render()
 	char str[128];
 
 	sprintf_s(str,testText);
-
-	TextOut(getMemDC(), _EnemyInfo.x - 20, _EnemyInfo.y - 100, str, strlen(str));
+	TextOut(getMemDC(), _EnemyInfo.x - 20 - RENDERMANAGER->getCameraX(), _EnemyInfo.y - 100 - RENDERMANAGER->getCameraY(), str, strlen(str));
 	
+
+	switch (_AI)
+	{
+	case OBSERVE_STATE_TRIGGER:		sprintf_s(str, "TRIGGER : OBSERVE");
+		break;
+	case CANT_JESTURE:	sprintf_s(str, "TRIGGER :STUN");
+		break;
+	case NORMAL_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :NORMAL_ATTACK");
+		break;
+	case DASH_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :DASH_ATTACK");
+		break;
+	case JUMP_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :JUMP_ATTACK");
+		break;
+	}
+	TextOut(getMemDC(), _EnemyInfo.x - 20 - RENDERMANAGER->getCameraX(), _EnemyInfo.y - 130 - RENDERMANAGER->getCameraY(), str, strlen(str));
+
+
+	//switch(_AI.TriggerName)
 }
 
 

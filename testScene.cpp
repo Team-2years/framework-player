@@ -280,11 +280,15 @@ void testScene::addEnemyImage_school_girl()
 	//IDLE 이미지
 	IMAGEMANAGER->addFrameImage("Enemy_Image_Idle_School_Girl", "img/enemy/school_girl/school_girl_Idle.bmp", 1170, 354, 10, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Enemy_Image_Move_School_Girl", "img/enemy/school_girl/school_girl_Walk.bmp", 1296, 352, 12, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Run_School_Girl", "img/enemy/school_girl/school_girl_Run.bmp", 1530, 336, 10, 2, true, RGB(255, 0, 255));
 
 	//공격 이미지
 	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_1_School_Girl", "img/enemy/school_girl/school_girl_Attack_1.bmp", 825, 354, 5, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_2_School_Girl", "img/enemy/school_girl/school_girl_Attack_2.bmp", 1260, 354, 7, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_3_School_Girl", "img/enemy/school_girl/school_girl_Attack_3.bmp", 1632, 354, 8, 2, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Dash_Attack_School_Girl", "img/enemy/school_girl/school_girl_Dash_Attack.bmp", 3312, 414, 12, 2, true, RGB(255, 0, 255));
+
 
 	//피격 이미지
 	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_1_School_Girl", "img/enemy/school_girl/school_girl_getHit_1.bmp", 477, 360, 3, 2, true, RGB(255, 0, 255));

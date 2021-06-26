@@ -15,7 +15,7 @@
 HRESULT enemyManager::init()
 {
 
-	setting_Unit_school_girl(WINSIZEX/2, WINSIZEY - 100);
+	setting_Unit_school_girl(100, WINSIZEY/2 - 100);
 
 
 	return S_OK;

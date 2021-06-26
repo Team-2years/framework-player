@@ -167,11 +167,11 @@
     <ClInclude Include="Enemy_Ground_Hitted.h" />
     <ClInclude Include="Enemy_Guard.h" />
     <ClInclude Include="Enemy_Idle.h" />
+    <ClInclude Include="Enemy_Jump.h" />
     <ClInclude Include="Enemy_JumpAttack.h" />
     <ClInclude Include="Enemy_knockDown.h" />
     <ClInclude Include="Enemy_KnockDown_2.h" />
     <ClInclude Include="Enemy_Move.h" />
-    <ClInclude Include="Enemy_Observe.h" />
     <ClInclude Include="Enemy_Run.h" />
     <ClInclude Include="Enemy_State.h" />
     <ClInclude Include="Enemy_Wake_Up.h" />
@@ -228,11 +228,11 @@
     <ClCompile Include="Enemy_Ground_Hitted.cpp" />
     <ClCompile Include="Enemy_Guard.cpp" />
     <ClCompile Include="Enemy_Idle.cpp" />
+    <ClCompile Include="Enemy_Jump.cpp" />
     <ClCompile Include="Enemy_JumpAttack.cpp" />
     <ClCompile Include="Enemy_knockDown.cpp" />
     <ClCompile Include="Enemy_KnockDown_2.cpp" />
     <ClCompile Include="Enemy_Move.cpp" />
-    <ClCompile Include="Enemy_Observe.cpp" />
     <ClCompile Include="Enemy_Run.cpp" />
     <ClCompile Include="Enemy_State.cpp" />
     <ClCompile Include="Enemy_Wake_Up.cpp" />

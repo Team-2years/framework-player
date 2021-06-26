@@ -24,42 +24,8 @@ Enemy_State * Enemy_Attack::input_state(Enemy_Basic * _Enemy, bool reverse, int 
 
 void Enemy_Attack::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 {
-	frameCount++;
 
-	if (frameCount % frameUpdateCount == 0)
-	{
-		if (_Enemy->getEnemyInfo()->isRight)
-		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
-
-
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				//index = 0;
-
-
-
-				call_Attack_2_function(_Enemy);
-			}
-		}
-		else
-		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
-
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				//index = 0;
-
-				call_Attack_2_function(_Enemy);
-			}
-		}
-	}
+	ImageUpdateFunc(_Enemy);
 }
 
 void Enemy_Attack::release(Enemy_Basic * _Enemy)
@@ -100,4 +66,44 @@ void Enemy_Attack::call_Attack_2_function(Enemy_Basic* _Enemy)
 	Attack_2 = new Enemy_Attack_2();
 
 	_Enemy->set_Enemy_State(Attack_2);
+}
+
+void Enemy_Attack::ImageUpdateFunc(Enemy_Basic * _Enemy)
+{
+	frameCount++;
+
+	if (frameCount % frameUpdateCount == 0)
+	{
+		if (_Enemy->getEnemyInfo()->isRight)
+		{
+			_Enemy->getEnemyInfo()->_image->setFrameY(0);
+			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+
+
+			index++;
+
+			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
+			{
+				//index = 0;
+
+
+
+				call_Attack_2_function(_Enemy);
+			}
+		}
+		else
+		{
+			_Enemy->getEnemyInfo()->_image->setFrameY(1);
+			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+
+			index++;
+
+			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
+			{
+				//index = 0;
+
+				call_Attack_2_function(_Enemy);
+			}
+		}
+	}
 }

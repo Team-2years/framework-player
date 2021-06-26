@@ -6,42 +6,31 @@
 
 Enemy_State * Enemy_Idle::input_state(Enemy_Basic * _Enemy, bool reverse, int targetX, int targetY)
 {
-	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) < _Enemy->getEnemyInfo()->range)
+	if (_Enemy->getAITRIGGER() != OBSERVE_STATE_TRIGGER)
 	{
-		return new Enemy_Move();
+		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) < _Enemy->getEnemyInfo()->range)
+		{
+			return new Enemy_Move();
+		}
 	}
+
+
+
+
 
 	return nullptr;
 }
 
 void Enemy_Idle::update(Enemy_Basic* _Enemy, int targetX, int targetY)
 {
-
-	frameCount++;
-
-	if (frameCount % frameUpdateCount==0)
+	
+	/*if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) < _Enemy->getEnemyInfo()->range)
 	{
-		if (_Enemy->getEnemyInfo()->isRight)
-		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+		Enemy_State*
+	}*/
 
-
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
-		}
-		else
-		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
-
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
-		}
-	}
-
+	//프레임 이미지 돌리는 함수
+	ImageUpdateFunc(_Enemy);
 
 }
 
@@ -75,4 +64,33 @@ void Enemy_Idle::enter_this_state(Enemy_Basic * _Enemy)
 	frameUpdateCount = 5;
 	index = 0;
 
+}
+
+void Enemy_Idle::ImageUpdateFunc(Enemy_Basic* _Enemy)
+{
+
+	frameCount++;
+
+	if (frameCount % frameUpdateCount == 0)
+	{
+		if (_Enemy->getEnemyInfo()->isRight)
+		{
+			_Enemy->getEnemyInfo()->_image->setFrameY(0);
+			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+
+
+			index++;
+
+			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
+		}
+		else
+		{
+			_Enemy->getEnemyInfo()->_image->setFrameY(1);
+			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+
+			index++;
+
+			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
+		}
+	}
 }

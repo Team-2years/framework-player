@@ -19,6 +19,7 @@ public:
 
 	void call_Idle_function(Enemy_Basic* _Enemy);
 
+	void ImageUpdateFunc(Enemy_Basic* _Enemy);
 
 };
 

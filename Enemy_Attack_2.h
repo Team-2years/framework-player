@@ -18,6 +18,8 @@ public:
 	void call_Attack_3_function(Enemy_Basic* _Enemy);
 
 
+	void ImageUpdateFunc(Enemy_Basic* _Enemy);
+
 
 };
 

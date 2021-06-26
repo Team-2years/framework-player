@@ -1,5 +1,11 @@
 #pragma once
 #include "Enemy_State.h"
+
+#define OBSERVE_RANGE 300
+#define NORMAL_ATTACK_RANGE 50
+#define DASH_ATTACK_RANGE 200
+#define JUMP_ATTACK_RANGE 150
+
 class Enemy_Move : public Enemy_State
 {
 public:
@@ -13,6 +19,7 @@ public:
 	virtual void enter_this_state(Enemy_Basic* _Enemy);
 
 
+	void ImageUpdateFunc(Enemy_Basic* _Enemy);
 
 };
 

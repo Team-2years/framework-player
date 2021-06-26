@@ -19,5 +19,7 @@ public:
 
 	virtual void enter_this_state(Enemy_Basic* _Enemy);
 
+
+	void ImageUpdateFunc(Enemy_Basic* _Enemy);
 };
 
