@@ -72,9 +72,9 @@ void player::update()
 
 void player::render()
 {
-	Rectangle(getMemDC(), _player.rc);
-	EllipseMakeCenter(getMemDC(), _player.x, _player.y, 90, 45);
-	RENDERMANAGER->push_BackFrameImageRenderInfo(_player.y, _player.image,
+	//Rectangle(getMemDC(), _player.rc);
+	//EllipseMakeCenter(getMemDC(), _player.x, _player.y, 90, 45);
+	RENDERMANAGER->push_BackFrameImageRenderInfo(_player.rc.bottom , _player.image,
 		_player.x - _player.image->getFrameWidth() * 0.5 - _player.imageErrorX,
 		_player.y - _player.image->getFrameHeight() - _player.z - _player.imageErrorY,
 		_player.frameX,

@@ -1,9 +1,9 @@
 #pragma once
-#include "gameNode.h"
+#include "stage.h"
 #include "player.h"
 
 class testScene :
-	public gameNode
+	public stage
 {
 private:
 	BYTE doorAlpha;
@@ -18,7 +18,6 @@ private:
 	image* _background2;
 	image* _background3;
 	player* _player;
-
 	tagPlayer* _tagPlayer;
 	int _count;
 public:
@@ -29,8 +28,5 @@ public:
 	virtual void release();
 	virtual void update();
 	virtual void render();
-
-	void pixelCollision();
-
 };
 

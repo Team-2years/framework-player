@@ -25,7 +25,7 @@ HRESULT testScene::init()
 	IMAGEMANAGER->addFrameImage("SB_sit_idle", "img/stage/stage1/SB_sit_idle.bmp", 732, 180, 4, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("SG_sit_idle", "img/stage/stage1/SG_sit_idle.bmp", 408, 216, 2, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("MrRudis_idle", "img/stage/stage1/MrRudis_idle.bmp", 396, 237, 4, 1, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("UI_UNLOCKED_DOOR", "img/ui/UI_UNLOCKED_DOOR.bmp", 78, 114, true, RGB(255, 0, 255), true);
+	
 	_school_girl = IMAGEMANAGER->findImage("school_girl_Idle");
 	doorAlpha = 0;
 
@@ -89,7 +89,7 @@ void testScene::update()
 	_tagPlayer = _player->getPlayerData();
 	
 	// 픽셀 충돌
-	//pixelCollision();
+	pixelCollision(_tagPlayer);
 
 	// 카메라 처리
 	if (_tagPlayer->x > WINSIZEX / 2 )
@@ -150,7 +150,7 @@ void testScene::render()
 		_background->render(getMemDC(), 0, 0);
 	}
 	
-	if (_tagPlayer->x < 1098 || _tagPlayer->y < 400) 
+	if (_tagPlayer->rc.bottom < 1098 || _tagPlayer->y < 400) 
 	{
 		RENDERMANAGER->push_BackAniRenderInfo(442 + 228, "SG_sit_idle", KEYANIMANAGER->findAnimation("SIT_GIRL_SIT"), 1080, 442, true);
 		RENDERMANAGER->push_BackRenderInfo(442 + 228, "Desk4", 1098, 487, true);
@@ -161,17 +161,17 @@ void testScene::render()
 		RENDERMANAGER->push_BackRenderInfo(442, "Desk4", 1098, 487, true);
 	}
 
-	if (_tagPlayer->x < 838 || _tagPlayer->y < 400)
+	if (_tagPlayer->rc.bottom || _tagPlayer->rc.left < 400)
 	RENDERMANAGER->push_BackRenderInfo(442 + 228, "Desk3", 838, 487, true);
 	else
 	RENDERMANAGER->push_BackRenderInfo(442, "Desk3", 838, 487, true);
 
-	if (_tagPlayer->x < 572 || _tagPlayer->y < 400)
+	if (_tagPlayer->rc.bottom || _tagPlayer->rc.left < 400)
 	RENDERMANAGER->push_BackRenderInfo(442 + 228, "Desk2", 572, 487, true);
 	else
 	RENDERMANAGER->push_BackRenderInfo(442, "Desk2", 572, 487, true);
 
-	if (_tagPlayer->x < 328 || _tagPlayer->y < 400)
+	if (_tagPlayer->rc.bottom || _tagPlayer->rc.left < 400)
 	RENDERMANAGER->push_BackRenderInfo(442 + 228, "Desk1", 328, 487, true);
 	else
 	RENDERMANAGER->push_BackRenderInfo(442, "Desk1", 328, 487, true);
@@ -192,55 +192,5 @@ void testScene::render()
 	if (KEYMANAGER->isToggleKey(VK_TAB))
 	{
 		Rectangle(getMemDC(), _tagPlayer->rc);
-	}
-}
-
-void testScene::pixelCollision()
-{
-
-	for (int i = _tagPlayer->rc.left; i <= _tagPlayer->rc.left + 20; i++)
-	{
-		COLORREF color = GetPixel(IMAGEMANAGER->findImage("BackGround")->getMemDC(), i, (_tagPlayer->rc.top + _tagPlayer->rc.bottom) / 2);
-		int r = GetRValue(color);
-		int g = GetGValue(color);
-		int b = GetBValue(color);
-		if (r == 0  && g == 255 && b == 0)
-		{
-			_tagPlayer->x = i;
-		}
-	}
-	for (int i = _tagPlayer->rc.right; i >= _tagPlayer->rc.right - 20; i--)
-	{
-		COLORREF color = GetPixel(IMAGEMANAGER->findImage("BackGround")->getMemDC(), i, (_tagPlayer->rc.top + _tagPlayer->rc.bottom) / 2);
-		int r = GetRValue(color);
-		int g = GetGValue(color);
-		int b = GetBValue(color);
-		if (r == 0 && g == 255 && b == 0)
-		{
-			_tagPlayer->x = i - (_tagPlayer->rc.right - _tagPlayer->rc.left);
-		}
-	}
-	for (int i = _tagPlayer->rc.top + 10; i <= _tagPlayer->rc.top + 20; i++)
-	{
-		COLORREF color = GetPixel(IMAGEMANAGER->findImage("BackGround")->getMemDC(), (_tagPlayer->rc.left + _tagPlayer->rc.right) / 2, i);
-		int r = GetRValue(color);
-		int g = GetGValue(color);
-		int b = GetBValue(color);
-		if (r == 0 && g == 255 && b == 0)
-		{
-			_tagPlayer->y = i - 155;
-		}
-	}
-
-	for (int i = _tagPlayer->rc.bottom; i >= _tagPlayer->rc.bottom - 15; i--)
-	{
-		COLORREF color = GetPixel(IMAGEMANAGER->findImage("BackGround")->getMemDC(), (_tagPlayer->rc.left + _tagPlayer->rc.right) / 2, i);
-		int r = GetRValue(color);
-		int g = GetGValue(color);
-		int b = GetBValue(color);
-		if (r == 0 && g == 255 && b == 0)
-		{
-			_tagPlayer->y = i - 210;
-		}
 	}
 }

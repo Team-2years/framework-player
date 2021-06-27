@@ -25,7 +25,17 @@ HRESULT playGround::init()
 	SCENEMANAGER->addScene("3Ãþº¹µµ", new stage_3rdFloor_Corridor);
 	SCENEMANAGER->addScene("Å×½ºÆ®¾À", new testScene);
 	SCENEMANAGER->addScene("¹Ý¼º½Ç", new stage_Detention);
-	SCENEMANAGER->changeScene("3Ãþº¹µµ");
+	SCENEMANAGER->addScene("2ÃþÈ¦A", new stage_2ndFloor_HallA);
+	SCENEMANAGER->addScene("2Ãþ¹æ", new stage_2ndFloor_room);
+	SCENEMANAGER->addScene("2ÃþÈ¦B", new stage_2ndFloor_HallB);
+	SCENEMANAGER->addScene("1ÃþÈ¦A", new stage_1stFloor_HallA);
+	SCENEMANAGER->addScene("1ÃþÈ¦B", new stage_1stFloor_HallB);
+	SCENEMANAGER->addScene("1Ãþ¹æ", new stage_1stFloor_room);
+	SCENEMANAGER->addScene("½Ä´ç", new stage_cafeteria);
+	SCENEMANAGER->addScene("·Îºñ", new stage_lobby);
+	SCENEMANAGER->changeScene("·Îºñ");
+
+	IMAGEMANAGER->addImage("UI_UNLOCKED_DOOR", "img/ui/UI_UNLOCKED_DOOR.bmp", 78, 114, true, RGB(255, 0, 255), true);
 
 	return S_OK;
 }

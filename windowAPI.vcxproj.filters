@@ -186,6 +186,33 @@
     <ClInclude Include="walkState.h">
       <Filter>playGround\player\state</Filter>
     </ClInclude>
+    <ClInclude Include="stage.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_2ndFloor_HallA.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_2ndFloor_room.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_2ndFloor_HallB.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_1stFloor_HallA.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_1stFloor_room.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_1stFloor_HallB.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_cafeteria.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_lobby.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -292,6 +319,33 @@
     </ClCompile>
     <ClCompile Include="strongAttackState.cpp">
       <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="stage.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_2ndFloor_HallA.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_2ndFloor_room.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_2ndFloor_HallB.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_1stFloor_HallA.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_1stFloor_room.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_1stFloor_HallB.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_lobby.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_cafeteria.cpp">
+      <Filter>playGround\stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

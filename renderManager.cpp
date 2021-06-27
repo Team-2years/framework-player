@@ -148,7 +148,7 @@ void renderManager::render(HDC _hdc)
 	for (_zOrder_vector_iter iter = _zOrder.begin(); iter != _zOrder.end(); ++iter)
 	{
 		// 화면 밖은 안그림
-		if (iter->second.x + iter->second.img->getWidth() + _cameraX >= 0  && iter->second.x + _cameraX <= WINSIZEX)
+		if (iter->second.x + iter->second.img->getWidth() + _cameraX >= 0  && iter->second.x + _cameraX <= WINSIZEX + iter->second.img->getWidth() * 0.5)
 		// 프레임 이미지 인가?
 		if (iter->second.isFrame) 
 		{

@@ -1,12 +1,16 @@
 #pragma once
-#include "gameNode.h"
+#include "stage.h"
 #include "player.h"
 class stage_3rdFloor_Corridor :
-	public gameNode
+	public stage
 {
 private:
 	player* _player;
 	tagPlayer* _tagPlayer;
+	RECT _door;
+	RECT _temp;
+	int _count;
+	BYTE doorAlpha;
 	image* _background1;
 	image* _background2;
 	image* _background3;
@@ -19,6 +23,7 @@ public:
 	virtual void update();
 	virtual void render();
 
-	void pixelCollision();
+	void cameraWork();
+	void doorWork();
 };
 

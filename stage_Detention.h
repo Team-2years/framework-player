@@ -1,10 +1,10 @@
 #pragma once
-#include "gameNode.h"
+#include "stage.h"
 #include "player.h"
 
 
 class stage_Detention :
-	public gameNode
+	public stage
 {
 private:
 	BYTE doorAlpha;
@@ -33,7 +33,6 @@ public:
 	virtual void update();
 	virtual void render();
 
-	void pixelCollision();
 
 };
 
