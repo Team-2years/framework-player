@@ -14,6 +14,9 @@ HRESULT player::init()
 	IMAGEMANAGER->addFrameImage("캐릭터점프", "img/player/KyokoJump.bmp", 405, 420, 3, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터점프강공격", "img/player/KyokoJumpStrongAttack.bmp", 1551, 522, 11, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터대시공격", "img/player/KyokoDashAttack.bmp", 1728, 378, 8, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터피격후기상", "img/player/KyokoHitandStand.bmp", 6732, 372, 32, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터피격", "img/player/KyokoHitCombo.bmp", 2268, 396, 12, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터멀리날아감", "img/player/KyokoFarhit.bmp", 4896, 366, 24, 2, true, RGB(255, 0, 255), true);
 	_player.state = new idleState;
 	_player.state->enter(this);
 	_player.image->setFrameX(0);
@@ -85,6 +88,13 @@ void player::render()
 void player::setAttackRect()
 {
 	
+}
+
+void player::changeState(state * state)
+{
+	SAFE_DELETE(_player.state);
+	_player.state = state;
+	_player.state->enter(this);
 }
 
 //업데이트마다 상태가 바뀌는지 체크

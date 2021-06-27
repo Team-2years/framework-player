@@ -55,7 +55,6 @@ void jumpState::update(player * player)
 		if (player->getPlayer().frameY == 0)
 			player->setFrameY(1);
 		player->setX(player->getPlayer().x - player->getPlayer().speed);
-		
 	}
 	if (KEYMANAGER->isStayKeyDown(VK_UP))
 	{

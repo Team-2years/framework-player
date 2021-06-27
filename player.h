@@ -2,7 +2,6 @@
 #include "gameNode.h"
 #include "idleState.h"
 
-
 enum playerStateEnum
 {
 	idle,
@@ -38,6 +37,7 @@ struct tagPlayer
 	float collsionRcHeight;		//이미지마다 렉트 크기 다르게 하려고 일단 만들어둠
 	float imageErrorX;			//이미지 렌더링 시 오차값X
 	float imageErrorY;			//이미지 렌더링 시 오차값Y
+	bool isHit;
 };
 class player : public gameNode
 {
@@ -45,7 +45,6 @@ private:
 	tagPlayer _player;
 	
 public:
-
 	HRESULT init();
 	void release();
 	void update();
@@ -63,6 +62,7 @@ public:
 	void setAttackCommandInput(int input) { _player.attackCommandInput = input; }
 	void setComboCount(int input) { _player.comboCount = input; }
 	void setAttackRect();
+	void changeState(state * state);
 	tagPlayer getPlayer() { return _player; }			//세터 쓸 때
 	tagPlayer* getPlayerData() { return &_player; }		//세터쓰기 귀찮을 때
 	void inputHandle();

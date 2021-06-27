@@ -192,6 +192,12 @@
     <ClInclude Include="dashAttackState.h">
       <Filter>playGround\player\state</Filter>
     </ClInclude>
+    <ClInclude Include="downState.h">
+      <Filter>playGround\player\state</Filter>
+    </ClInclude>
+    <ClInclude Include="hitState.h">
+      <Filter>playGround\player\state</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -303,6 +309,12 @@
       <Filter>playGround\player\state</Filter>
     </ClCompile>
     <ClCompile Include="dashAttackState.cpp">
+      <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="downState.cpp">
+      <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="hitState.cpp">
       <Filter>playGround\player\state</Filter>
     </ClCompile>
   </ItemGroup>
