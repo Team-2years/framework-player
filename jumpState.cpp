@@ -1,16 +1,21 @@
 #include "stdafx.h"
 #include "jumpState.h"
+#include "jumpStrongAttackState.h"
 #include "player.h"
 #include "idleState.h"
 
 state * jumpState::inputHandle(player * player)
 {
-	if (player->getPlayer().y - player->getPlayer().z > player->getPlayer().y)
+	if (player->getPlayer().z < 0.f)
 	{
 		player->setZ(0.f);
 		player->setJumpPower(0.f);
 		player->setSpeed(0.f);
 		return new idleState;
+	}
+	if (KEYMANAGER->isOnceKeyDown('S'))
+	{
+		return new jumpStrongAttackState;
 	}
 
 	return nullptr;
@@ -25,6 +30,7 @@ void jumpState::enter(player * player)
 	player->setJumpPower(17.0f);
 	player->getPlayerData()->imageErrorX = 0;
 	player->getPlayerData()->imageErrorY = 0;
+	player->getPlayerData()->stateEnum = jump;
 }
 
 void jumpState::update(player * player)

@@ -186,6 +186,12 @@
     <ClInclude Include="walkState.h">
       <Filter>playGround\player\state</Filter>
     </ClInclude>
+    <ClInclude Include="jumpStrongAttackState.h">
+      <Filter>playGround\player\state</Filter>
+    </ClInclude>
+    <ClInclude Include="dashAttackState.h">
+      <Filter>playGround\player\state</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -291,6 +297,12 @@
       <Filter>playGround\player\state</Filter>
     </ClCompile>
     <ClCompile Include="strongAttackState.cpp">
+      <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="jumpStrongAttackState.cpp">
+      <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="dashAttackState.cpp">
       <Filter>playGround\player\state</Filter>
     </ClCompile>
   </ItemGroup>

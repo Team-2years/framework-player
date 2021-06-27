@@ -73,6 +73,7 @@ void idleState::enter(player * player)
 	player->setComboCount(0);
 	player->getPlayerData()->imageErrorX = 0;
 	player->getPlayerData()->imageErrorY = 0;
+	player->getPlayerData()->stateEnum = idle;
 }
 
 void idleState::update(player * player)

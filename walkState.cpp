@@ -45,6 +45,7 @@ void walkState::enter(player * player)
 	player->setTime(0);
 	player->getPlayerData()->imageErrorX = 0;
 	player->getPlayerData()->imageErrorY = 0;
+	player->getPlayerData()->stateEnum = walk;
 }
 
 //방향키를 stay하는 동안 불값 true 떼면 false

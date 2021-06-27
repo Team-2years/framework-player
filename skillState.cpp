@@ -30,6 +30,7 @@ void skillState::enter(player * player)
 		break;
 	}
 	player->getPlayerData()->imageErrorY = -3;
+	player->getPlayerData()->stateEnum = skill;
 }
 
 void skillState::update(player * player)

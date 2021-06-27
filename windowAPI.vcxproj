@@ -152,6 +152,7 @@
     <ClInclude Include="button.h" />
     <ClInclude Include="comboState.h" />
     <ClInclude Include="commonMacroFunction.h" />
+    <ClInclude Include="dashAttackState.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="effectManager.h" />
     <ClInclude Include="gameNode.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="imageManager.h" />
     <ClInclude Include="iniDataManager.h" />
     <ClInclude Include="jumpState.h" />
+    <ClInclude Include="jumpStrongAttackState.h" />
     <ClInclude Include="keyAniManager.h" />
     <ClInclude Include="keyManager.h" />
     <ClInclude Include="player.h" />
@@ -192,6 +194,7 @@
     <ClCompile Include="animation.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="comboState.cpp" />
+    <ClCompile Include="dashAttackState.cpp" />
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="effectManager.cpp" />
     <ClCompile Include="gameNode.cpp" />
@@ -200,6 +203,7 @@
     <ClCompile Include="imageManager.cpp" />
     <ClCompile Include="iniDataManager.cpp" />
     <ClCompile Include="jumpState.cpp" />
+    <ClCompile Include="jumpStrongAttackState.cpp" />
     <ClCompile Include="keyAniManager.cpp" />
     <ClCompile Include="keyManager.cpp" />
     <ClCompile Include="player.cpp" />

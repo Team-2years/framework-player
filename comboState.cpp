@@ -40,6 +40,7 @@ void comboState::enter(player * player)
 		break;
 	}
 	player->getPlayerData()->imageErrorY = 0;
+	player->getPlayerData()->stateEnum = combo;
 }
 
 void comboState::update(player * player)

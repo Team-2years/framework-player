@@ -3,6 +3,7 @@
 #include "idleState.h"
 #include "skillState.h"
 #include "jumpState.h"
+#include "dashAttackState.h"
 #include "player.h"
 
 state * runState::inputHandle(player * player)
@@ -21,6 +22,10 @@ state * runState::inputHandle(player * player)
 	{
 		return new jumpState;
 	}
+	if (KEYMANAGER->isOnceKeyDown('A'))
+	{
+		return new dashAttackState;
+	}
 	return nullptr;
 }
 
@@ -31,6 +36,7 @@ void runState::enter(player * player)
 	player->setTime(0);
 	player->getPlayerData()->imageErrorX = 0;
 	player->getPlayerData()->imageErrorY = 0;
+	player->getPlayerData()->stateEnum = run;
 }
 
 void runState::update(player * player)

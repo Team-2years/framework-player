@@ -3,10 +3,24 @@
 #include "idleState.h"
 
 
+enum playerStateEnum
+{
+	idle,
+	walk,
+	run,
+	dashAttack,
+	jump,
+	jumpStrongAttack,
+	combo,
+	strongAttack,
+	skill
+};
+
 struct tagPlayer
 {
 	image* image;				//캐릭 이미지
 	state* state;				//상태
+	playerStateEnum	stateEnum;	//상태를 외부에서 알 수 있도록 이넘으로
 	RECT rc;			//충돌용 렉트
 	RECT attackRect;			//공격용 렉트
 	float x, y, z;				//좌표
@@ -49,8 +63,8 @@ public:
 	void setAttackCommandInput(int input) { _player.attackCommandInput = input; }
 	void setComboCount(int input) { _player.comboCount = input; }
 	void setAttackRect();
-	tagPlayer getPlayer() { return _player; }
-	tagPlayer* getPlayerData() { return &_player; }
+	tagPlayer getPlayer() { return _player; }			//세터 쓸 때
+	tagPlayer* getPlayerData() { return &_player; }		//세터쓰기 귀찮을 때
 	void inputHandle();
 };
 

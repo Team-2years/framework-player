@@ -29,6 +29,7 @@ void strongAttackState::enter(player * player)
 	default:
 		break;
 	}
+	player->getPlayerData()->stateEnum = strongAttack;
 }
 
 void strongAttackState::update(player * player)

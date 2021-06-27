@@ -5,7 +5,7 @@ HRESULT player::init()
 {
 	IMAGEMANAGER->addFrameImage("캐릭터기본", "img/player/KyokoIdle.bmp", 1404, 414, 12, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터무브", "img/player/KyokoMove.bmp", 1476, 402, 12, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("쿄코발차기", "img/player/KyokoKick.bmp", 6402, 432, 22, 2, true, RGB(255, 0, 255),true);
+	IMAGEMANAGER->addFrameImage("쿄코발차기", "img/player/KyokoKick.bmp", 6402, 432, 22, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터달리기", "img/player/KyokoRun.bmp", 2736, 384, 16, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터콤보1", "img/player/KyokoCombo1.bmp", 1062, 390, 6, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터콤보2", "img/player/KyokoCombo2.bmp", 1470, 402, 7, 2, true, RGB(255, 0, 255), true);
@@ -13,6 +13,7 @@ HRESULT player::init()
 	IMAGEMANAGER->addFrameImage("캐릭터강공격", "img/player/KyokoStrongAttack.bmp", 2040, 462, 8, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터점프", "img/player/KyokoJump.bmp", 405, 420, 3, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터점프강공격", "img/player/KyokoJumpStrongAttack.bmp", 1551, 522, 11, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터대시공격", "img/player/KyokoDashAttack.bmp", 1728, 378, 8, 2, true, RGB(255, 0, 255), true);
 	_player.state = new idleState;
 	_player.state->enter(this);
 	_player.image->setFrameX(0);
@@ -61,7 +62,7 @@ void player::update()
 
 	_player.rc = RectMakeCenter(
 		_player.x, 
-		_player.y - _player.collsionRcHeight*0.5,
+		_player.y,
 		_player.collsionRcWidth,
 		_player.collsionRcHeight);
 
