@@ -33,6 +33,8 @@ void stage_3rdFloor_Corridor::update()
 	}
 	if (KEYMANAGER->isOnceKeyDown('U'))
 	{
+		_player->getPlayerData()->hitRecovery -= 10;
+		_player->getPlayerData()->hp -= 10;
 		_player->getPlayerData()->isHit = true;
 	}
 

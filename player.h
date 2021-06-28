@@ -14,7 +14,8 @@ enum playerStateEnum
 	strongAttack,
 	skill,
 	hit,
-	down
+	down,
+	dead
 };
 
 struct tagPlayer
@@ -42,6 +43,7 @@ struct tagPlayer
 	bool isHit;
 	bool isAttack;
 	bool isRide;
+	bool isDead;
 	int objectGround;
 	int hitRecovery;
 };

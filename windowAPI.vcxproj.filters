@@ -207,6 +207,9 @@
     <ClInclude Include="fallState.h">
       <Filter>playGround\player\state</Filter>
     </ClInclude>
+    <ClInclude Include="deadState.h">
+      <Filter>playGround\player\state</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -333,6 +336,9 @@
       <Filter>playGround\player\state</Filter>
     </ClCompile>
     <ClCompile Include="fallState.cpp">
+      <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="deadState.cpp">
       <Filter>playGround\player\state</Filter>
     </ClCompile>
   </ItemGroup>

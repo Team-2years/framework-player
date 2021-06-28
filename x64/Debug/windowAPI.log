@@ -1,4 +1,54 @@
-﻿  jumpState.cpp
+﻿  comboState.cpp
+  dashAttackState.cpp
+  deadState.cpp
+  downState.cpp
+  fallState.cpp
+  flyAndDownState.cpp
+  hitAndDownState.cpp
+  hitState.cpp
+  idleState.cpp
+  jumpState.cpp
   jumpStrongAttackState.cpp
+  playGround.cpp
+c:\users\admin\desktop\study\framework-player\playground.cpp(24): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+  player.cpp
+c:\users\admin\desktop\study\framework-player\player.cpp(54): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(53): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(52): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(51): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(96): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(95): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(94): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(93): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(108): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(111): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(126): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\player.cpp(128): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  runState.cpp
+  skillState.cpp
+  stage_3rdFloor_Corridor.cpp
+c:\users\admin\desktop\study\framework-player\stage_3rdfloor_corridor.cpp(52): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  stage_Detention.cpp
+c:\users\admin\desktop\study\framework-player\stage_detention.cpp(99): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\stage_detention.cpp(128): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\stage_detention.cpp(137): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\stage_detention.cpp(202): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\stage_detention.cpp(213): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\stage_detention.cpp(224): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\stage_detention.cpp(236): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  strongAttackState.cpp
+  testScene.cpp
+c:\users\admin\desktop\study\framework-player\testscene.cpp(102): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\testscene.cpp(134): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\testscene.cpp(141): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\testscene.cpp(209): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\testscene.cpp(220): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\testscene.cpp(231): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\admin\desktop\study\framework-player\testscene.cpp(243): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  walkState.cpp
   코드를 생성하고 있습니다...
-  windowAPI.vcxproj -> C:\Users\user\Desktop\Study\framework-player\x64\Debug\windowAPI.exe
+  컴파일하고 있습니다...
+  winMain.cpp
+c:\users\admin\desktop\study\framework-player\winmain.cpp(91): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  windowAPI.vcxproj -> C:\Users\Admin\Desktop\study\framework-player\x64\Debug\windowAPI.exe

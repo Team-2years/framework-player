@@ -153,6 +153,7 @@
     <ClInclude Include="comboState.h" />
     <ClInclude Include="commonMacroFunction.h" />
     <ClInclude Include="dashAttackState.h" />
+    <ClInclude Include="deadState.h" />
     <ClInclude Include="downState.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="effectManager.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="button.cpp" />
     <ClCompile Include="comboState.cpp" />
     <ClCompile Include="dashAttackState.cpp" />
+    <ClCompile Include="deadState.cpp" />
     <ClCompile Include="downState.cpp" />
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="effectManager.cpp" />
