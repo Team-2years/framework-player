@@ -13,6 +13,16 @@ Enemy_State * Enemy_DashAttack::input_state(Enemy_Basic * _Enemy, bool reverse, 
 void Enemy_DashAttack::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 {
 	ImageUpdateFunc(_Enemy);
+
+
+	if (_Enemy->getEnemyInfo()->isRight)
+	{
+		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + MOVESPEED_RUN*0.8f);
+	}
+	else
+	{
+		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x - MOVESPEED_RUN*0.8f);
+	}
 }
 
 void Enemy_DashAttack::release(Enemy_Basic * _Enemy)
@@ -74,6 +84,8 @@ void Enemy_DashAttack::ImageUpdateFunc(Enemy_Basic * _Enemy)
 
 
 				call_Idle_function(_Enemy);
+				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
+
 			}
 		}
 		else
@@ -88,6 +100,8 @@ void Enemy_DashAttack::ImageUpdateFunc(Enemy_Basic * _Enemy)
 				//index = 0;
 
 				call_Idle_function(_Enemy);
+				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
+
 			}
 		}
 	}

@@ -75,9 +75,9 @@ void Enemy_Attack_3::ImageUpdateFunc(Enemy_Basic * _Enemy)
 			{
 				//index = 0;
 
-
-
 				call_Idle_function(_Enemy);
+				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
+
 			}
 		}
 		else
@@ -92,6 +92,8 @@ void Enemy_Attack_3::ImageUpdateFunc(Enemy_Basic * _Enemy)
 				//index = 0;
 
 				call_Idle_function(_Enemy);
+
+				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
 			}
 		}
 	}

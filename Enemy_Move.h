@@ -3,8 +3,8 @@
 
 #define OBSERVE_RANGE 300
 #define NORMAL_ATTACK_RANGE 50
-#define DASH_ATTACK_RANGE 200
-#define JUMP_ATTACK_RANGE 150
+#define DASH_ATTACK_RANGE 500
+#define JUMP_ATTACK_RANGE 400
 
 class Enemy_Move : public Enemy_State
 {

@@ -24,6 +24,7 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
 {
 	_EnemyInfo.x = _x;
 	_EnemyInfo.y = _y;
+	_EnemyInfo.z = 0.0f;
 
 	_EnemyInfo.imageName = _imageName;
 	_EnemyInfo.imageName_RenderManager = _EnemyInfo.imageName;
@@ -32,15 +33,24 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
 	_state = new Enemy_Idle();
 	_state->enter_this_state(this);
 
+	//_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
+	
+	
+	//_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo._rc.bottom + _EnemyInfo.JumpPower - _EnemyInfo.gravity, 80, 20);
 
 	
 
-	_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
-	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo._rc.bottom, 80, 20);
+	
+	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y,80,20);
+	
+	
 
+	
+
+	_EnemyInfo.gravity = 0;
+	_EnemyInfo.JumpPower = 0;
 	
 	_EnemyInfo.Hp = _Hp;
-
 	_EnemyInfo.isRight = true;
 
 	testText = "NON";
@@ -64,10 +74,13 @@ void Enemy_Basic::update(int targetX, int targetY)
 	
 	_state->update(this, targetX, targetY);
 
-	_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
-	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo._rc.bottom, 80, 20);
+//	_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
+	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x + RENDERMANAGER->getCameraX(), 
+		_EnemyInfo.y  + RENDERMANAGER->getCameraY(),
+		80, 20);
+	//- _EnemyInfo.JumpPower + _EnemyInfo.gravity
 
-
+	
 	//탐색 상태 트리거일경우, 일정시간동안 탐색 후 랜덤한 스테이트로 바꿔줌
 	if (_AI == OBSERVE_STATE_TRIGGER)
 	{
@@ -75,9 +88,9 @@ void Enemy_Basic::update(int targetX, int targetY)
 
 		if (triggerCount % updateTriggerCount == 0)
 		{
-			//int RandomPattern = RND->getFromIntTo(2,4);
+			//int RandomPattern = RND->getFromIntTo(2,5);
 
-			int RandomPattern = 3;
+			int RandomPattern = 4;
 
 			switch (RandomPattern)
 			{
@@ -96,13 +109,8 @@ void Enemy_Basic::update(int targetX, int targetY)
 		}
 	}
 
-	if (targetX > _EnemyInfo.x) _EnemyInfo.isRight = true;
-	else _EnemyInfo.isRight = false;
 
 
-	//디버깅용
-	//ImageUpdateFunc();	
-	//Controller(_FieldImage);
 
 }
 
@@ -122,10 +130,18 @@ void Enemy_Basic::render()
 	//	_EnemyInfo._image->getFrameX(), _EnemyInfo._image->getFrameY());
 	
 
-	RENDERMANAGER->push_BackFrameImageRenderInfo(_EnemyInfo._rc.bottom,
+	//RENDERMANAGER->push_BackFrameImageRenderInfo(_EnemyInfo._rc.bottom,
+	//	_EnemyInfo._image,
+	//	_EnemyInfo.x , _EnemyInfo.y ,
+	//	_state->getImageIndex(), _EnemyInfo._image->getFrameY());
+
+
+	RENDERMANAGER->push_BackFrameImageRenderInfo(_EnemyInfo.ShedowRect.bottom ,
 		_EnemyInfo._image,
-		_EnemyInfo.x , _EnemyInfo.y ,
-		_state->getImageIndex(), _EnemyInfo._image->getFrameY());
+		_EnemyInfo.x , _EnemyInfo.y - _EnemyInfo._image->getFrameHeight()/2 + _EnemyInfo.z,
+		true);
+		
+
 
 
 	Rectangle(getMemDC(), _EnemyInfo.ShedowRect);
@@ -137,7 +153,7 @@ void Enemy_Basic::render()
 	char str[128];
 
 	sprintf_s(str,testText);
-	TextOut(getMemDC(), _EnemyInfo.x - 20 - RENDERMANAGER->getCameraX(), _EnemyInfo.y - 100 - RENDERMANAGER->getCameraY(), str, strlen(str));
+	TextOut(getMemDC(), _EnemyInfo.x - 20 - RENDERMANAGER->getCameraX(), _EnemyInfo.y - 200 - RENDERMANAGER->getCameraY(), str, strlen(str));
 	
 
 	switch (_AI)
@@ -153,7 +169,7 @@ void Enemy_Basic::render()
 	case JUMP_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :JUMP_ATTACK");
 		break;
 	}
-	TextOut(getMemDC(), _EnemyInfo.x - 20 - RENDERMANAGER->getCameraX(), _EnemyInfo.y - 130 - RENDERMANAGER->getCameraY(), str, strlen(str));
+	TextOut(getMemDC(), _EnemyInfo.x - 20 - RENDERMANAGER->getCameraX(), _EnemyInfo.y -200 - RENDERMANAGER->getCameraY(), str, strlen(str));
 
 
 	//switch(_AI.TriggerName)

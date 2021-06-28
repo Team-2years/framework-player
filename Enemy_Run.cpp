@@ -11,8 +11,8 @@
 
 Enemy_State * Enemy_Run::input_state(Enemy_Basic * _Enemy, bool reverse, int targetX, int targetY)
 {
-	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) <= 100
-		&& (_Enemy->getEnemyInfo()->y > targetY - 15 && _Enemy->getEnemyInfo()->y < targetY + 15))
+	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) <= 300)
+	//	&& (_Enemy->getEnemyInfo()->y > targetY - 15 && _Enemy->getEnemyInfo()->y < targetY + 15))
 	{
 		return new Enemy_DashAttack();
 	}
@@ -34,15 +34,13 @@ void Enemy_Run::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 
 	
 
-	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > 100 
+	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > 300 
 		&& (_Enemy->getEnemyInfo()->y < targetY - 15 || _Enemy->getEnemyInfo()->y > targetY + 15))
 	{
 		float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
 
 		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_RUN);
 		_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_RUN*0.5f);
-
-
 	}
 
 	//===================================================

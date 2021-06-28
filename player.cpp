@@ -60,8 +60,8 @@ void player::update()
 	
 
 	_player.rc = RectMakeCenter(
-		_player.x, 
-		_player.y - _player.collsionRcHeight*0.5,
+		_player.x + RENDERMANAGER->getCameraX(), 
+		_player.y - _player.collsionRcHeight*0.5 + RENDERMANAGER->getCameraY(),
 		_player.collsionRcWidth,
 		_player.collsionRcHeight);
 
@@ -72,13 +72,15 @@ void player::update()
 
 void player::render()
 {
-	Rectangle(getMemDC(), _player.rc);
-	EllipseMakeCenter(getMemDC(), _player.x, _player.y, 90, 45);
+
 	RENDERMANAGER->push_BackFrameImageRenderInfo(_player.y, _player.image,
 		_player.x - _player.image->getFrameWidth() * 0.5 - _player.imageErrorX,
 		_player.y - _player.image->getFrameHeight() - _player.z - _player.imageErrorY,
 		_player.frameX,
 		_player.frameY, true);
+
+	//Rectangle(getMemDC(), _player.rc);
+	//EllipseMakeCenter(getMemDC(), _player.x, _player.y, 90, 45);
 }
 
 void player::setAttackRect()

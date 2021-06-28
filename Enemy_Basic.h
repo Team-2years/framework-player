@@ -4,9 +4,12 @@
 #include "Enemy_State.h"
 
 
-#define MOVESPEED_RUN  5.0f
-#define MOVESPEED_LEFT_RIGHT 3.5f
-#define MOVESPEED_UP_DOWN 1.5f
+#define MOVESPEED_RUN  10.0f
+#define MOVESPEED_LEFT_RIGHT 5.0f
+#define MOVESPEED_UP_DOWN 3.0f
+
+#define GRAVITY_POWER 0.7f
+#define JUMP_POWER 17.0f
 
 enum EnemyKind
 {
@@ -52,8 +55,8 @@ enum Enemy_State_enum
 struct tagEnemyInfo
 {
 	RECT _rc;	//충돌판정용 몸
-	int x, y;	//rc의 중점
-	int z; //z축. 나중에 공격 피격 타격 관련으로 쓸 변수. 
+	float x, y;	//rc의 중점
+	float z; //z축. 나중에 공격 피격 타격 관련으로 쓸 변수. 
 
 
 	image* _image; //이미지 클래스 변수
@@ -70,6 +73,12 @@ struct tagEnemyInfo
 	int stiffness; //경직도 관련 변수 
 	
 	RECT ShedowRect;
+
+	POINT EnemyShedowMiddle;
+
+
+	float JumpPower;
+	float gravity;
 };
 
 
@@ -127,6 +136,8 @@ public:
 
 	void setEnemyPointX(float _x) { _EnemyInfo.x = _x; }
 	void setEnemyPointY(float _y) { _EnemyInfo.y = _y; }
+	void setEnemyPointZ(float _z) { _EnemyInfo.z = _z; }
+
 
 	void setEnemyTestText(const char* _TT) { testText = _TT; }
 
@@ -137,8 +148,13 @@ public:
 
 	void setEnemyImageKey(const char* this_imageName) { _EnemyInfo.imageName_RenderManager = this_imageName; }
 	
-	void setEnemyShedowRect();
 
+	void setEnemyGravity(float G) { _EnemyInfo.gravity = G; }
+	void setEnemyJumpSpeed(float JumpSpeed) { _EnemyInfo.JumpPower = JumpSpeed; }
+
+	void setEnemyReverse(bool isRight_) { _EnemyInfo.isRight = isRight_; }
+
+	void setEnemyAiTrigger(EnemyTrigger new_AI) { _AI = new_AI; }
 	//==========================================================================
 
 	//디버깅용

@@ -40,8 +40,8 @@ Enemy_State * Enemy_Move::input_state(Enemy_Basic * _Enemy, bool reverse, int ta
 
 		break;
 	case JUMP_ATTACK_TRIGGER:
-		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, 
-			targetX, targetY) < JUMP_ATTACK_RANGE)
+		if ((_Enemy->getEnemyInfo()->y >= targetY - 20 && _Enemy->getEnemyInfo()->y <= targetY + 20) &&
+			getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) <= JUMP_ATTACK_RANGE)
 		{
 			return new Enemy_Jump();
 		}
@@ -62,6 +62,8 @@ Enemy_State * Enemy_Move::input_state(Enemy_Basic * _Enemy, bool reverse, int ta
 void Enemy_Move::update(Enemy_Basic* _Enemy, int targetX, int targetY)
 {
 
+	float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
+
 	//일정 거리안에 있으면 움직이게 
 	switch (_Enemy->getAITRIGGER())
 	{
@@ -69,7 +71,7 @@ void Enemy_Move::update(Enemy_Basic* _Enemy, int targetX, int targetY)
 	
 		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) < OBSERVE_RANGE)
 		{
-			float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
+			//float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
 
 			_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT);
 			_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_UP_DOWN);
@@ -80,69 +82,65 @@ void Enemy_Move::update(Enemy_Basic* _Enemy, int targetX, int targetY)
 	case NORMAL_ATTACK_TRIGGER: //일반 공격일경우, distance만 받고 공격범위 내까지 이동 시키기.
 
 		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > NORMAL_ATTACK_RANGE
-			&& (_Enemy->getEnemyInfo()->y < targetY - 15 || _Enemy->getEnemyInfo()->y > targetY + 15))
+			&& (_Enemy->getEnemyInfo()->y < targetY - 5 || _Enemy->getEnemyInfo()->y > targetY + 5))
 		{
-			float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
+			//float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
 
 			_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT);
 			_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_UP_DOWN);
 
 		}
-		/*else
-		{
-			Enemy_State* AttackState;
-			AttackState = new Enemy_Attack();
-
-			_Enemy->set_Enemy_State(AttackState);
-		}*/
 		break;
 
 	case DASH_ATTACK_TRIGGER:
 
-		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > DASH_ATTACK_RANGE 
-			&& (_Enemy->getEnemyInfo()->y < targetY -15 || _Enemy->getEnemyInfo()->y > targetY+15)) 
+		
+
+
+
+		if ((_Enemy->getEnemyInfo()->y < targetY - 20 || _Enemy->getEnemyInfo()->y > targetY + 20))
 		{
-
-			float angle = -getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
-
-			_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT);
 			_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_UP_DOWN);
+		}
+
+		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > JUMP_ATTACK_RANGE)
+		{
+			_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT);
 		}
 		break;
 	case JUMP_ATTACK_TRIGGER:
 
-		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > JUMP_ATTACK_RANGE
-			&& (_Enemy->getEnemyInfo()->y < targetY - 15 || _Enemy->getEnemyInfo()->y > targetY + 15))
+	
+
+		//float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
+
+		if((_Enemy->getEnemyInfo()->y < targetY - 20 || _Enemy->getEnemyInfo()->y > targetY + 20))
 		{
-
-			float angle = -getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
-
-			_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT);
-			_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_UP_DOWN);
-
+			_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_LEFT_RIGHT);
 		}
+		
+		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > JUMP_ATTACK_RANGE)
+		{
+			_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT);
+		}
+		
 
 		break;
 	}
 
 
 
-	//if (_Enemy->getAITRIGGER().TriggerName == NORMAL_ATTACK_TRIGGER)
-	//{
-	//	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) < _Enemy->getEnemyInfo()->range &&
-	//		getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > 50)
-	//	{
-	//		float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
-	//		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT);
-	//		_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_UP_DOWN);
-	//	}
-	//}
-
+	
 
 	//프레임 이미지 돌리는 함수
 	ImageUpdateFunc(_Enemy);
 
 
+	if (_Enemy->getEnemyInfo()->x > targetX)
+	{
+		_Enemy->setEnemyReverse(false);
+	}
+	else _Enemy->setEnemyReverse(true);
 
 }
 
@@ -196,7 +194,7 @@ void Enemy_Move::ImageUpdateFunc(Enemy_Basic * _Enemy)
 		{
 			_Enemy->getEnemyInfo()->_image->setFrameY(1);
 			_Enemy->getEnemyInfo()->_image->setFrameX(index);
-
+			cout << "hi";
 			index++;
 
 			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
