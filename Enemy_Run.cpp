@@ -32,16 +32,26 @@ void Enemy_Run::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 	//이동
 	//===================================================
 
+	float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
 	
 
-	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > 300 
-		&& (_Enemy->getEnemyInfo()->y < targetY - 15 || _Enemy->getEnemyInfo()->y > targetY + 15))
-	{
-		float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
+	//if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > 300
+	//	&& (_Enemy->getEnemyInfo()->y < targetY - 15 || _Enemy->getEnemyInfo()->y > targetY + 15))
+	//{
+	//	
+	//	_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_RUN);
+	//	_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_RUN*0.5f);
+	//}
+		if ((_Enemy->getEnemyInfo()->y < targetY - 20 || _Enemy->getEnemyInfo()->y > targetY + 20))
+		{
+			_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_RUN*0.5f);
+		}
 
-		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_RUN);
-		_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_RUN*0.5f);
-	}
+		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > 300)
+		{
+			_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_RUN);
+		}
+	
 
 	//===================================================
 	//이미지 업데이트
@@ -75,7 +85,15 @@ void Enemy_Run::enter_this_state(Enemy_Basic * _Enemy)
 
 	frameCount = 0;
 	frameUpdateCount = 5;
-	index = 0;
+
+
+	_Enemy->setEnemyFrameX(0);
+
+	if(_Enemy->getEnemyInfo()->isRight) _Enemy->setEnemyFrameY(0);
+	else _Enemy->setEnemyFrameY(1);
+
+	
+
 
 }
 
@@ -87,21 +105,17 @@ void Enemy_Run::ImageUpdateFunc(Enemy_Basic * _Enemy)
 	{
 		if (_Enemy->getEnemyInfo()->isRight)
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(0);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) _Enemy->setEnemyFrameX(0);
 		}
 		else
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(1);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) _Enemy->setEnemyFrameX(0);
 		}
 	}
 

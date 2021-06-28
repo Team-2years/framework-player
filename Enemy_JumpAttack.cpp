@@ -17,6 +17,7 @@ Enemy_State * Enemy_JumpAttack::input_state(Enemy_Basic * _Enemy, bool reverse, 
 		_Enemy->setEnemyJumpSpeed(0);
 
 		_Enemy->setEnemyPointZ(0);
+		_Enemy->setEnemyRandomCountReset();
 
 		_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
 
@@ -75,7 +76,11 @@ void Enemy_JumpAttack::enter_this_state(Enemy_Basic * _Enemy)
 
 	frameCount = 0;
 	frameUpdateCount = 5;
-	index = 0;
+	
+	_Enemy->setEnemyFrameX(0);
+
+	if (_Enemy->getEnemyInfo()->isRight) _Enemy->setEnemyFrameY(0);
+	else _Enemy->setEnemyFrameY(1);
 }
 
 void Enemy_JumpAttack::call_Idle_function(Enemy_Basic * _Enemy)
@@ -90,38 +95,17 @@ void Enemy_JumpAttack::ImageUpdateFunc(Enemy_Basic * _Enemy)
 	{
 		if (_Enemy->getEnemyInfo()->isRight)
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(0);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				index = _Enemy->getEnemyInfo()->_image->getMaxFrameX();
-
-
-
-				//call_Idle_function(_Enemy);
-				//_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
-
-			}
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) _Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->_image->getMaxFrameX());
 		}
 		else
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(1);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				index = _Enemy->getEnemyInfo()->_image->getMaxFrameX();
-
-				//call_Idle_function(_Enemy);
-				//_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
-
-			}
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) _Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->_image->getMaxFrameX());
 		}
 	}
 

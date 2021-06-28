@@ -10,7 +10,7 @@ protected:
 	const char* Enemy_State_Text;//디버깅용
 
 
-	int index=0;//이미지 출력 인덱스	
+
 	int frameCount;
 	int frameUpdateCount;
 
@@ -30,7 +30,7 @@ public:
 
 	virtual void enter_this_state(Enemy_Basic* _Enemy)=0;//초기화 해주는 함수.
 
-	virtual int getImageIndex() { return index; }
+
 
 };
 

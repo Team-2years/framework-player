@@ -6,7 +6,7 @@
 
 Enemy_State * Enemy_Idle::input_state(Enemy_Basic * _Enemy, bool reverse, int targetX, int targetY)
 {
-	if (_Enemy->getAITRIGGER() != OBSERVE_STATE_TRIGGER)
+	//if (_Enemy->getAITRIGGER() != OBSERVE_STATE_TRIGGER)
 	{
 		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) < _Enemy->getEnemyInfo()->range)
 		{
@@ -51,18 +51,21 @@ void Enemy_Idle::enter_this_state(Enemy_Basic * _Enemy)
 
 	strcat_s(str, _Enemy->getEnemyInfo()->imageName);
 
-
 	_Enemy->setEnemyImageKey(str);
-
-
 
 	string Idle_Image = str;
 
 	_Enemy->setEnemyImage(IMAGEMANAGER->findImage(Idle_Image));
 
-	frameCount = 0;
+
+
 	frameUpdateCount = 5;
-	index = 0;
+
+
+	_Enemy->setEnemyFrameX(0);
+
+	if (_Enemy->getEnemyInfo()->isRight) _Enemy->setEnemyFrameY(0);
+	else _Enemy->setEnemyFrameY(1);
 
 }
 
@@ -75,22 +78,17 @@ void Enemy_Idle::ImageUpdateFunc(Enemy_Basic* _Enemy)
 	{
 		if (_Enemy->getEnemyInfo()->isRight)
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(0);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) _Enemy->setEnemyFrameX(0);
 		}
 		else
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(1);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) index = 0;
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) _Enemy->setEnemyFrameX(0);
 		}
 	}
 }

@@ -44,7 +44,12 @@ void Enemy_Attack_3::enter_this_state(Enemy_Basic * _Enemy)
 
 	frameCount = 0;
 	frameUpdateCount = 5;
-	index = 0;
+	
+	_Enemy->setEnemyFrameX(0);
+
+	if (_Enemy->getEnemyInfo()->isRight) _Enemy->setEnemyFrameY(0);
+	else _Enemy->setEnemyFrameY(1);
+
 
 }
 
@@ -65,34 +70,24 @@ void Enemy_Attack_3::ImageUpdateFunc(Enemy_Basic * _Enemy)
 	{
 		if (_Enemy->getEnemyInfo()->isRight)
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(0);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
 			{
-				//index = 0;
-
 				call_Idle_function(_Enemy);
 				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
-
 			}
+
 		}
 		else
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(1);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
 			{
-				//index = 0;
-
 				call_Idle_function(_Enemy);
-
 				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
 			}
 		}

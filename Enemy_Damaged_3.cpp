@@ -31,28 +31,21 @@ void Enemy_Damaged_3::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 	{
 		if (_Enemy->getEnemyInfo()->isRight)
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(0);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				//index = 0;
-				call_Idle_function(_Enemy);
-			}
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) call_Idle_function(_Enemy);
+
+
 		}
 		else
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(0);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-	
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				//index = 0;
-				call_Idle_function(_Enemy);
-			}
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) call_Idle_function(_Enemy);
+
+
 		}
 	}
 }
@@ -86,7 +79,8 @@ void Enemy_Damaged_3::enter_this_state(Enemy_Basic * _Enemy)
 
 	frameCount = 0;
 	frameUpdateCount = 5;
-	index = 0;
+	
+	_Enemy->setEnemyFrameX(0);
 
 }
 

@@ -7,6 +7,15 @@
 
 Enemy_State * Enemy_DashAttack::input_state(Enemy_Basic * _Enemy, bool reverse, int targetX, int targetY)
 {
+
+	if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
+	{
+		_Enemy->setEnemyRandomCountReset();
+		_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
+
+		return new Enemy_Idle();
+	}
+
 	return nullptr;
 }
 
@@ -14,14 +23,16 @@ void Enemy_DashAttack::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 {
 	ImageUpdateFunc(_Enemy);
 
+	
+
 
 	if (_Enemy->getEnemyInfo()->isRight)
 	{
-		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + MOVESPEED_RUN*0.8f);
+		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + (MOVESPEED_RUN - speed_error));
 	}
 	else
 	{
-		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x - MOVESPEED_RUN*0.8f);
+		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x - (MOVESPEED_RUN- speed_error));
 	}
 }
 
@@ -49,7 +60,12 @@ void Enemy_DashAttack::enter_this_state(Enemy_Basic * _Enemy)
 
 	frameCount = 0;
 	frameUpdateCount = 5;
-	index = 0;
+	_Enemy->setEnemyFrameX(0);
+
+	if (_Enemy->getEnemyInfo()->isRight) _Enemy->setEnemyFrameY(0);
+	else _Enemy->setEnemyFrameY(1);
+
+	speed_error = 0.f;
 }
 
 void Enemy_DashAttack::call_Idle_function(Enemy_Basic * _Enemy)
@@ -71,38 +87,19 @@ void Enemy_DashAttack::ImageUpdateFunc(Enemy_Basic * _Enemy)
 	{
 		if (_Enemy->getEnemyInfo()->isRight)
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(0);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
 
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				//index = 0;
-
-
-
-				call_Idle_function(_Enemy);
-				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
-
-			}
+			speed_error += 0.8f;
 		}
 		else
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(1);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
 
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				//index = 0;
-
-				call_Idle_function(_Enemy);
-				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
-
-			}
+			speed_error += 0.8f;
 		}
 	}
 

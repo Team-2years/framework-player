@@ -9,6 +9,7 @@ Enemy_State * Enemy_Jump::input_state(Enemy_Basic * _Enemy, bool reverse, int ta
 {
 	if (_Enemy->getEnemyInfo()->JumpPower  < _Enemy->getEnemyInfo()->gravity)
 	{
+		_Enemy->setEnemyFrameX(0);
 		return new Enemy_JumpAttack();
 	}
 
@@ -63,7 +64,11 @@ void Enemy_Jump::enter_this_state(Enemy_Basic * _Enemy)
 
 	frameCount = 0;
 	frameUpdateCount = 4;
-	index = 0;
+	
+	_Enemy->setEnemyFrameX(0);
+
+	if (_Enemy->getEnemyInfo()->isRight) _Enemy->setEnemyFrameY(0);
+	else _Enemy->setEnemyFrameY(1);
 
 	_Enemy->setEnemyJumpSpeed(JUMP_POWER);
 }
@@ -77,29 +82,19 @@ void Enemy_Jump::ImageUpdateFunc(Enemy_Basic * _Enemy)
 	{
 		if (_Enemy->getEnemyInfo()->isRight)
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(0);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(0);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				//index = 0;
-				
-			}
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) _Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->_image->getMaxFrameX());
+
+			
 		}
 		else
 		{
-			_Enemy->getEnemyInfo()->_image->setFrameY(1);
-			_Enemy->getEnemyInfo()->_image->setFrameX(index);
+			_Enemy->setEnemyFrameY(1);
+			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			index++;
-
-			if (index > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				//index = 0;
-
-			
-			}
+			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()) _Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->_image->getMaxFrameX());
 		}
 	}
 }

@@ -45,7 +45,7 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
 	
 	
 
-	
+	_EnemyInfo.CurrentframeX = _EnemyInfo.CurrentframeY=0;
 
 	_EnemyInfo.gravity = 0;
 	_EnemyInfo.JumpPower = 0;
@@ -62,7 +62,7 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
 	
 
 	triggerCount =0;//해당 트리거 업데이트까지의 카운터
-	updateTriggerCount=RND->getFromIntTo(120,220);//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
+	updateTriggerCount=RND->getFromIntTo(200,300);//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
 
 	return S_OK;
 }
@@ -88,10 +88,8 @@ void Enemy_Basic::update(int targetX, int targetY)
 
 		if (triggerCount % updateTriggerCount == 0)
 		{
-			//int RandomPattern = RND->getFromIntTo(2,5);
-
-			int RandomPattern = 4;
-
+			int RandomPattern = RND->getFromIntTo(2,5);
+			//int RandomPattern = ;
 			switch (RandomPattern)
 			{
 			case 2:		//일반공격
@@ -104,7 +102,6 @@ void Enemy_Basic::update(int targetX, int targetY)
 				_AI = JUMP_ATTACK_TRIGGER;
 				break;
 			}
-
 			//_AI.TriggerName = (EnemyTrigger)RandomPattern;
 		}
 	}
@@ -139,7 +136,7 @@ void Enemy_Basic::render()
 	RENDERMANAGER->push_BackFrameImageRenderInfo(_EnemyInfo.ShedowRect.bottom ,
 		_EnemyInfo._image,
 		_EnemyInfo.x , _EnemyInfo.y - _EnemyInfo._image->getFrameHeight()/2 + _EnemyInfo.z,
-		true);
+		_EnemyInfo.CurrentframeX, _EnemyInfo.CurrentframeY);
 		
 
 
@@ -152,24 +149,24 @@ void Enemy_Basic::render()
 
 	char str[128];
 
-	sprintf_s(str,testText);
-	TextOut(getMemDC(), _EnemyInfo.x - 20 - RENDERMANAGER->getCameraX(), _EnemyInfo.y - 200 - RENDERMANAGER->getCameraY(), str, strlen(str));
+	//sprintf_s(str,testText);
+	//TextOut(getMemDC(), _EnemyInfo.x - 20 + RENDERMANAGER->getCameraX(), _EnemyInfo.y - 220 + RENDERMANAGER->getCameraY(), str, strlen(str));
 	
 
-	switch (_AI)
-	{
-	case OBSERVE_STATE_TRIGGER:		sprintf_s(str, "TRIGGER : OBSERVE");
-		break;
-	case CANT_JESTURE:	sprintf_s(str, "TRIGGER :STUN");
-		break;
-	case NORMAL_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :NORMAL_ATTACK");
-		break;
-	case DASH_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :DASH_ATTACK");
-		break;
-	case JUMP_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :JUMP_ATTACK");
-		break;
-	}
-	TextOut(getMemDC(), _EnemyInfo.x - 20 - RENDERMANAGER->getCameraX(), _EnemyInfo.y -200 - RENDERMANAGER->getCameraY(), str, strlen(str));
+	//switch (_AI)
+	//{
+	//case OBSERVE_STATE_TRIGGER:		sprintf_s(str, "TRIGGER : OBSERVE");
+	//	break;
+	//case CANT_JESTURE:	sprintf_s(str, "TRIGGER :STUN");
+	//	break;
+	//case NORMAL_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :NORMAL_ATTACK");
+	//	break;
+	//case DASH_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :DASH_ATTACK");
+	//	break;
+	//case JUMP_ATTACK_TRIGGER:	sprintf_s(str, "TRIGGER :JUMP_ATTACK");
+	//	break;
+	//}
+	//TextOut(getMemDC(), _EnemyInfo.x - 20 + RENDERMANAGER->getCameraX(), _EnemyInfo.y -200 + RENDERMANAGER->getCameraY(), str, strlen(str));
 
 
 	//switch(_AI.TriggerName)

@@ -50,5 +50,5 @@ void Enemy_knockDown::enter_this_state(Enemy_Basic * _Enemy)
 
 	frameCount = 0;
 	frameUpdateCount = 5;
-	index = 0;
+	
 }

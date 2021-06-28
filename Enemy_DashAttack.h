@@ -3,6 +3,11 @@
 class Enemy_DashAttack :
 	public Enemy_State
 {
+private:
+
+	float speed_error;
+
+public:
 
 	virtual Enemy_State* input_state(Enemy_Basic* _Enemy, bool reverse, int targetX, int targetY); //스테이트 상태와, 좌우값을 받음.
 	virtual void update(Enemy_Basic* _Enemy, int targetX, int targetY);

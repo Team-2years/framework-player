@@ -6,7 +6,7 @@
 
 #define MOVESPEED_RUN  10.0f
 #define MOVESPEED_LEFT_RIGHT 5.0f
-#define MOVESPEED_UP_DOWN 3.0f
+#define MOVESPEED_UP_DOWN 2.0f
 
 #define GRAVITY_POWER 0.7f
 #define JUMP_POWER 17.0f
@@ -79,6 +79,9 @@ struct tagEnemyInfo
 
 	float JumpPower;
 	float gravity;
+
+
+	int CurrentframeX, CurrentframeY;
 };
 
 
@@ -137,6 +140,10 @@ public:
 	void setEnemyPointX(float _x) { _EnemyInfo.x = _x; }
 	void setEnemyPointY(float _y) { _EnemyInfo.y = _y; }
 	void setEnemyPointZ(float _z) { _EnemyInfo.z = _z; }
+	
+
+	void setEnemyFrameX(int frameX) { _EnemyInfo.CurrentframeX = frameX; }
+	void setEnemyFrameY(int frameY) { _EnemyInfo.CurrentframeY = frameY; }
 
 
 	void setEnemyTestText(const char* _TT) { testText = _TT; }
@@ -155,6 +162,9 @@ public:
 	void setEnemyReverse(bool isRight_) { _EnemyInfo.isRight = isRight_; }
 
 	void setEnemyAiTrigger(EnemyTrigger new_AI) { _AI = new_AI; }
+
+
+	void setEnemyRandomCountReset(){ updateTriggerCount = RND->getFromIntTo(200, 300); }
 	//==========================================================================
 
 	//µð¹ö±ë¿ë

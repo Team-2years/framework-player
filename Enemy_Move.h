@@ -2,12 +2,24 @@
 #include "Enemy_State.h"
 
 #define OBSERVE_RANGE 300
-#define NORMAL_ATTACK_RANGE 50
+#define NORMAL_ATTACK_RANGE 80
 #define DASH_ATTACK_RANGE 500
-#define JUMP_ATTACK_RANGE 400
+#define JUMP_ATTACK_RANGE 200
 
 class Enemy_Move : public Enemy_State
 {
+private:
+
+
+	bool isObserve; //탐색중인지
+	int RandomObserveUpdateCount; //다음 랜덤 방향으로 가게 해주기
+	int ObserveCount;			  //랜덤방향 업데이트 카운트
+	float RandomAngle; //랜덤한 앵글로 이동하게 시행함.
+
+
+
+
+
 public:
 
 
