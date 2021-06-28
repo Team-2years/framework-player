@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "hitState.h"
 #include "player.h"
 
 HRESULT player::init()
@@ -10,11 +11,11 @@ HRESULT player::init()
 	IMAGEMANAGER->addFrameImage("캐릭터콤보1", "img/player/KyokoCombo1.bmp", 1062, 390, 6, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터콤보2", "img/player/KyokoCombo2.bmp", 1470, 402, 7, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터콤보3", "img/player/KyokoCombo3.bmp", 2952, 414, 12, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("캐릭터강공격", "img/player/KyokoStrongAttack.bmp", 2040, 462, 8, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터강공격", "img/player/KyokoStrongAttack.bmp", 2508, 414, 11, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터점프", "img/player/KyokoJump.bmp", 405, 420, 3, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터점프강공격", "img/player/KyokoJumpStrongAttack.bmp", 1551, 522, 11, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터대시공격", "img/player/KyokoDashAttack.bmp", 1728, 378, 8, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("캐릭터피격후기상", "img/player/KyokoHitandStand.bmp", 6732, 372, 32, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터피격후기상", "img/player/KyokoHitandStand.bmp", 6732, 372, 33, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터피격", "img/player/KyokoHitCombo.bmp", 2268, 396, 12, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터멀리날아감", "img/player/KyokoFarhit.bmp", 4896, 366, 24, 2, true, RGB(255, 0, 255), true);
 	_player.state = new idleState;
@@ -33,10 +34,14 @@ HRESULT player::init()
 	_player.moveCommandInput = 0;
 	_player.attackCommandInput = 0;
 	_player.comboCount = 0;
-	_player.collsionRcWidth = 70;
-	_player.collsionRcHeight = 40;
+	_player.collsionRcWidth = 80;
+	_player.collsionRcHeight = 30;
 	_player.imageErrorX = 0.f;
 	_player.imageErrorY = 0.f;
+	_player.isHit = false;
+	_player.isRide = false;
+	_player.isAttack = false;
+	_player.objectGround = 0;
 	_player.rc = RectMakeCenter(_player.x,
 		_player.y - 105,
 		_player.collsionRcWidth,
@@ -52,7 +57,13 @@ void player::release()
 void player::update()
 {
 	inputHandle();
+	if (_player.isHit && _player.stateEnum != hit && _player.stateEnum != down)
+	{
+		_player.isHit = false;
+		changeState(new hitState);
+	}
 	_player.state->update(this);
+	
 	//타임은 계속 올라가고 커맨드 입력시간은 줄임
 	_player.time++;
 	if (_player.moveCommandInput > 0)
@@ -68,8 +79,28 @@ void player::update()
 		_player.y,
 		_player.collsionRcWidth,
 		_player.collsionRcHeight);
+	if (_player.isRide)
+	{
+		_player.objectGround = 200;
+	}
+	else
+		_player.objectGround = 0;
+	if (_player.isAttack)
+	{
+		switch (_player.frameY)
+		{
+		case 0:
+			_player.attackRect = RectMakeCenter(_player.x + 80, _player.y, 30, 30);
+			break;
+		case 1:
+			_player.attackRect = RectMakeCenter(_player.x - 80, _player.y, 30, 30);
+			break;
+		default:
+			break;
+		}
+	}
 
-	if (_player.time == 50)
+	if (_player.time == 120)
 		_player.time = 1;
 	
 }
@@ -79,16 +110,13 @@ void player::render()
 	Rectangle(getMemDC(), _player.rc);
 	EllipseMakeCenter(getMemDC(), _player.x, _player.y, 90, 45);
 	RENDERMANAGER->push_BackFrameImageRenderInfo(_player.y, _player.image,
-		_player.x - _player.image->getFrameWidth() * 0.5 - _player.imageErrorX,
-		_player.y - _player.image->getFrameHeight() - _player.z - _player.imageErrorY,
+		_player.x - _player.image->getFrameWidth() * 0.5 + _player.imageErrorX,
+		_player.y - _player.image->getFrameHeight() - _player.z + _player.imageErrorY,
 		_player.frameX,
 		_player.frameY, true);
 }
 
-void player::setAttackRect()
-{
-	
-}
+
 
 void player::changeState(state * state)
 {
@@ -107,5 +135,4 @@ void player::inputHandle()
 		_player.state = tmpstate;
 		_player.state->enter(this);
 	}
-
 }

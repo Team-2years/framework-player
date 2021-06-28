@@ -31,6 +31,11 @@ void stage_3rdFloor_Corridor::update()
 		RENDERMANAGER->setCameraY(0);
 		SCENEMANAGER->changeScene("Å×½ºÆ®¾À");
 	}
+	if (KEYMANAGER->isOnceKeyDown('U'))
+	{
+		_player->getPlayerData()->isHit = true;
+	}
+
 	_player->update();
 	_tagPlayer = _player->getPlayerData();
 	

@@ -12,7 +12,9 @@ enum playerStateEnum
 	jumpStrongAttack,
 	combo,
 	strongAttack,
-	skill
+	skill,
+	hit,
+	down
 };
 
 struct tagPlayer
@@ -38,6 +40,10 @@ struct tagPlayer
 	float imageErrorX;			//이미지 렌더링 시 오차값X
 	float imageErrorY;			//이미지 렌더링 시 오차값Y
 	bool isHit;
+	bool isAttack;
+	bool isRide;
+	int objectGround;
+	int hitRecovery;
 };
 class player : public gameNode
 {
@@ -61,7 +67,6 @@ public:
 	void setMoveCommandInput(int input) { _player.moveCommandInput = input; }
 	void setAttackCommandInput(int input) { _player.attackCommandInput = input; }
 	void setComboCount(int input) { _player.comboCount = input; }
-	void setAttackRect();
 	void changeState(state * state);
 	tagPlayer getPlayer() { return _player; }			//세터 쓸 때
 	tagPlayer* getPlayerData() { return &_player; }		//세터쓰기 귀찮을 때

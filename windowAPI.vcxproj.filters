@@ -198,6 +198,15 @@
     <ClInclude Include="hitState.h">
       <Filter>playGround\player\state</Filter>
     </ClInclude>
+    <ClInclude Include="flyAndDownState.h">
+      <Filter>playGround\player\state</Filter>
+    </ClInclude>
+    <ClInclude Include="hitAndDownState.h">
+      <Filter>playGround\player\state</Filter>
+    </ClInclude>
+    <ClInclude Include="fallState.h">
+      <Filter>playGround\player\state</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -315,6 +324,15 @@
       <Filter>playGround\player\state</Filter>
     </ClCompile>
     <ClCompile Include="hitState.cpp">
+      <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="flyAndDownState.cpp">
+      <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="hitAndDownState.cpp">
+      <Filter>playGround\player\state</Filter>
+    </ClCompile>
+    <ClCompile Include="fallState.cpp">
       <Filter>playGround\player\state</Filter>
     </ClCompile>
   </ItemGroup>

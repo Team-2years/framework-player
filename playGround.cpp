@@ -26,7 +26,7 @@ HRESULT playGround::init()
 	SCENEMANAGER->addScene("Å×½ºÆ®¾À", new testScene);
 	SCENEMANAGER->addScene("¹Ý¼º½Ç", new stage_Detention);
 	SCENEMANAGER->changeScene("3Ãþº¹µµ");
-
+	
 	return S_OK;
 }
 

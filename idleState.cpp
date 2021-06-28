@@ -13,37 +13,31 @@ state * idleState::inputHandle(player * player)
 	if (player->getPlayer().moveCommandInput == 0 && KEYMANAGER->isStayKeyDown(VK_LEFT))
 	{
 		player->setFrameY(1);
-		player->setSpeed(3.0f);
 		player->setMoveCommandInput(20);
 		return new walkState;
 	}
 	if (player->getPlayer().moveCommandInput == 0 && KEYMANAGER->isStayKeyDown(VK_RIGHT))
 	{
 		player->setFrameY(0);
-		player->setSpeed(3.0f);
 		player->setMoveCommandInput(20);
 		return new walkState;
 	}
 	if (player->getPlayer().moveCommandInput > 0 && KEYMANAGER->isOnceKeyDown(VK_LEFT))
 	{
 		player->setFrameY(1);
-		player->setSpeed(7.0f);
 		return new runState;
 	}
 	if (player->getPlayer().moveCommandInput > 0 && KEYMANAGER->isOnceKeyDown(VK_RIGHT))
 	{
 		player->setFrameY(0);
-		player->setSpeed(7.0f);
 		return new runState;
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_UP))
 	{
-		player->setSpeed(3.0f);
 		return new walkState;
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_DOWN))
 	{
-		player->setSpeed(3.0f);
 		return new walkState;
 	}
 	if (KEYMANAGER->isOnceKeyDown('Z'))
@@ -71,6 +65,7 @@ void idleState::enter(player * player)
 	player->setFrameX(0);
 	player->setTime(0);
 	player->setComboCount(0);
+	player->getPlayerData()->isHit = false;
 	player->getPlayerData()->imageErrorX = 0;
 	player->getPlayerData()->imageErrorY = 0;
 	player->getPlayerData()->stateEnum = idle;

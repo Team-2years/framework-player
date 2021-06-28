@@ -3,15 +3,25 @@
 #include "jumpStrongAttackState.h"
 #include "player.h"
 #include "idleState.h"
+#include "runState.h"
 
 state * jumpState::inputHandle(player * player)
 {
-	if (player->getPlayer().z < 0.f)
+	if (player->getPlayer().z < 0.f - player->getPlayer().objectGround)
 	{
-		player->setZ(0.f);
-		player->setJumpPower(0.f);
-		player->setSpeed(0.f);
-		return new idleState;
+		if (player->getPlayerData()->speed == 11.f)
+		{
+			player->setZ(0.f);
+			player->setJumpPower(0.f);
+			return new runState;
+		}
+		else
+		{
+			player->setZ(0.f);
+			player->setJumpPower(0.f);
+			player->setSpeed(0.f);
+			return new idleState;
+		}
 	}
 	if (KEYMANAGER->isOnceKeyDown('S'))
 	{

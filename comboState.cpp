@@ -31,10 +31,10 @@ void comboState::enter(player * player)
 	switch (player->getPlayerData()->frameY)
 	{
 	case 0:
-		player->getPlayerData()->imageErrorX = -35;
+		player->getPlayerData()->imageErrorX = 35;
 		break;
 	case 1:
-		player->getPlayerData()->imageErrorX = 35;
+		player->getPlayerData()->imageErrorX = -35;
 		break;
 	default:
 		break;
@@ -89,10 +89,10 @@ void comboState::update(player * player)
 			switch (player->getPlayerData()->frameY)
 			{
 			case 0:
-				player->getPlayerData()->imageErrorX = -20;
+				player->getPlayerData()->imageErrorX = 20;
 				break;
 			case 1:
-				player->getPlayerData()->imageErrorX = 20;
+				player->getPlayerData()->imageErrorX = -20;
 				break;
 			default:
 				break;

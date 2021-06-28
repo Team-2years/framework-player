@@ -156,7 +156,10 @@
     <ClInclude Include="downState.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="effectManager.h" />
+    <ClInclude Include="fallState.h" />
+    <ClInclude Include="flyAndDownState.h" />
     <ClInclude Include="gameNode.h" />
+    <ClInclude Include="hitAndDownState.h" />
     <ClInclude Include="hitState.h" />
     <ClInclude Include="idleState.h" />
     <ClInclude Include="image.h" />
@@ -200,7 +203,10 @@
     <ClCompile Include="downState.cpp" />
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="effectManager.cpp" />
+    <ClCompile Include="fallState.cpp" />
+    <ClCompile Include="flyAndDownState.cpp" />
     <ClCompile Include="gameNode.cpp" />
+    <ClCompile Include="hitAndDownState.cpp" />
     <ClCompile Include="hitState.cpp" />
     <ClCompile Include="idleState.cpp" />
     <ClCompile Include="image.cpp" />

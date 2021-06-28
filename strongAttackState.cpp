@@ -21,10 +21,10 @@ void strongAttackState::enter(player * player)
 	switch (player->getPlayerData()->frameY)
 	{
 	case 0:
-		player->getPlayerData()->imageErrorX = -8;
+		player->getPlayerData()->imageErrorX = 8;
 		break;
 	case 1:
-		player->getPlayerData()->imageErrorX = 8;
+		player->getPlayerData()->imageErrorX = -8;
 		break;
 	default:
 		break;
@@ -42,4 +42,6 @@ void strongAttackState::update(player * player)
 
 void strongAttackState::exit(player * player)
 {
+
+
 }

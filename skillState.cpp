@@ -21,15 +21,15 @@ void skillState::enter(player * player)
 	switch (player->getPlayerData()->frameY)
 	{
 	case 0:
-		player->getPlayerData()->imageErrorX = -66;
+		player->getPlayerData()->imageErrorX = 66;
 		break;
 	case 1:
-		player->getPlayerData()->imageErrorX = 66;
+		player->getPlayerData()->imageErrorX = -66;
 		break;
 	default:
 		break;
 	}
-	player->getPlayerData()->imageErrorY = -3;
+	player->getPlayerData()->imageErrorY = 3;
 	player->getPlayerData()->stateEnum = skill;
 }
 

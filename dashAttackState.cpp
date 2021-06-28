@@ -20,14 +20,14 @@ void dashAttackState::enter(player * player)
 	player->setFrameX(0);
 	player->setTime(0);
 	player->setComboCount(0);
-	player->setSpeed(7.0f);
+	player->setSpeed(14.0f);
 	switch (player->getPlayerData()->frameY)
 	{
 	case 0:
-		player->getPlayerData()->imageErrorX = -55;
+		player->getPlayerData()->imageErrorX = 55;
 		break;
 	case 1:
-		player->getPlayerData()->imageErrorX = 55;
+		player->getPlayerData()->imageErrorX = -55;
 		break;
 	default:
 		break;
@@ -44,7 +44,7 @@ void dashAttackState::update(player * player)
 	}
 	if (player->getPlayerData()->speed > 0.f)
 	{
-		player->setSpeed(player->getPlayerData()->speed - 0.35f);
+		player->setSpeed(player->getPlayerData()->speed - 0.3f);
 		switch (player->getPlayerData()->frameY)
 		{
 		case 0:
