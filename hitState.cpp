@@ -8,7 +8,7 @@ state * hitState::inputHandle(player * player)
 {
 	if (player->getPlayerData()->time % 8 == 7 && player->getPlayer().frameX >= _hitCount * 4 - 1)
 		return new idleState;
-	if (player->getPlayerData()->isHit && _hitCount == 3)
+	if (player->getPlayerData()->isHit && player->getPlayer().hitRecovery < 20)
 		return new hitAndDownState;
 
 	return nullptr;
@@ -28,20 +28,22 @@ void hitState::update(player * player)
 {
 	if (player->getPlayerData()->isHit)
 	{
-		switch (_hitCount)
+		if (player->getPlayer().hitRecovery > 60)
 		{
-		case 1:
+			player->setFrameX(0);
+			player->setTime(0);
+		}
+		else if (player->getPlayer().hitRecovery > 30)
+		{
 			player->setFrameX(4);
 			player->setTime(0);
 			_hitCount = 2;
-			break;
-		case 2:
+		}
+		else
+		{
 			player->setFrameX(8);
 			player->setTime(0);
 			_hitCount = 3;
-			break;
-		default:
-			break;
 		}
 		player->getPlayerData()->isHit = false;
 	}

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "jumpStrongAttackState.h"
 #include "idleState.h"
+#include "jumpState.h"
 #include "runState.h"
 #include "player.h"
 
@@ -21,6 +22,11 @@ state * jumpStrongAttackState::inputHandle(player * player)
 			player->setSpeed(0.f);
 			return new idleState;
 		}
+	}
+	if (player->getPlayer().isAttack)
+	{
+		player->getPlayerData()->isAttack = false;
+		return new jumpState;
 	}
 	return nullptr;
 }

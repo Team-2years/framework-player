@@ -72,6 +72,20 @@ void comboState::update(player * player)
 		}
 		break; 
 	case 1:
+		if (player->getPlayer().time < 11)
+		{
+			switch (player->getPlayerData()->frameY)
+			{
+			case 0:
+				player->setX(player->getPlayer().x + 1.5f);
+				break;
+			case 1:
+				player->setX(player->getPlayer().x - 1.5f);
+				break;
+			default:
+				break;
+			}
+		}
 		if (player->getPlayer().time > 11 &&
 			player->getPlayer().time < 23 &&
 			KEYMANAGER->isOnceKeyDown('A'))
@@ -93,6 +107,22 @@ void comboState::update(player * player)
 				break;
 			case 1:
 				player->getPlayerData()->imageErrorX = -20;
+				break;
+			default:
+				break;
+			}
+		}
+		break;
+	case 2:
+		if (player->getPlayer().time < 14)
+		{
+			switch (player->getPlayerData()->frameY)
+			{
+			case 0:
+				player->setX(player->getPlayer().x + 1.8f);
+				break;
+			case 1:
+				player->setX(player->getPlayer().x - 1.8f);
 				break;
 			default:
 				break;

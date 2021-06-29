@@ -19,7 +19,7 @@ HRESULT player::init()
 	IMAGEMANAGER->addFrameImage("캐릭터피격후기상", "img/player/KyokoHitandStand.bmp", 6732, 372, 33, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터피격", "img/player/KyokoHitCombo.bmp", 2268, 396, 12, 2, true, RGB(255, 0, 255), true);
 	IMAGEMANAGER->addFrameImage("캐릭터멀리날아감", "img/player/KyokoFarhit.bmp", 4896, 366, 24, 2, true, RGB(255, 0, 255), true);
-	IMAGEMANAGER->addFrameImage("캐릭터사망", "img/player/KyokoDie.bmp", 6318, 282, 26, 2, true, RGB(255, 0, 255), true);
+	IMAGEMANAGER->addFrameImage("캐릭터사망", "img/player/KyokoDie.bmp", 7020, 282, 26, 2, true, RGB(255, 0, 255), true);
 	
 	_player.state = new idleState;
 	_player.state->enter(this);
@@ -41,7 +41,7 @@ HRESULT player::init()
 	_player.collsionRcHeight = 30;
 	_player.imageErrorX = 0.f;
 	_player.imageErrorY = 0.f;
-	_player.isHit = false;
+	_player.isHit = false;	
 	_player.isRide = false;
 	_player.isAttack = false;
 	_player.isDead = false;
@@ -73,8 +73,17 @@ void player::update()
 	}
 	else if (_player.isHit && _player.stateEnum != hit && _player.stateEnum != down)
 	{
-		_player.isHit = false;
-		changeState(new hitState);
+		if (_player.stateEnum == jump)
+		{
+			_player.isHit = false;
+			changeState(new hitAndDownState);
+		}
+		else
+		{
+			_player.isHit = false;
+			changeState(new hitState);
+		}
+		
 	}
 	
 	_player.state->update(this);

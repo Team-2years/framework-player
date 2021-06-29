@@ -34,6 +34,18 @@ void strongAttackState::enter(player * player)
 
 void strongAttackState::update(player * player)
 {
+	if(player->getPlayer().time < 15)
+		switch (player->getPlayerData()->frameY)
+		{
+		case 0:
+			player->setX(player->getPlayer().x + 2.5f);
+			break;
+		case 1:
+			player->setX(player->getPlayer().x - 2.5f);
+			break;
+		default:
+			break;
+		}
 	if (player->getPlayer().time % 5 == 4)
 	{
 		player->setFrameX(player->getPlayer().frameX + 1);

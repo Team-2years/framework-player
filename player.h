@@ -40,12 +40,12 @@ struct tagPlayer
 	float collsionRcHeight;		//이미지마다 렉트 크기 다르게 하려고 일단 만들어둠
 	float imageErrorX;			//이미지 렌더링 시 오차값X
 	float imageErrorY;			//이미지 렌더링 시 오차값Y
-	bool isHit;
-	bool isAttack;
-	bool isRide;
-	bool isDead;
-	int objectGround;
-	int hitRecovery;
+	bool isHit;					//맞았는가
+	bool isAttack;				//적이 플레이어 공격을 맞았는가
+	bool isRide;				//오브젝트 위에 있는가(픽셀충돌 예정)
+	bool isDead;				//플레이어가 죽었는가
+	int objectGround;			//플레이어가 밟을 땅의 Z값
+	int hitRecovery;			//경직도(피격시 줄어듬)
 };
 class player : public gameNode
 {

@@ -9,7 +9,10 @@ state * downState::inputHandle(player * player)
 	if (player->getPlayer().hp <= 0)
 		return new deadState;
 	if (player->getPlayer().frameX >= player->getPlayer().image->getMaxFrameX())
+	{
+		player->getPlayerData()->hitRecovery = 100;
 		return new idleState;
+	}
 	return nullptr;
 }
 

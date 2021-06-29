@@ -11,13 +11,13 @@ state * jumpState::inputHandle(player * player)
 	{
 		if (player->getPlayerData()->speed == 11.f)
 		{
-			player->setZ(0.f);
+			player->setZ(player->getPlayer().objectGround);
 			player->setJumpPower(0.f);
 			return new runState;
 		}
 		else
 		{
-			player->setZ(0.f);
+			player->setZ(player->getPlayer().objectGround);
 			player->setJumpPower(0.f);
 			player->setSpeed(0.f);
 			return new idleState;

@@ -14,6 +14,17 @@ void deadState::enter(player * player)
 	player->setTime(0);
 	player->setSpeed(0);
 	player->getPlayerData()->stateEnum = dead;
+	switch (player->getPlayerData()->frameY)
+	{
+	case 0:
+		player->getPlayerData()->imageErrorX = 24;
+		break;
+	case 1:
+		player->getPlayerData()->imageErrorX = -24;
+		break;
+	default:
+		break;
+	}
 }
 
 void deadState::update(player * player)
