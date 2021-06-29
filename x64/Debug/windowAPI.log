@@ -2,148 +2,148 @@
   action.cpp
   animation.cpp
   button.cpp
-c:\users\kga_am_01\documents\framework-player\button.cpp(20): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\button.cpp(21): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\button.cpp(20): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\button.cpp(21): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   comboState.cpp
   effect.cpp
-c:\users\kga_am_01\documents\framework-player\effect.cpp(56): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\effect.cpp(56): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   effectManager.cpp
   gameNode.cpp
-c:\users\kga_am_01\documents\framework-player\gamenode.cpp(105): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\gamenode.cpp(106): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\gamenode.cpp(97): warning C4101: 'hdc' :참조되지 않은 지역 변수입니다.
-c:\users\kga_am_01\documents\framework-player\gamenode.cpp(96): warning C4101: 'ps' :참조되지 않은 지역 변수입니다.
+c:\users\kga_am_01\documents\wch\frame\gamenode.cpp(105): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\gamenode.cpp(106): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\gamenode.cpp(97): warning C4101: 'hdc' :참조되지 않은 지역 변수입니다.
+c:\users\kga_am_01\documents\wch\frame\gamenode.cpp(96): warning C4101: 'ps' :참조되지 않은 지역 변수입니다.
   idleState.cpp
   image.cpp
-c:\users\kga_am_01\documents\framework-player\image.cpp(78): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(139): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(199): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(320): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(319): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(336): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(335): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(563): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(571): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\image.cpp(576): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(78): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(139): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(199): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(320): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(319): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(336): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(335): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(563): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(571): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\image.cpp(576): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   imageManager.cpp
   iniDataManager.cpp
   jumpState.cpp
   keyAniManager.cpp
   keyManager.cpp
   player.cpp
-c:\users\kga_am_01\documents\framework-player\player.cpp(39): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\player.cpp(38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\player.cpp(37): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\player.cpp(36): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\player.cpp(66): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\player.cpp(65): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\player.cpp(64): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\player.cpp(63): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\player.cpp(78): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(39): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(37): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(36): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(66): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(65): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(64): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(63): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\player.cpp(78): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   playGround.cpp
-c:\users\kga_am_01\documents\framework-player\playground.cpp(24): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+c:\users\kga_am_01\documents\wch\frame\playground.cpp(24): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   progressBar.cpp
-c:\users\kga_am_01\documents\framework-player\progressbar.cpp(15): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\progressbar.cpp(42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\progressbar.cpp(15): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\progressbar.cpp(42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   renderManager.cpp
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(146): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(163): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(168): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(177): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(181): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(192): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(197): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(206): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(211): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(224): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(228): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(236): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(240): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(251): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(255): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(262): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\rendermanager.cpp(267): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(146): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(163): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(168): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(177): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(181): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(192): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(197): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(206): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(211): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(224): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(228): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(236): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(240): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(251): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(255): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(262): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\rendermanager.cpp(267): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   runState.cpp
   sceneManager.cpp
   코드를 생성하고 있습니다...
-c:\users\kga_am_01\documents\framework-player\inidatamanager.cpp(74): warning C4172: 지역 변수 또는 임시: data의 주소를 반환하고 있습니다.
+c:\users\kga_am_01\documents\wch\frame\inidatamanager.cpp(74): warning C4172: 지역 변수 또는 임시: data의 주소를 반환하고 있습니다.
   컴파일하고 있습니다...
   skillState.cpp
   soundManager.cpp
   stage.cpp
-c:\users\kga_am_01\documents\framework-player\stage.cpp(33): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage.cpp(46): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage.cpp(59): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage.cpp(90): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage.cpp(33): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage.cpp(46): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage.cpp(59): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage.cpp(90): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stageUI.cpp
   stage_1stFloor_HallA.cpp
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_halla.cpp(36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_halla.cpp(79): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_halla.cpp(82): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_halla.cpp(85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_halla.cpp(98): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_halla.cpp(36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_halla.cpp(79): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_halla.cpp(82): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_halla.cpp(85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_halla.cpp(98): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_1stFloor_HallB.cpp
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_hallb.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_hallb.cpp(78): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_hallb.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_hallb.cpp(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_hallb.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_hallb.cpp(78): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_hallb.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_hallb.cpp(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_1stFloor_room.cpp
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_room.cpp(83): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_room.cpp(86): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_room.cpp(89): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_1stfloor_room.cpp(102): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_room.cpp(83): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_room.cpp(86): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_room.cpp(89): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_1stfloor_room.cpp(102): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_2ndFloor_HallA.cpp
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_halla.cpp(79): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_halla.cpp(82): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_halla.cpp(85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_halla.cpp(98): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_halla.cpp(79): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_halla.cpp(82): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_halla.cpp(85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_halla.cpp(98): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_2ndFloor_HallB.cpp
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_hallb.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_hallb.cpp(78): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_hallb.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_hallb.cpp(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_hallb.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_hallb.cpp(78): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_hallb.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_hallb.cpp(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_2ndFloor_room.cpp
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_room.cpp(88): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_room.cpp(91): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_room.cpp(94): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_2ndfloor_room.cpp(109): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_room.cpp(88): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_room.cpp(91): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_room.cpp(94): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_2ndfloor_room.cpp(109): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_3rdFloor_Corridor.cpp
-c:\users\kga_am_01\documents\framework-player\stage_3rdfloor_corridor.cpp(90): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_3rdfloor_corridor.cpp(93): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_3rdfloor_corridor.cpp(96): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_3rdfloor_corridor.cpp(109): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_3rdfloor_corridor.cpp(90): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_3rdfloor_corridor.cpp(93): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_3rdfloor_corridor.cpp(96): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_3rdfloor_corridor.cpp(109): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_cafeteria.cpp
-c:\users\kga_am_01\documents\framework-player\stage_cafeteria.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_cafeteria.cpp(84): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_cafeteria.cpp(87): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_cafeteria.cpp(100): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_cafeteria.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_cafeteria.cpp(84): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_cafeteria.cpp(87): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_cafeteria.cpp(100): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_Detention.cpp
-c:\users\kga_am_01\documents\framework-player\stage_detention.cpp(99): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_detention.cpp(128): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_detention.cpp(137): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_detention.cpp(99): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_detention.cpp(128): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_detention.cpp(137): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   stage_lobby.cpp
-c:\users\kga_am_01\documents\framework-player\stage_lobby.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_lobby.cpp(78): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_lobby.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\stage_lobby.cpp(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_lobby.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_lobby.cpp(78): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_lobby.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\stage_lobby.cpp(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   state.cpp
   strongAttackState.cpp
   testScene.cpp
-c:\users\kga_am_01\documents\framework-player\testscene.cpp(97): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\testscene.cpp(129): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\testscene.cpp(136): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\testscene.cpp(97): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\testscene.cpp(129): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\testscene.cpp(136): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   timeManager.cpp
-c:\users\kga_am_01\documents\framework-player\timemanager.cpp(57): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\timemanager.cpp(61): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_am_01\documents\framework-player\timemanager.cpp(65): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\timemanager.cpp(57): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\timemanager.cpp(61): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\timemanager.cpp(65): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   timer.cpp
   txtData.cpp
   코드를 생성하고 있습니다...
-c:\users\kga_am_01\documents\framework-player\txtdata.cpp(51): warning C4172: 지역 변수 또는 임시: str의 주소를 반환하고 있습니다.
+c:\users\kga_am_01\documents\wch\frame\txtdata.cpp(51): warning C4172: 지역 변수 또는 임시: str의 주소를 반환하고 있습니다.
   컴파일하고 있습니다...
   utils.cpp
   walkState.cpp
   winMain.cpp
-c:\users\kga_am_01\documents\framework-player\winmain.cpp(91): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_01\documents\wch\frame\winmain.cpp(91): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다...
-  windowAPI.vcxproj -> C:\Users\KGA_AM_01\Documents\framework-player\x64\Debug\windowAPI.exe
+  windowAPI.vcxproj -> C:\Users\KGA_AM_01\Documents\wch\frame\x64\Debug\windowAPI.exe
