@@ -6,7 +6,8 @@ HRESULT stage_1stFloor_HallA::init()
 	// 배경
 	IMAGEMANAGER->addImage("1stFloor_HallA", "img/stage/stage6/1stFloor_HallA.bmp", 2400, 864, true, RGB(255, 0, 255));
 	_background1 = IMAGEMANAGER->findImage("1stFloor_HallA");
-
+	IMAGEMANAGER->addImage("1stFloor_HallA_Pixel", "img/stage/stage6/1stFloor_HallA_Pixel.bmp", 2400, 1092, true, RGB(255, 0, 255));
+	_background2 = IMAGEMANAGER->findImage("1stFloor_HallA_Pixel");
 	_background3 = IMAGEMANAGER->findImage("BackGround3");
 
 	IMAGEMANAGER->addImage("L3_lockers5", "img/stage/stage6/L3_lockers5.bmp", 555, 279, true, RGB(255, 0, 255));
@@ -20,7 +21,7 @@ HRESULT stage_1stFloor_HallA::init()
 	_tagPlayer = _player->getPlayerData();
 	_tagPlayer->state = new idleState;
 	_tagPlayer->state->enter(_player);
-
+	_tagPlayer->y = WINSIZEY;
 	// 문 세팅
 	_door1 = RectMakeCenter(200, 770, 200, 260);
 	_door1Alpha = 0;
@@ -29,7 +30,11 @@ HRESULT stage_1stFloor_HallA::init()
 
 	// 카메라 세팅
 	RENDERMANAGER->setCameraX(-(_tagPlayer->x - WINSIZEX / 2));
-
+	RENDERMANAGER->setCameraY(-(_tagPlayer->y - WINSIZEY / 2 + 114 - 200 - _tagPlayer->z));
+	if (_background1->getHeight() - WINSIZEY / 2 + 114 < _tagPlayer->y - 200 - _tagPlayer->z)
+	{
+		RENDERMANAGER->setCameraY(-(_background1->getHeight() - WINSIZEY * 3/4  ));
+	}
 	return S_OK;
 }
 
@@ -44,11 +49,16 @@ void stage_1stFloor_HallA::update()
 
 	cameraWork();
 	doorWork();
+	pixelCollision(_tagPlayer,"1stFloor_HallA_Pixel",_player);
 }
 
 void stage_1stFloor_HallA::render()
 {
 	RENDERMANAGER->push_BackRenderInfo(-1000, "1stFloor_HallA", 0, 114, true);
+	if (KEYMANAGER->isToggleKey(VK_TAB))
+	{
+		RENDERMANAGER->push_BackRenderInfo(-999, "1stFloor_HallA_Pixel", 0, 0, true);
+	}
 	////////////////////
 	_player->render();
 

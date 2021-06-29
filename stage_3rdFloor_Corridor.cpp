@@ -25,8 +25,10 @@ HRESULT stage_3rdFloor_Corridor::init()
 
 	// 문렉트 초기화
 	
-	_door = RectMakeCenter(1400, 600, 260, 40);
-	doorAlpha = 0;
+	_door1 = RectMakeCenter(1400, 600, 260, 40);
+	_door1Alpha = 0;
+	_door2 = RectMakeCenter(2623, 600, 260, 40);
+	_door2Alpha = 0;
 	RENDERMANAGER->setCameraX(-(_tagPlayer->x - WINSIZEX / 2));
 	return S_OK;
 }
@@ -50,6 +52,7 @@ void stage_3rdFloor_Corridor::update()
 	// 카메라 처리
 	cameraWork();
 	doorWork();
+	pixelCollision(_tagPlayer, "3rdFloorPixel", _player);
 }
 
 void stage_3rdFloor_Corridor::render()
@@ -60,7 +63,7 @@ void stage_3rdFloor_Corridor::render()
 	// 픽셀
 	if (KEYMANAGER->isToggleKey(VK_TAB))
 	{
-		//RENDERMANAGER->push_BackRenderInfo(-999, "3rdFloorPixel", 0, 0, true);
+		RENDERMANAGER->push_BackRenderInfo(-999, "3rdFloorPixel", 0, 0, true);
 		_background2->render(getMemDC(), 0, 0);
 	}
 	// 락커
@@ -69,8 +72,11 @@ void stage_3rdFloor_Corridor::render()
 	// 기둥
 	RENDERMANAGER->push_BackRenderInfo(3000, "L3_pillar1", 492, 114, true, true, 155);
 	RENDERMANAGER->push_BackRenderInfo(3000, "L3_pillar4", 3141, 114, true, true, 155);
+	RENDERMANAGER->push_BackRenderInfo(-10, "L3_pillar3", 830, 114, true);
+	RENDERMANAGER->push_BackRenderInfo(-10, "L3_pillar2", 2770, 114, true);
 	// 문 ui
-	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 1400, 450, false, true, doorAlpha);
+	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 1400, 450, false, true, _door1Alpha);
+	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 2623, 450, false, true, _door2Alpha);
 
 	// 렌더 매니저
 	RENDERMANAGER->render(getMemDC());
@@ -81,9 +87,13 @@ void stage_3rdFloor_Corridor::render()
 	// 캐릭터 렉트
 	if (KEYMANAGER->isToggleKey(VK_TAB))
 	{
-		RECT rc = RectMake(_tagPlayer->rc.left + RENDERMANAGER->getCameraX(), _tagPlayer->rc.top + RENDERMANAGER->getCameraY(), _tagPlayer->rc.right - _tagPlayer->rc.left, _tagPlayer->rc.bottom - _tagPlayer->rc.top);
+		RECT rc = RectMake(_door1.left + RENDERMANAGER->getCameraX(), _door1.top + RENDERMANAGER->getCameraY(),
+			_door1.right - _door1.left, _door1.bottom - _door1.top);
 		Rectangle(getMemDC(), rc);
-		rc = RectMakeCenter(1400 + RENDERMANAGER->getCameraX(), 600 + RENDERMANAGER->getCameraY(), 260, 40);
+		rc = RectMake(_door2.left + RENDERMANAGER->getCameraX(), _door2.top + RENDERMANAGER->getCameraY(),
+			_door2.right - _door2.left, _door2.bottom - _door2.top);
+		Rectangle(getMemDC(), rc);
+		rc = RectMake(_tagPlayer->rc.left + RENDERMANAGER->getCameraX(), _tagPlayer->rc.top + RENDERMANAGER->getCameraY(), _tagPlayer->rc.right - _tagPlayer->rc.left, _tagPlayer->rc.bottom - _tagPlayer->rc.top);
 		Rectangle(getMemDC(), rc);
 	}
 }
@@ -100,10 +110,10 @@ void stage_3rdFloor_Corridor::cameraWork()
 	}
 	if (_tagPlayer->y - 200 - _tagPlayer->z < _background1->getHeight() - WINSIZEY / 2 + 114)
 	{
-		RENDERMANAGER->setCameraY(-(_tagPlayer->y - WINSIZEY / 2 + 57 - 200 - _tagPlayer->z));
+		RENDERMANAGER->setCameraY(-(_tagPlayer->y - WINSIZEY / 2 + 114 - 200 - _tagPlayer->z));
 	}
 
-	if (_tagPlayer->y - _tagPlayer->z < WINSIZEY / 2 - 57 + 200)
+	if (_tagPlayer->y - _tagPlayer->z < WINSIZEY / 2 - 114 + 200)
 	{
 		RENDERMANAGER->setCameraY(0);
 	}
@@ -111,10 +121,10 @@ void stage_3rdFloor_Corridor::cameraWork()
 
 void stage_3rdFloor_Corridor::doorWork()
 {
-	if (IntersectRect(&_temp, &_tagPlayer->rc, &_door))
+	if (IntersectRect(&_temp, &_tagPlayer->rc, &_door1))
 	{
-		if (doorAlpha < 200)
-			doorAlpha += 5;
+		if (_door1Alpha < 200)
+			_door1Alpha += 5;
 		if (KEYMANAGER->isOnceKeyDown('Y'))
 		{
 			RENDERMANAGER->setCameraX(0);
@@ -122,8 +132,24 @@ void stage_3rdFloor_Corridor::doorWork()
 			SCENEMANAGER->changeScene("2층홀A");
 		}
 	}
-	else if (doorAlpha > 0)
+	else if (_door1Alpha > 0)
 	{
-		doorAlpha -= 5;
+		_door1Alpha -= 5;
+	}
+
+	if (IntersectRect(&_temp, &_tagPlayer->rc, &_door2))
+	{
+		if (_door2Alpha < 200)
+			_door2Alpha += 5;
+		if (KEYMANAGER->isOnceKeyDown('Y'))
+		{
+			RENDERMANAGER->setCameraX(0);
+			RENDERMANAGER->setCameraY(0);
+			SCENEMANAGER->changeScene("반성실");
+		}
+	}
+	else if (_door2Alpha > 0)
+	{
+		_door2Alpha -= 5;
 	}
 }

@@ -16,6 +16,6 @@ public:
 	virtual void update();
 	virtual void render();
 
-	void pixelCollision(tagPlayer* _tagplayer);
+	void pixelCollision(tagPlayer* _tagplayer, string strkey, player* _player);
 };
 

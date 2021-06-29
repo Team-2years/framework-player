@@ -6,6 +6,9 @@ HRESULT stage_2ndFloor_room::init()
 	// 배경
 	IMAGEMANAGER->addImage("L1_chemistry_bg", "img/stage/stage4/L1_chemistry_bg.bmp", 2112, 864, true, RGB(255, 0, 255));
 	_background1 = IMAGEMANAGER->findImage("L1_chemistry_bg");
+	IMAGEMANAGER->addImage("L1_chemistry_bg_Pixel", "img/stage/stage4/L1_chemistry_bg_Pixel.bmp", 2112, 1092, true, RGB(255, 0, 255));
+
+	_background2 = IMAGEMANAGER->findImage("L1_chemistry_bg_Pixel");
 
 	_background3 = IMAGEMANAGER->findImage("BackGround3");
 
@@ -53,20 +56,25 @@ void stage_2ndFloor_room::update()
 	// 카메라 처리
 	cameraWork();
 	doorWork();
+	pixelCollision(_tagPlayer, "L1_chemistry_bg_Pixel", _player);
 }
 
 void stage_2ndFloor_room::render()
 {
 	RENDERMANAGER->push_BackRenderInfo(-1000, "L1_chemistry_bg", 0, 114, true);
+	if (KEYMANAGER->isToggleKey(VK_TAB))
+	{
+		RENDERMANAGER->push_BackRenderInfo(-999, "L1_chemistry_bg_Pixel", 0, 0, true);
+	}
 	////////////////////
 	_player->render();
 
 	RENDERMANAGER->push_BackRenderInfo(525 + 162, "L3_teacher_desk", 858, 525, true);
 
-	RENDERMANAGER->push_BackRenderInfo(3000, "L3_children_desksA", 180, 838, true);
-	RENDERMANAGER->push_BackRenderInfo(3000, "L3_children_desksB", 564, 838, true);
-	RENDERMANAGER->push_BackRenderInfo(3000, "L3_children_desksC", 1168, 838, true);
-	RENDERMANAGER->push_BackRenderInfo(3000, "L3_children_desksD", 1534, 838, true);
+	RENDERMANAGER->push_BackRenderInfo(838 + 141, "L3_children_desksA", 180, 838, true);
+	RENDERMANAGER->push_BackRenderInfo(838 + 141, "L3_children_desksB", 564, 838, true);
+	RENDERMANAGER->push_BackRenderInfo(838 + 141, "L3_children_desksC", 1168, 838, true);
+	RENDERMANAGER->push_BackRenderInfo(838 + 141, "L3_children_desksD", 1534, 838, true);
 
 	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 210, 580, false, true, _door1Alpha);
 	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 1900, 580, false, true, _door2Alpha);

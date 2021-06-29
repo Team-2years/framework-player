@@ -6,7 +6,8 @@ HRESULT stage_1stFloor_HallB::init()
 	// ¹è°æ
 	IMAGEMANAGER->addImage("1stFloor_HallB", "img/stage/stage8/1stFloor_HallB.bmp", 2400, 864, true, RGB(255, 0, 255));
 	_background1 = IMAGEMANAGER->findImage("1stFloor_HallB");
-
+	IMAGEMANAGER->addImage("1stFloor_HallB_Pixel", "img/stage/stage8/1stFloor_HallB_Pixel.bmp", 2400, 1092, true, RGB(255, 0, 255));
+	_background2 = IMAGEMANAGER->findImage("1stFloor_HallB_Pixel");
 	_background3 = IMAGEMANAGER->findImage("BackGround3");
 
 	IMAGEMANAGER->addImage("L3_smaller_cupboard", "img/stage/stage8/L3_smaller_cupboard.bmp", 171, 261, true, RGB(255, 0, 255));
@@ -44,11 +45,16 @@ void stage_1stFloor_HallB::update()
 
 	cameraWork();
 	doorWork();
+	pixelCollision(_tagPlayer, "1stFloor_HallB_Pixel", _player);
 }
 
 void stage_1stFloor_HallB::render()
 {
 	RENDERMANAGER->push_BackRenderInfo(-1000, "1stFloor_HallB", 0, 114, true);
+	if (KEYMANAGER->isToggleKey(VK_TAB))
+	{
+		RENDERMANAGER->push_BackRenderInfo(-999, "1stFloor_HallB_Pixel", 0, 0, true);
+	}
 	////////////////////
 	_player->render();
 

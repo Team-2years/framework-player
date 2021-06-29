@@ -1,6 +1,5 @@
 #pragma once
 #include "stage.h"
-#include "player.h"
 class stage_2ndFloor_HallA :
 	public stage
 {

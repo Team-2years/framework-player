@@ -6,7 +6,8 @@ HRESULT stage_cafeteria::init()
 	// 배경
 	IMAGEMANAGER->addImage("cafeteria_background", "img/stage/stage10/cafeteria_background.bmp", 2862, 837, true, RGB(255, 0, 255));
 	_background1 = IMAGEMANAGER->findImage("cafeteria_background");
-
+	IMAGEMANAGER->addImage("cafeteria_background_Pixel", "img/stage/stage10/cafeteria_background_Pixel.bmp", 2862, 1065, true, RGB(255, 0, 255));
+	_background2 = IMAGEMANAGER->findImage("cafeteria_background_Pixel");
 	_background3 = IMAGEMANAGER->findImage("BackGround3");
 
 	IMAGEMANAGER->addImage("cafeteria_snackmachine", "img/stage/stage10/cafeteria_snackmachine.bmp", 255, 255, true, RGB(255, 0, 255));
@@ -26,7 +27,7 @@ HRESULT stage_cafeteria::init()
 	// 문 세팅
 	_door1 = RectMakeCenter(100, 770, 200, 260);
 	_door1Alpha = 0;
-	_door2 = RectMakeCenter(1880, 770, 200, 260);
+	_door2 = RectMakeCenter(2720, 770, 200, 260);
 	_door2Alpha = 0;
 
 	// 카메라 세팅
@@ -46,19 +47,25 @@ void stage_cafeteria::update()
 
 	cameraWork();
 	doorWork();
+	pixelCollision(_tagPlayer, "cafeteria_background_Pixel", _player);
+
 }
 
 void stage_cafeteria::render()
 {
 	RENDERMANAGER->push_BackRenderInfo(-1000, "cafeteria_background", 0, 114, true);
+	if (KEYMANAGER->isToggleKey(VK_TAB))
+	{
+		RENDERMANAGER->push_BackRenderInfo(-999, "cafeteria_background_Pixel", 0, 0, true);
+	}
 	////////////////////
 	_player->render();
 
 	RENDERMANAGER->push_BackRenderInfo(100, "cafeteria_snackmachine", 2306, 357, true);
 	RENDERMANAGER->push_BackRenderInfo(722 + 156, "cafeteria_table1", 330, 722, true);
-	RENDERMANAGER->push_BackRenderInfo(880, "cafeteria_table2", 870, 805, true);
-	RENDERMANAGER->push_BackRenderInfo(874, "cafeteria_table3", 1480, 790, true);
-	RENDERMANAGER->push_BackRenderInfo(800, "cafeteria_table4", 2067, 715, true);
+	RENDERMANAGER->push_BackRenderInfo(880 + 156, "cafeteria_table2", 870, 805, true);
+	RENDERMANAGER->push_BackRenderInfo(874 + 156, "cafeteria_table3", 1480, 790, true);
+	RENDERMANAGER->push_BackRenderInfo(800 + 156, "cafeteria_table4", 2067, 715, true);
 
 
 
@@ -66,7 +73,7 @@ void stage_cafeteria::render()
 	// 이 위에 렌더 이미지 인포
 	RENDERMANAGER->render(getMemDC());
 	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 110, 580, false, true, _door1Alpha);
-	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 1900, 580, false, true, _door2Alpha);
+	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 2720, 580, false, true, _door2Alpha);
 	_background3->render(getMemDC());
 
 	if (KEYMANAGER->isToggleKey(VK_TAB))
@@ -129,7 +136,7 @@ void stage_cafeteria::doorWork()
 		{
 			RENDERMANAGER->setCameraX(0);
 			RENDERMANAGER->setCameraY(0);
-			SCENEMANAGER->changeScene("식당");
+			SCENEMANAGER->changeScene("로비");
 		}
 	}
 	else if (_door2Alpha > 0)

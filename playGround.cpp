@@ -33,7 +33,7 @@ HRESULT playGround::init()
 	SCENEMANAGER->addScene("1층방", new stage_1stFloor_room);
 	SCENEMANAGER->addScene("식당", new stage_cafeteria);
 	SCENEMANAGER->addScene("로비", new stage_lobby);
-	SCENEMANAGER->changeScene("로비");
+	SCENEMANAGER->changeScene("식당");
 
 	IMAGEMANAGER->addImage("UI_UNLOCKED_DOOR", "img/ui/UI_UNLOCKED_DOOR.bmp", 78, 114, true, RGB(255, 0, 255), true);
 
@@ -53,10 +53,16 @@ void playGround::update()
 {
 	gameNode::update();
 
-		SCENEMANAGER->update();
+	if (KEYMANAGER->isOnceKeyDown('R'))
+	{
+		init();
+	}
 
-	
-	
+	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+	{
+		cout << _ptMouse.x - RENDERMANAGER->getCameraX() << ", " << _ptMouse.y - RENDERMANAGER->getCameraY() << endl;
+	}
+		SCENEMANAGER->update();
 }
 
 

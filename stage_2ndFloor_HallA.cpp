@@ -6,7 +6,8 @@ HRESULT stage_2ndFloor_HallA::init()
 	// 배경화면
 	IMAGEMANAGER->addImage("2ndFloor_HallA", "img/stage/stage3/2ndFloor_HallA.bmp", 2400, 864, true, RGB(255, 0, 255));
 	_background1 = IMAGEMANAGER->findImage("2ndFloor_HallA");
-
+	IMAGEMANAGER->addImage("2ndFloor_HallA_Pixel", "img/stage/stage3/2ndFloor_HallA_Pixel.bmp", 2400, 1092, true, RGB(255, 0, 255));
+	_background2 = IMAGEMANAGER->findImage("2ndFloor_HallA_Pixel");
 	_background3 = IMAGEMANAGER->findImage("BackGround3");
 	
 	// 배경 사물들
@@ -47,12 +48,16 @@ void stage_2ndFloor_HallA::update()
 	// 카메라 처리
 	cameraWork();
 	doorWork();
+	pixelCollision(_tagPlayer, "2ndFloor_HallA_Pixel", _player);
 }
 
 void stage_2ndFloor_HallA::render()
 {
 	RENDERMANAGER->push_BackRenderInfo(-1000, "2ndFloor_HallA", 0, 114, true);
-
+	if (KEYMANAGER->isToggleKey(VK_TAB))
+	{
+		RENDERMANAGER->push_BackRenderInfo(-999, "2ndFloor_HallA_Pixel", 0, 0, true);
+	}
 	// 사물
 	RENDERMANAGER->push_BackRenderInfo(390, "L3_smaller_cupboard", 325, 400, true);
 	RENDERMANAGER->push_BackRenderInfo(390, "cafeteria_snackmachine", 1470, 400, true);

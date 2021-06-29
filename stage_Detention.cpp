@@ -4,8 +4,8 @@
 HRESULT stage_Detention::init()
 {
 	// 이미지 초기화 나중에 몇개는 로딩으로 옮기자
-	IMAGEMANAGER->addImage("BackGround", "img/stage/stage1/Detention_PixelBG2.bmp", 2016, WINSIZEY, true, RGB(255, 0, 255));
-	_background = IMAGEMANAGER->findImage("BackGround");
+	IMAGEMANAGER->addImage("Detention_Pixel", "img/stage/stage1/Detention_PixelBG2.bmp", 2016, WINSIZEY, true, RGB(255, 0, 255));
+	_background = IMAGEMANAGER->findImage("Detention_Pixel");
 	IMAGEMANAGER->addImage("BackGround2", "img/stage/stage1/Detention_BG.bmp", 2016, 672, true, RGB(255, 0, 255));
 	_background2 = IMAGEMANAGER->findImage("BackGround2");
 	_background3 = IMAGEMANAGER->findImage("BackGround3");
@@ -86,7 +86,7 @@ void stage_Detention::update()
 	_tagPlayer = _player->getPlayerData();
 
 	// 픽셀 충돌
-	pixelCollision(_tagPlayer);
+	pixelCollision(_tagPlayer, "Detention_Pixel", _player);
 
 	// 카메라 처리
 	if (_tagPlayer->x > WINSIZEX / 2)
@@ -143,7 +143,7 @@ void stage_Detention::render()
 	// 픽셀 끄기 켜기 처리 
 	if (KEYMANAGER->isToggleKey(VK_TAB))
 	{
-		RENDERMANAGER->push_BackRenderInfo(-999, "BackGround", 0, 0, true);
+		RENDERMANAGER->push_BackRenderInfo(-999, "Detention_Pixel", 0, 0, true);
 		_background->render(getMemDC(), 0, 0);
 	}
 

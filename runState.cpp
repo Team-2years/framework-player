@@ -9,7 +9,7 @@ state * runState::inputHandle(player * player)
 {
 	if (!_leftMove && !_rightMove && !_upMove && !_downMove)
 	{
-		player->setSpeed(4.0f);
+		player->setSpeed(8.0f);
 		return new idleState;
 	}
 	if (KEYMANAGER->isOnceKeyDown('Z'))
@@ -31,6 +31,8 @@ void runState::enter(player * player)
 	player->setTime(0);
 	player->getPlayerData()->imageErrorX = 0;
 	player->getPlayerData()->imageErrorY = 0;
+	player->setSpeed(10.0f);
+
 }
 
 void runState::update(player * player)
@@ -75,7 +77,7 @@ void runState::update(player * player)
 	}
 	if (_upMove)
 	{
-		player->setY(player->getPlayer().y - player->getPlayer().speed);
+		player->setY(player->getPlayer().y - player->getPlayer().speed/2);
 
 		
 	}
@@ -89,7 +91,7 @@ void runState::update(player * player)
 	}
 	if (_downMove)
 	{
-		player->setY(player->getPlayer().y + player->getPlayer().speed);
+		player->setY(player->getPlayer().y + player->getPlayer().speed/2);
 		
 	}
 	if (player->getPlayer().time % 3 == 2)

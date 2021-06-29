@@ -6,7 +6,9 @@ HRESULT stage_lobby::init()
 	// 배경
 	IMAGEMANAGER->addImage("lobby_l1_debris_background", "img/stage/stage11/lobby_l1_debris_background.bmp", 2769, 1080, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("lobby_l1_background", "img/stage/stage11/lobby_l1_background.bmp", 2769, 1080, true, RGB(255, 0, 255));
-
+	IMAGEMANAGER->addImage("lobby_l1_background_Pixel", "img/stage/stage11/lobby_l1_background_Pixel.bmp", 2769, 1308, true, RGB(255, 0, 255));
+	_background2 = IMAGEMANAGER->findImage("lobby_l1_background_Pixel");
+	
 	_background1A = IMAGEMANAGER->findImage("lobby_l1_debris_background");
 	_background1B = IMAGEMANAGER->findImage("lobby_l1_background");
 	_background3 = IMAGEMANAGER->findImage("BackGround3");
@@ -21,9 +23,9 @@ HRESULT stage_lobby::init()
 	_tagPlayer->state->enter(_player);
 
 	// 문 세팅
-	_door1 = RectMakeCenter(200, 770, 200, 260);
+	_door1 = RectMakeCenter(250, 860, 200, 260);
 	_door1Alpha = 0;
-	_door2 = RectMakeCenter(1010, 600, 280, 40);
+	_door2 = RectMakeCenter(1390, 600, 400, 40);
 	_door2Alpha = 0;
 
 	// 카메라 세팅
@@ -42,6 +44,7 @@ void stage_lobby::update()
 
 	cameraWork();
 	doorWork();
+	pixelCollision(_tagPlayer, "lobby_l1_background_Pixel", _player);
 }
 
 void stage_lobby::render()
@@ -52,6 +55,7 @@ void stage_lobby::render()
 	{
 		RENDERMANAGER->push_BackRenderInfo(-999, "lobby_l1_wall_patch", 2361, 426, true);
 		RENDERMANAGER->push_BackRenderInfo(-1000, "lobby_l1_background", 0, 114, true);
+		RENDERMANAGER->push_BackRenderInfo(-999, "lobby_l1_background_Pixel", 0, 0, true);
 	}
 
 	////////////////////
@@ -59,8 +63,8 @@ void stage_lobby::render()
 
 	
 	
-	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 210, 580, false, true, _door1Alpha);
-	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 1010, 450, false, true, _door2Alpha);
+	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 250, 760, false, true, _door1Alpha);
+	RENDERMANAGER->push_BackRenderInfo(3000, "UI_UNLOCKED_DOOR", 1390, 450, false, true, _door2Alpha);
 
 	// 이 위에 렌더 이미지 인포
 	RENDERMANAGER->render(getMemDC());

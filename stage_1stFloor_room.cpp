@@ -6,7 +6,8 @@ HRESULT stage_1stFloor_room::init()
 	// 배경
 	IMAGEMANAGER->addImage("L1_ed_bg", "img/stage/stage7/L1_ed_bg.bmp", 2112, 864, true, RGB(255, 0, 255));
 	_background1 = IMAGEMANAGER->findImage("L1_ed_bg");
-
+	IMAGEMANAGER->addImage("L1_ed_bg_Pixel", "img/stage/stage7/L1_ed_bg_Pixel.bmp", 2112, 1092, true, RGB(255, 0, 255));
+	_background2 = IMAGEMANAGER->findImage("L1_ed_bg_Pixel");
 	_background3 = IMAGEMANAGER->findImage("BackGround3");
 
 	// 사물
@@ -51,16 +52,21 @@ void stage_1stFloor_room::update()
 	// 카메라 처리
 	cameraWork();
 	doorWork();
+	pixelCollision(_tagPlayer, "L1_ed_bg_Pixel", _player);
 }
 
 void stage_1stFloor_room::render()
 {
 	RENDERMANAGER->push_BackRenderInfo(-1000, "L1_ed_bg", 0, 114, true);
+	if (KEYMANAGER->isToggleKey(VK_TAB))
+	{
+		RENDERMANAGER->push_BackRenderInfo(-999, "L1_ed_bg_Pixel", 0, 0, true);
+	}
 	////////////////////
 	_player->render();
 
 
-	RENDERMANAGER->push_BackRenderInfo(525 + 162, "L3_teacher_desk1", 843, 580, true);
+	RENDERMANAGER->push_BackRenderInfo(525 + 182, "L3_teacher_desk1", 843, 580, true);
 	RENDERMANAGER->push_BackRenderInfo(3000, "L3_children_desks", 180, 854, true);
 	RENDERMANAGER->push_BackRenderInfo(-999, "L1_projection_screen", 700, 114, true);
 
