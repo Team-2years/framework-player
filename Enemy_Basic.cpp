@@ -20,7 +20,7 @@ void Enemy_Basic::input_state_data(int targetX, int targetY)
 	}
 }
 
-HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
+HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp, EnemyKind _kind)
 {
 	_EnemyInfo.x = _x;
 	_EnemyInfo.y = _y;
@@ -33,36 +33,32 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp)
 	_state = new Enemy_Idle();
 	_state->enter_this_state(this);
 
-	//_EnemyInfo._rc = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y, _EnemyInfo._image->getFrameWidth(), _EnemyInfo._image->getFrameHeight());
-	
-	
-	//_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo._rc.bottom + _EnemyInfo.JumpPower - _EnemyInfo.gravity, 80, 20);
-
-	
-
-	
 	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y,80,20);
-	
-	
-
-	_EnemyInfo.CurrentframeX = _EnemyInfo.CurrentframeY=0;
-
 	_EnemyInfo.gravity = 0;
 	_EnemyInfo.JumpPower = 0;
-	
+	_EnemyInfo.range = 9999;
+
 	_EnemyInfo.Hp = _Hp;
 	_EnemyInfo.isRight = true;
 
-	testText = "NON";
+	_EnemyInfo.CurrentframeX = _EnemyInfo.CurrentframeY=0;
 
-	_EnemyInfo.range = 9999;
 
+	Kind = _kind;
 
 	_AI = OBSERVE_STATE_TRIGGER;
-	
+	_AI_BOSS = OBSERVE_STATE_TRIGGER_BOSS;
+	currentPhase = PHASE_1;
 
 	triggerCount =0;//해당 트리거 업데이트까지의 카운터
-	updateTriggerCount=RND->getFromIntTo(200,300);//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
+
+
+	//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
+	if(Kind==BOSS) updateTriggerCount = 3;
+	else updateTriggerCount = RND->getFromIntTo(200, 300);
+
+	//디버깅용
+	testText = "NON";
 
 	return S_OK;
 }
@@ -80,30 +76,97 @@ void Enemy_Basic::update(int targetX, int targetY)
 		80, 20);
 	//- _EnemyInfo.JumpPower + _EnemyInfo.gravity
 
-	
-	//탐색 상태 트리거일경우, 일정시간동안 탐색 후 랜덤한 스테이트로 바꿔줌
-	if (_AI == OBSERVE_STATE_TRIGGER)
+	switch (Kind)
 	{
-		triggerCount++;
+	case BOSS:
 
-		if (triggerCount % updateTriggerCount == 0)
+		if (_AI_BOSS == OBSERVE_STATE_TRIGGER_BOSS)
 		{
-			int RandomPattern = RND->getFromIntTo(2,5);
-			//int RandomPattern = ;
-			switch (RandomPattern)
+			triggerCount++;
+
+			if (triggerCount % updateTriggerCount == 0)
 			{
-			case 2:		//일반공격
-				_AI = NORMAL_ATTACK_TRIGGER;
-				break;
-			case 3:		//대쉬공격
-				_AI = DASH_ATTACK_TRIGGER;
-				break;
-			case 4:		//점프공격
-				_AI = JUMP_ATTACK_TRIGGER;
-				break;
+				int randomPattern;
+
+
+				//페이즈에 따른 보스 패턴 
+				switch (currentPhase)
+				{
+				case PHASE_1: 
+					randomPattern = RND->getFromIntTo(1, 4);
+					break;
+				case PHASE_2:  
+								//일정거리 이상이면 원거리패턴들 사용, 아니면 근접패턴들 사용.
+					if(getDistance(_EnemyInfo.x,_EnemyInfo.y,targetX,targetY) > 300) randomPattern = RND->getFromIntTo(4, 6);
+					else randomPattern = RND->getFromIntTo(1, 6);
+					
+					break;
+				case PHASE_3: 
+					
+					if (getDistance(_EnemyInfo.x, _EnemyInfo.y, targetX, targetY) > 300) randomPattern = RND->getFromIntTo(4, 7);
+					else randomPattern = RND->getFromIntTo(1, 7);
+					
+					break;
+				}
+
+
+				//보스 패턴 지정
+				switch (_AI_BOSS)
+				{
+				case 1:
+					_AI_BOSS = NORMAL_ATTACK_TRIGGER_BOSS;
+					break;
+				case 2:
+					_AI_BOSS = POWER_ATTACK_TRIGGER_BOSS;
+					break;
+				case 3:
+					_AI_BOSS = POWER_ATTACK_2_TRIGGER_BOSS;
+					break;
+				case 4:
+					_AI_BOSS = TAKKLE_TRIGGER_BOSS;
+					break;
+				case 5:
+					_AI_BOSS = METEOR_JUMP_TRIGGER_BOSS;
+					break;
+				case 6:
+					_AI_BOSS = SUPER_METEOR_JUMP_TRIGGER_BOSS;
+					break;
+				}
 			}
-			//_AI.TriggerName = (EnemyTrigger)RandomPattern;
 		}
+
+
+		break;
+	default:
+
+		//탐색 상태 트리거일경우, 일정시간동안 탐색 후 랜덤한 스테이트로 바꿔줌
+		if (_AI == OBSERVE_STATE_TRIGGER)
+		{
+			triggerCount++;
+
+			if (triggerCount % updateTriggerCount == 0)
+			{
+				int RandomPattern = RND->getFromIntTo(2, 5);
+				//int RandomPattern = ;
+				switch (RandomPattern)
+				{
+				case 2:		//일반공격
+					_AI = NORMAL_ATTACK_TRIGGER;
+					break;
+				case 3:		//대쉬공격
+					_AI = DASH_ATTACK_TRIGGER;
+					break;
+				case 4:		//점프공격
+					_AI = JUMP_ATTACK_TRIGGER;
+					break;
+				}
+				//_AI.TriggerName = (EnemyTrigger)RandomPattern;
+			}
+		}
+
+
+
+		break;
 	}
 
 

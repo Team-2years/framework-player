@@ -64,6 +64,7 @@ HRESULT testScene::init()
 	//에너미
 	//==================================================
 	addEnemyImage_school_girl();
+	addEnemyImage_school_boy();
 
 	_em = new enemyManager;
 	_em->init();
@@ -313,4 +314,36 @@ void testScene::addEnemyImage_school_girl()
 	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_2_School_Girl", "img/enemy/school_girl/school_girl_KnockDown_2.bmp", 450, 360, 3, 2, true, RGB(255, 0, 255));
 	//기상 이미지 
 	IMAGEMANAGER->addFrameImage("Enemy_Image_Wake_up_School_Girl", "img/enemy/school_girl/school_girl_Wake_up.bmp", 2025, 360, 9, 2, true, RGB(255, 0, 255));
+}
+
+void testScene::addEnemyImage_school_boy()
+{
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Wake_up_School_Boy", "img/enemy/school_boy/schoo_boy_wake_up.bmp",2160,420,8,2,true,RGB(255,0,255));
+
+
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Idle_School_Boy", "img/enemy/school_boy/school_boy_idle.bmp", 1224, 432, 8, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Jump_School_Boy", "img/enemy/school_boy/school_boy_jump.bmp", 423, 486, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Move_School_Boy", "img/enemy/school_boy/school_boy_walk.bmp", 1620, 444, 12, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Run_School_Boy", "img/enemy/school_boy/school_boy_run.bmp", 1920, 390, 10, 2, true, RGB(255, 0, 255));
+
+
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_1_School_Boy", "img/enemy/school_boy/school_boy_attack_1.bmp", 1764, 426, 7, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_2_School_Boy", "img/enemy/school_boy/school_boy_attack_2.bmp", 1386, 510, 7, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attack_3_School_Boy", "img/enemy/school_boy/school_boy_attack_3.bmp", 1863, 558, 9, 2, true, RGB(255, 0, 255)); 
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Dash_Attack_School_Boy", "img/enemy/school_boy/school_boy_dash_attack.bmp", 1764, 444, 7, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Jump_Attack_School_Boy", "img/enemy/school_boy/school_boy_jump_attack.bmp", 1188, 456, 6, 2, true, RGB(255, 0, 255));
+
+
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_1_School_Boy", "img/enemy/school_boy/school_boy_attacked_1.bmp",576,450,3,2,true,RGB(255,0,255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_2_School_Boy", "img/enemy/school_boy/school_boy_attacked_2.bmp",576,450,3,2,true,RGB(255,0,255));
+	IMAGEMANAGER->addFrameImage("Enemy_Image_Attacked_3_School_Boy", "img/enemy/school_boy/school_boy_attacked_3.bmp",576,450,3,2,true,RGB(255,0,255));
+
+
+
+	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_1_School_Boy", "img/enemy/school_boy/school_boy_knockdown_1.bmp", 6210, 420, 23, 2, true, RGB(255, 0, 255));//23
+	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_2_School_Boy", "img/enemy/school_boy/school_boy_knockdown_3.bmp",540,420,2,2,true,RGB(255,0,255));
+
+
+
+
 }

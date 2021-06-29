@@ -40,6 +40,8 @@ public:
 
 
 	void addEnemyImage_school_girl();
+	void addEnemyImage_school_boy();
+
 
 };
 

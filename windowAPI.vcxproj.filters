@@ -70,26 +70,53 @@
     <Filter Include="playGround\enemy\-BasicState-">
       <UniqueIdentifier>{b3ab172d-940e-4394-bdd2-0fba5742b064}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\Attacked">
-      <UniqueIdentifier>{aa8ba777-a28e-4f0b-905f-a5d913ef1799}</UniqueIdentifier>
+    <Filter Include="playGround\enemy\EnemyKind">
+      <UniqueIdentifier>{b64f004b-cf58-425f-b7f8-ff1baca0ace8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\Attack">
-      <UniqueIdentifier>{fb8affbb-a884-4596-8754-b784ca04abfd}</UniqueIdentifier>
+    <Filter Include="playGround\enemy\STATE">
+      <UniqueIdentifier>{2615d4de-25f5-4f1c-a561-b213e613d597}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\Attacked\StandUp">
-      <UniqueIdentifier>{4cfe8c22-e9f3-4561-93c7-82b0f28d6f82}</UniqueIdentifier>
+    <Filter Include="playGround\enemy\STATE\공용패턴">
+      <UniqueIdentifier>{b2eb9049-70b3-4d65-96f4-3ed5d2ad3144}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\Attacked\else">
-      <UniqueIdentifier>{a3d93d02-1737-4d7e-94a3-770d624a3c16}</UniqueIdentifier>
+    <Filter Include="playGround\enemy\STATE\공용패턴\Move">
+      <UniqueIdentifier>{9ca084e7-bd47-4421-af12-f0252e00eaca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\Idle">
+    <Filter Include="playGround\enemy\STATE\공용패턴\Idle">
       <UniqueIdentifier>{dc1a93a3-3021-420c-bee5-82c2a8c4b1ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\Guard">
+    <Filter Include="playGround\enemy\STATE\공용패턴\Guard">
       <UniqueIdentifier>{89832aef-3d14-4e67-8c09-6115594bac2d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\Move">
-      <UniqueIdentifier>{9ca084e7-bd47-4421-af12-f0252e00eaca}</UniqueIdentifier>
+    <Filter Include="playGround\enemy\STATE\공용패턴\Attacked">
+      <UniqueIdentifier>{aa8ba777-a28e-4f0b-905f-a5d913ef1799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\공용패턴\Attacked\StandUp">
+      <UniqueIdentifier>{4cfe8c22-e9f3-4561-93c7-82b0f28d6f82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\공용패턴\Attacked\else">
+      <UniqueIdentifier>{a3d93d02-1737-4d7e-94a3-770d624a3c16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\공용패턴\Attack">
+      <UniqueIdentifier>{fb8affbb-a884-4596-8754-b784ca04abfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\보스-미스즈">
+      <UniqueIdentifier>{6d010685-2565-4e31-b495-9994f9368050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\보스-미스즈\NormalAttack">
+      <UniqueIdentifier>{e586ae0b-dee2-42e0-aee0-86b93cc8afce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\보스-미스즈\Takkle">
+      <UniqueIdentifier>{4763a652-6581-4941-a799-93afb25b0cfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\보스-미스즈\JumpAttack">
+      <UniqueIdentifier>{f2b12218-ef75-41a1-b085-d1af7f465f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\보스-미스즈\OtherPattern">
+      <UniqueIdentifier>{72a3a0b5-4e7e-4a36-a94d-0d8322212178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\STATE\보스-미스즈\SpecialAttack">
+      <UniqueIdentifier>{e04f7bb1-5ca7-4355-a6ff-fa4917042cea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -214,64 +241,109 @@
       <Filter>playGround\enemy</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack.h">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack_2.h">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack_3.h">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Basic.h">
       <Filter>playGround\enemy\-BasicState-</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_DashAttack.h">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Ground_Hitted.h">
-      <Filter>playGround\enemy\Attacked</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Damaged_1.h">
-      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\StandUp</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Damaged_2.h">
-      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\StandUp</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Damaged_3.h">
-      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\StandUp</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Die.h">
-      <Filter>playGround\enemy\Attacked\else</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\else</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Idle.h">
-      <Filter>playGround\enemy\Idle</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Idle</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Guard.h">
-      <Filter>playGround\enemy\Guard</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Guard</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_JumpAttack.h">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_knockDown.h">
-      <Filter>playGround\enemy\Attacked\else</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\else</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_KnockDown_2.h">
-      <Filter>playGround\enemy\Attacked\else</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\else</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Move.h">
-      <Filter>playGround\enemy\Move</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Move</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Run.h">
-      <Filter>playGround\enemy\Move</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Move</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_State.h">
       <Filter>playGround\enemy\-BasicState-</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Wake_Up.h">
-      <Filter>playGround\enemy\Attacked\else</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\else</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Jump.h">
-      <Filter>playGround\enemy\Idle</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_School_boy.h">
+      <Filter>playGround\enemy\EnemyKind</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_School_Girl.h">
+      <Filter>playGround\enemy\EnemyKind</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Misuzu_Boss.h">
+      <Filter>playGround\enemy\EnemyKind</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Attack_1_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Attack_2_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Attack_3_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Dash_Attack_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\Takkle</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jump_Attack_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\JumpAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Power_Attack_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\SpecialAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Wake_Up_Attack_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Power_Up_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Idle_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Move_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Tount_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jump_Attack_stun_Boss.h">
+      <Filter>playGround\enemy\STATE\보스-미스즈\JumpAttack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -384,64 +456,109 @@
       <Filter>playGround\enemy</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack.cpp">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack_2.cpp">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack_3.cpp">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Basic.cpp">
       <Filter>playGround\enemy\-BasicState-</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_DashAttack.cpp">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Ground_Hitted.cpp">
-      <Filter>playGround\enemy\Attacked</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Damaged_1.cpp">
-      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\StandUp</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Damaged_2.cpp">
-      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\StandUp</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Damaged_3.cpp">
-      <Filter>playGround\enemy\Attacked\StandUp</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\StandUp</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Die.cpp">
-      <Filter>playGround\enemy\Attacked\else</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\else</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Idle.cpp">
-      <Filter>playGround\enemy\Idle</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Idle</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Guard.cpp">
-      <Filter>playGround\enemy\Guard</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Guard</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_JumpAttack.cpp">
-      <Filter>playGround\enemy\Attack</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_knockDown.cpp">
-      <Filter>playGround\enemy\Attacked\else</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\else</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_KnockDown_2.cpp">
-      <Filter>playGround\enemy\Attacked\else</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\else</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Move.cpp">
-      <Filter>playGround\enemy\Move</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Move</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Run.cpp">
-      <Filter>playGround\enemy\Move</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Move</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_State.cpp">
       <Filter>playGround\enemy\-BasicState-</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Wake_Up.cpp">
-      <Filter>playGround\enemy\Attacked\else</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Attacked\else</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Jump.cpp">
-      <Filter>playGround\enemy\Idle</Filter>
+      <Filter>playGround\enemy\STATE\공용패턴\Idle</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_School_Girl.cpp">
+      <Filter>playGround\enemy\EnemyKind</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_School_boy.cpp">
+      <Filter>playGround\enemy\EnemyKind</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Misuzu_Boss.cpp">
+      <Filter>playGround\enemy\EnemyKind</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Attack_1_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Attack_2_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Attack_3_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Dash_Attack_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\Takkle</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jump_Attack_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\JumpAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Power_Attack_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\SpecialAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Wake_Up_Attack_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Power_Up_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Idle_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Move_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Tount_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jump_Attack_stun_Boss.cpp">
+      <Filter>playGround\enemy\STATE\보스-미스즈\JumpAttack</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

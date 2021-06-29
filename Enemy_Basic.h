@@ -30,6 +30,24 @@ enum EnemyTrigger
 };
 
 
+enum EnemyTrigger_Boss
+{
+	OBSERVE_STATE_TRIGGER_BOSS,
+	NORMAL_ATTACK_TRIGGER_BOSS,
+	POWER_ATTACK_TRIGGER_BOSS,
+	POWER_ATTACK_2_TRIGGER_BOSS,
+	TAKKLE_TRIGGER_BOSS,
+	METEOR_JUMP_TRIGGER_BOSS,
+	SUPER_METEOR_JUMP_TRIGGER_BOSS
+};
+
+enum Boss_Phase
+{
+	PHASE_1,
+	PHASE_2,
+	PHASE_3
+};
+
 enum Enemy_State_enum
 {
 	IDLE,
@@ -62,6 +80,8 @@ struct tagEnemyInfo
 	image* _image; //이미지 클래스 변수
 	const char* imageName; //해당 IMAGEMANAGER에서 해당 이미지를 찾기 위한 key값
 	const char* imageName_RenderManager;//렌더매니저에서 이미지 키값을 넣어주기 위한 변수 
+	int CurrentframeX, CurrentframeY;
+
 
 	bool isRight;		//오른쪽인지 판단여부
 
@@ -73,15 +93,14 @@ struct tagEnemyInfo
 	int stiffness; //경직도 관련 변수 
 	
 	RECT ShedowRect;
-
 	POINT EnemyShedowMiddle;
 
 
 	float JumpPower;
 	float gravity;
 
+	
 
-	int CurrentframeX, CurrentframeY;
 };
 
 
@@ -98,11 +117,13 @@ protected:
 	const char* testText;
 
 	EnemyTrigger _AI;
+	EnemyTrigger_Boss _AI_BOSS;
+	Boss_Phase currentPhase;
 
 	int triggerCount;//해당 트리거 업데이트까지의 카운터
 	int updateTriggerCount;//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
 
-	EnemyKind test;
+	EnemyKind Kind;
 
 public:
 
@@ -112,7 +133,7 @@ public:
 	void input_state_data(int targetX, int targetY);//스테이트 상태를 갱신해줄 함수
 
 
-	virtual HRESULT init(int _x, int _y, const char* _imageName, int _Hp); //init
+	virtual HRESULT init(int _x, int _y, const char* _imageName, int _Hp, EnemyKind _kind); //init
 	virtual void update(int targetX, int targetY);	//아직 플레이어 x,y값은 안넣엇고, 이미지 판단 
 	virtual void release();
 	virtual void render();
@@ -131,7 +152,7 @@ public:
 	EnemyTrigger getAITRIGGER() { return _AI; }
 	Enemy_State* getEnemyStateInfo() { return _state; }
 	Enemy_State_enum getEnemyStateEnumInfo() { return _enum_state; }
-
+	EnemyKind getEnemyKind() { return Kind; }
 	//==========================================================================
 
 	//에너미 정보 수정용(setter)

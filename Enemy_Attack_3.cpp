@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Enemy_Attack_3.h"
+
 #include "Enemy_Idle.h"
 
 #include "Enemy_Basic.h"
@@ -8,6 +9,18 @@
 
 Enemy_State * Enemy_Attack_3::input_state(Enemy_Basic * _Enemy, bool reverse, int targetX, int targetY)
 {
+
+	if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
+	{
+		
+		_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
+
+		return new Enemy_Idle();
+		
+	}
+
+
+
 	return nullptr;
 }
 
@@ -73,11 +86,11 @@ void Enemy_Attack_3::ImageUpdateFunc(Enemy_Basic * _Enemy)
 			_Enemy->setEnemyFrameY(0);
 			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
+	/*		if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
 			{
 				call_Idle_function(_Enemy);
 				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
-			}
+			}*/
 
 		}
 		else
@@ -85,11 +98,11 @@ void Enemy_Attack_3::ImageUpdateFunc(Enemy_Basic * _Enemy)
 			_Enemy->setEnemyFrameY(1);
 			_Enemy->setEnemyFrameX(_Enemy->getEnemyInfo()->CurrentframeX + 1);
 
-			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
-			{
-				call_Idle_function(_Enemy);
-				_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
-			}
+			//if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX())
+			//{
+			//	call_Idle_function(_Enemy);
+			//	_Enemy->setEnemyAiTrigger(OBSERVE_STATE_TRIGGER);
+			//}
 		}
 	}
 }

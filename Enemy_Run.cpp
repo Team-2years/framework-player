@@ -11,7 +11,18 @@
 
 Enemy_State * Enemy_Run::input_state(Enemy_Basic * _Enemy, bool reverse, int targetX, int targetY)
 {
-	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) <= 300)
+
+	int DashAttackRange;
+
+	switch (_Enemy->getEnemyKind())
+	{
+	case SCHOOL_GIRL: DashAttackRange = 300;
+		break;
+	case SCHOOL_BOY: DashAttackRange = 200;
+		break;
+	}
+
+	if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) <= DashAttackRange)
 	//	&& (_Enemy->getEnemyInfo()->y > targetY - 15 && _Enemy->getEnemyInfo()->y < targetY + 15))
 	{
 		return new Enemy_DashAttack();
@@ -25,7 +36,15 @@ void Enemy_Run::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 {
 
 
+	int DashAttackRange;
 
+	switch (_Enemy->getEnemyKind())
+	{
+	case SCHOOL_GIRL: DashAttackRange = 300;
+		break;
+	case SCHOOL_BOY: DashAttackRange = 200;
+		break;
+	}
 
 
 	//===================================================
@@ -47,7 +66,7 @@ void Enemy_Run::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 			_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_RUN*0.5f);
 		}
 
-		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > 300)
+		if (getDistance(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY) > DashAttackRange)
 		{
 			_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_RUN);
 		}

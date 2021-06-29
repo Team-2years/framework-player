@@ -15,12 +15,11 @@
 HRESULT enemyManager::init()
 {
 
-	setting_Unit_school_girl(100, WINSIZEY/2 );
-
-	setting_Unit_school_girl(WINSIZEX-100, WINSIZEY / 2 );
-
-	setting_Unit_school_girl(WINSIZEX/2, WINSIZEY / 2 - 400);
-	setting_Unit_school_girl(WINSIZEX/2, WINSIZEY / 2 + 400);
+	setting_Unit_school_boy(100, WINSIZEY / 2);
+	//setting_Unit_school_girl(100, WINSIZEY/2 );
+	//setting_Unit_school_girl(WINSIZEX-100, WINSIZEY / 2 );
+	//setting_Unit_school_girl(WINSIZEX/2, WINSIZEY / 2 - 400);
+	//setting_Unit_school_girl(WINSIZEX/2, WINSIZEY / 2 + 400);
 
 	return S_OK;
 }
@@ -68,18 +67,48 @@ void enemyManager::render()
 
 }
 
+
+
+
 void enemyManager::setting_Unit_school_girl(int _x, int _y)
 {
 	Enemy_Basic* create_Enemy;
 
-	create_Enemy = new Enemy_Basic;
+	create_Enemy = new Enemy_School_Girl;
 
-	create_Enemy->init(_x, _y, "School_Girl", 100);
-	//create_Enemy->input_state_data();
+	create_Enemy->init(_x, _y, "School_Girl", 100, SCHOOL_GIRL);
+
 
 	_vEnemy.push_back(create_Enemy);
 
 }
+
+void enemyManager::setting_Unit_school_boy(int _x, int _y)
+{
+	Enemy_Basic* create_Enemy;
+
+	create_Enemy = new Enemy_School_boy;
+
+	create_Enemy->init(_x, _y, "School_Boy", 100, SCHOOL_BOY);
+
+	
+	_vEnemy.push_back(create_Enemy);
+}
+
+void enemyManager::setting_Unit_Misuzu(int _x, int _y)
+{
+	Enemy_Basic* create_Enemy;
+
+	create_Enemy = new Enemy_Misuzu_Boss;
+
+	create_Enemy->init(_x, _y, "Misuzu", 100, BOSS);
+
+	_vEnemy.push_back(create_Enemy);
+}
+
+
+
+
 
 void enemyManager::changeState_Attacked(Enemy_Basic * _Enemy)
 {
