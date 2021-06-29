@@ -1,5 +1,0 @@
-﻿  Enemy_Run.cpp
-c:\users\kga_pm_02\documents\fsaf\enemy_run.cpp(25): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_pm_02\documents\fsaf\enemy_run.cpp(54): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\kga_pm_02\documents\fsaf\enemy_run.cpp(69): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  windowAPI.vcxproj -> C:\Users\KGA_PM_02\Documents\fsaf\x64\Debug\windowAPI.exe

@@ -35,6 +35,7 @@ void Enemy_Jump::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 
 	_Enemy->setEnemyGravity(_Enemy->getEnemyInfo()->gravity + GRAVITY_POWER);
 	_Enemy->setEnemyPointZ(_Enemy->getEnemyInfo()->z + _Enemy->getEnemyInfo()->gravity - _Enemy->getEnemyInfo()->JumpPower);
+
 	ImageUpdateFunc(_Enemy);
 }
 

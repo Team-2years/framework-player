@@ -60,6 +60,8 @@ void Enemy_Move::update(Enemy_Basic* _Enemy, int targetX, int targetY)
 
 	float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
 
+
+
 	//일정 거리안에 있으면 움직이게 
 	switch (_Enemy->getAITRIGGER())
 	{

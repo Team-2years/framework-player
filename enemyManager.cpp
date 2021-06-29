@@ -15,7 +15,9 @@
 HRESULT enemyManager::init()
 {
 
-	setting_Unit_school_boy(100, WINSIZEY / 2);
+//	setting_Unit_school_boy(100, WINSIZEY / 2);
+
+	setting_Unit_Misuzu(100, WINSIZEY / 2);
 	//setting_Unit_school_girl(100, WINSIZEY/2 );
 	//setting_Unit_school_girl(WINSIZEX-100, WINSIZEY / 2 );
 	//setting_Unit_school_girl(WINSIZEX/2, WINSIZEY / 2 - 400);

@@ -100,23 +100,38 @@
     <Filter Include="playGround\enemy\STATE\공용패턴\Attack">
       <UniqueIdentifier>{fb8affbb-a884-4596-8754-b784ca04abfd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\STATE\보스-미스즈">
+    <Filter Include="playGround\enemy\보스-미스즈">
       <UniqueIdentifier>{6d010685-2565-4e31-b495-9994f9368050}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\STATE\보스-미스즈\NormalAttack">
+    <Filter Include="playGround\enemy\보스-미스즈\NormalAttack">
       <UniqueIdentifier>{e586ae0b-dee2-42e0-aee0-86b93cc8afce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\STATE\보스-미스즈\Takkle">
+    <Filter Include="playGround\enemy\보스-미스즈\Takkle">
       <UniqueIdentifier>{4763a652-6581-4941-a799-93afb25b0cfa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\STATE\보스-미스즈\JumpAttack">
+    <Filter Include="playGround\enemy\보스-미스즈\JumpAttack">
       <UniqueIdentifier>{f2b12218-ef75-41a1-b085-d1af7f465f73}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\STATE\보스-미스즈\OtherPattern">
+    <Filter Include="playGround\enemy\보스-미스즈\OtherPattern">
       <UniqueIdentifier>{72a3a0b5-4e7e-4a36-a94d-0d8322212178}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\enemy\STATE\보스-미스즈\SpecialAttack">
+    <Filter Include="playGround\enemy\보스-미스즈\OtherPattern\Other">
+      <UniqueIdentifier>{db2402ec-e7cf-472f-a8ce-8e706b7acb34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\보스-미스즈\SpecialAttack">
       <UniqueIdentifier>{e04f7bb1-5ca7-4355-a6ff-fa4917042cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\보스-미스즈\KnockDown">
+      <UniqueIdentifier>{4113b3df-b511-4799-bb66-b123033b825d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\보스-미스즈\JumpAttack\3.After">
+      <UniqueIdentifier>{fa52fa0e-cdfa-4658-b446-6cdb8ef0395a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\보스-미스즈\JumpAttack\2.Attack">
+      <UniqueIdentifier>{8ce4b7e7-780a-40d7-964b-6778dd456729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy\보스-미스즈\JumpAttack\1.Ready">
+      <UniqueIdentifier>{9deacf29-e9c1-4193-aac8-e2f373a1437f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -310,40 +325,55 @@
       <Filter>playGround\enemy\EnemyKind</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack_1_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\NormalAttack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack_2_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\NormalAttack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Attack_3_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\NormalAttack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Dash_Attack_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\Takkle</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Jump_Attack_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\JumpAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\Takkle</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Power_Attack_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\SpecialAttack</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Wake_Up_Attack_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Power_Up_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+      <Filter>playGround\enemy\보스-미스즈\SpecialAttack</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Idle_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+      <Filter>playGround\enemy\보스-미스즈\OtherPattern</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Move_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈</Filter>
+      <Filter>playGround\enemy\보스-미스즈</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Tount_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+      <Filter>playGround\enemy\보스-미스즈\OtherPattern\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Power_Up_Boss.h">
+      <Filter>playGround\enemy\보스-미스즈\OtherPattern\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Knock_Down_2_Boss.h">
+      <Filter>playGround\enemy\보스-미스즈\KnockDown</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Knock_Down_1_Boss.h">
+      <Filter>playGround\enemy\보스-미스즈\KnockDown</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Wake_Up_Attack_Boss.h">
+      <Filter>playGround\enemy\보스-미스즈\KnockDown</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Ground_Hitted_Boss.h">
+      <Filter>playGround\enemy\보스-미스즈\KnockDown</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jump_Attack_Ready.h">
+      <Filter>playGround\enemy\보스-미스즈\JumpAttack\1.Ready</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jump_Attack_Boss.h">
+      <Filter>playGround\enemy\보스-미스즈\JumpAttack\2.Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Jump_Attack_not_stun.h">
+      <Filter>playGround\enemy\보스-미스즈\JumpAttack\3.After</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Jump_Attack_stun_Boss.h">
-      <Filter>playGround\enemy\STATE\보스-미스즈\JumpAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\JumpAttack\3.After</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -525,40 +555,55 @@
       <Filter>playGround\enemy\EnemyKind</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack_1_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\NormalAttack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack_2_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\NormalAttack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Attack_3_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\NormalAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\NormalAttack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Dash_Attack_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\Takkle</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Jump_Attack_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\JumpAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\Takkle</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Power_Attack_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\SpecialAttack</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Wake_Up_Attack_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Power_Up_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+      <Filter>playGround\enemy\보스-미스즈\SpecialAttack</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Idle_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+      <Filter>playGround\enemy\보스-미스즈\OtherPattern</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Move_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈</Filter>
+      <Filter>playGround\enemy\보스-미스즈</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Tount_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\OtherPattern</Filter>
+      <Filter>playGround\enemy\보스-미스즈\OtherPattern\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Power_Up_Boss.cpp">
+      <Filter>playGround\enemy\보스-미스즈\OtherPattern\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Knock_Down_2_Boss.cpp">
+      <Filter>playGround\enemy\보스-미스즈\KnockDown</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Knock_Down_1_Boss.cpp">
+      <Filter>playGround\enemy\보스-미스즈\KnockDown</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Wake_Up_Attack_Boss.cpp">
+      <Filter>playGround\enemy\보스-미스즈\KnockDown</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Ground_Hitted_Boss.cpp">
+      <Filter>playGround\enemy\보스-미스즈\KnockDown</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jump_Attack_Ready.cpp">
+      <Filter>playGround\enemy\보스-미스즈\JumpAttack\1.Ready</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jump_Attack_Boss.cpp">
+      <Filter>playGround\enemy\보스-미스즈\JumpAttack\2.Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Jump_Attack_not_stun.cpp">
+      <Filter>playGround\enemy\보스-미스즈\JumpAttack\3.After</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Jump_Attack_stun_Boss.cpp">
-      <Filter>playGround\enemy\STATE\보스-미스즈\JumpAttack</Filter>
+      <Filter>playGround\enemy\보스-미스즈\JumpAttack\3.After</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

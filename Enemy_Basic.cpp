@@ -5,6 +5,7 @@
 #include "Enemy_Attack.h"
 #include "Enemy_Die.h"
 
+#include "Enemy_Idle_Boss.h"
 
 void Enemy_Basic::input_state_data(int targetX, int targetY)
 {
@@ -14,7 +15,7 @@ void Enemy_Basic::input_state_data(int targetX, int targetY)
 
 	if (_newState != nullptr)//만약 현재 데이터가 있으면 현재 데이터를 삭제 후, nullptr로 만들어줌
 	{
-		SAFE_DELETE(_state);
+		SAFE_DELETE(_state);		
 		_state = _newState;
 		_state->enter_this_state(this);
 	}
@@ -29,8 +30,10 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp, Enemy
 	_EnemyInfo.imageName = _imageName;
 	_EnemyInfo.imageName_RenderManager = _EnemyInfo.imageName;
 
+	Kind = _kind;
 
-	_state = new Enemy_Idle();
+	if(Kind!=BOSS) _state = new Enemy_Idle();
+	else  _state = new Enemy_Idle_Boss();
 	_state->enter_this_state(this);
 
 	_EnemyInfo.ShedowRect = RectMakeCenter(_EnemyInfo.x, _EnemyInfo.y,80,20);
@@ -43,22 +46,30 @@ HRESULT Enemy_Basic::init(int _x, int _y, const char * _imageName,int _Hp, Enemy
 
 	_EnemyInfo.CurrentframeX = _EnemyInfo.CurrentframeY=0;
 
-
-	Kind = _kind;
+	
 
 	_AI = OBSERVE_STATE_TRIGGER;
-	_AI_BOSS = OBSERVE_STATE_TRIGGER_BOSS;
-	currentPhase = PHASE_1;
 
 	triggerCount =0;//해당 트리거 업데이트까지의 카운터
-
 
 	//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
 	if(Kind==BOSS) updateTriggerCount = 3;
 	else updateTriggerCount = RND->getFromIntTo(200, 300);
 
+
+
+	//보스용
+	_AI_BOSS = OBSERVE_STATE_TRIGGER_BOSS;
+	currentPhase = PHASE_1;
+	_EnemyInfo.Special_Attack_Count = 0;
+	_EnemyInfo.DashAttack_Limit_Count = 100;
+
+	EnemyImageError = 0;
+	
+
 	//디버깅용
 	testText = "NON";
+
 
 	return S_OK;
 }
@@ -93,7 +104,7 @@ void Enemy_Basic::update(int targetX, int targetY)
 				switch (currentPhase)
 				{
 				case PHASE_1: 
-					randomPattern = RND->getFromIntTo(1, 4);
+					randomPattern = RND->getFromIntTo(1, 3);
 					break;
 				case PHASE_2:  
 								//일정거리 이상이면 원거리패턴들 사용, 아니면 근접패턴들 사용.
@@ -109,9 +120,10 @@ void Enemy_Basic::update(int targetX, int targetY)
 					break;
 				}
 
+				randomPattern = 5;
 
 				//보스 패턴 지정
-				switch (_AI_BOSS)
+				switch (randomPattern)
 				{
 				case 1:
 					_AI_BOSS = NORMAL_ATTACK_TRIGGER_BOSS;
@@ -124,6 +136,7 @@ void Enemy_Basic::update(int targetX, int targetY)
 					break;
 				case 4:
 					_AI_BOSS = TAKKLE_TRIGGER_BOSS;
+					_EnemyInfo.Special_Attack_Count = 1;
 					break;
 				case 5:
 					_AI_BOSS = METEOR_JUMP_TRIGGER_BOSS;
@@ -198,7 +211,7 @@ void Enemy_Basic::render()
 
 	RENDERMANAGER->push_BackFrameImageRenderInfo(_EnemyInfo.ShedowRect.bottom ,
 		_EnemyInfo._image,
-		_EnemyInfo.x , _EnemyInfo.y - _EnemyInfo._image->getFrameHeight()/2 + _EnemyInfo.z,
+		_EnemyInfo.x + EnemyImageError, _EnemyInfo.y - _EnemyInfo._image->getFrameHeight()/2 + _EnemyInfo.z,
 		_EnemyInfo.CurrentframeX, _EnemyInfo.CurrentframeY);
 		
 

@@ -21,7 +21,7 @@ void Enemy_Power_Up_Boss::enter_this_state(Enemy_Basic * _Enemy)
 	_Enemy->setEnemyTestText("IDLE");
 	//_Enemy->set_Enemy_State_Enum();
 
-	char str[128] = "";
+	char str[128] = "Misuzu_PowerUp";
 
 	_Enemy->setEnemyImage(IMAGEMANAGER->findImage(str));
 

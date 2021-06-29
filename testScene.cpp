@@ -65,6 +65,7 @@ HRESULT testScene::init()
 	//==================================================
 	addEnemyImage_school_girl();
 	addEnemyImage_school_boy();
+	addEnemyImage_Misuzu();
 
 	_em = new enemyManager;
 	_em->init();
@@ -342,6 +343,47 @@ void testScene::addEnemyImage_school_boy()
 
 	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_1_School_Boy", "img/enemy/school_boy/school_boy_knockdown_1.bmp", 6210, 420, 23, 2, true, RGB(255, 0, 255));//23
 	IMAGEMANAGER->addFrameImage("Enemy_Image_KnockDown_2_School_Boy", "img/enemy/school_boy/school_boy_knockdown_3.bmp",540,420,2,2,true,RGB(255,0,255));
+
+
+
+
+}
+
+void testScene::addEnemyImage_Misuzu()
+{
+	IMAGEMANAGER->addFrameImage("Misuzu_IDLE", "img/enemy/misuzu/misuzu_idle.bmp", 2844, 582, 12, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Misuzu_Move", "img/enemy/misuzu/misuzu_walk.bmp", 1770, 540, 10, 2, true, RGB(255, 0, 255));
+
+
+	IMAGEMANAGER->addFrameImage("Misuzu_Attack_1", "img/enemy/misuzu/misuzu_Attack_1.bmp", 2574, 600, 11, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Misuzu_Attack_2", "img/enemy/misuzu/misuzu_Attack_2.bmp", 5040, 534, 14, 2, true, RGB(255, 0, 255));
+	
+	IMAGEMANAGER->addFrameImage("Misuzu_PowerAttack", "img/enemy/misuzu/misuzu_power_Attack.bmp", 10854, 546, 27, 2, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addFrameImage("Misuzu_Tount", "img/enemy/misuzu/misuzu_tount.bmp", 5037, 690, 23, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Misuzu_PowerUp", "img/enemey/misuzu/misuzu_powerUp.bmp", 2592, 534, 12, 2, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addFrameImage("Misuzu_Wake_Up", "img/enemey/misuzu/misuzu_wake_up.bmp", 3330, 528, 15, 2, true, RGB(255, 0, 255));
+
+
+
+	IMAGEMANAGER->addFrameImage("Misuzu_Attacked_1", "img/enemy/misuzu/misuzu_Attacked_1.bmp", 657,546,3,2,true,RGB(255,0,255));
+	IMAGEMANAGER->addFrameImage("Misuzu_Attacked_2", "img/enemy/misuzu/misuzu_Attacked_2.bmp", 657,546,3,2,true,RGB(255,0,255));
+	IMAGEMANAGER->addFrameImage("Misuzu_Attacked_3", "img/enemy/misuzu/misuzu_Attacked_3.bmp", 657,546,3,2,true,RGB(255,0,255));
+
+	IMAGEMANAGER->addFrameImage("Misuzu_KnockDown_1", "img/enemy/misuzu/misuzu_knockdown_1.bmp", 2580, 534, 10, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Misuzu_KnockDown_2", "img/enemy/misuzu/misuzu_knockdown_2.bmp", 948, 426, 4, 2, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addFrameImage("Misuzu_Ground_Hitted", "img/enemy/misuzu/misuzu_ground_hitted.bmp", 924, 420, 3, 2, true, RGB(255, 0, 255));
+
+
+	IMAGEMANAGER->addFrameImage("Misuzu_Die", "img/enemey/misuzu/misuzu_die.bmp", 4134, 528, 13, 2, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addFrameImage("Misuzu_Jump_Up_Ready", "img/enemy/misuzu/misuzu_meteor_jump_attack_ready.bmp", 1584, 612, 8, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Misuzu_Jump_Up", "img/enemy/misuzu/misuzu_meteor_jump_start.bmp", 360, 612, 2, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Misuzu_Jump_Down", "img/enemy/misuzu/misuzu_meteor_jump_attack.bmp", 426, 420, 2, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Misuzu_Jump_after_not_groggy", "img/enemy/misuzu/misuzu_meteor_jump_not_groggy.bmp", 2628, 528, 12, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Misuzu_Jump_after_groggy", "img/enemy/misuzu/misuzu_meteor_jump_groggy.bmp", 4161, 528, 19, 2, true, RGB(255, 0, 255));
 
 
 

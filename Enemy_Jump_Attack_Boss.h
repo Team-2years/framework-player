@@ -10,7 +10,6 @@ class Enemy_Jump_Attack_Boss :
 	virtual void enter_this_state(Enemy_Basic* _Enemy);
 
 
-	void call_Idle_function(Enemy_Basic* _Enemy);
 
 	void ImageUpdateFunc(Enemy_Basic* _Enemy);
 

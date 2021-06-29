@@ -8,8 +8,18 @@
 #define MOVESPEED_LEFT_RIGHT 5.0f
 #define MOVESPEED_UP_DOWN 2.0f
 
+
+#define BOSS_SPEED 3.0f
+#define BOSS_JUMP_SPEED 20.0f
+#define BOSS_GRAVITY 0.27f
+
+
+
 #define GRAVITY_POWER 0.7f
 #define JUMP_POWER 17.0f
+
+
+
 
 enum EnemyKind
 {
@@ -82,7 +92,6 @@ struct tagEnemyInfo
 	const char* imageName_RenderManager;//렌더매니저에서 이미지 키값을 넣어주기 위한 변수 
 	int CurrentframeX, CurrentframeY;
 
-
 	bool isRight;		//오른쪽인지 판단여부
 
 	int range; //에너미의 판단범위. 일단 임시로 설정해놓음 
@@ -95,11 +104,16 @@ struct tagEnemyInfo
 	RECT ShedowRect;
 	POINT EnemyShedowMiddle;
 
-
 	float JumpPower;
 	float gravity;
 
-	
+	//=========================================
+	//보스용
+	//=========================================
+
+	int Special_Attack_Count; //어깨빵or내려찍기 반복해줄 횟수
+	int DashAttack_Limit_Count; //해당 시간동안 플레이어랑 충돌 하지 않을시, 취소하기
+
 
 };
 
@@ -124,6 +138,8 @@ protected:
 	int updateTriggerCount;//랜덤값으로 설정하고 triggercount와의 나머지가 0이 될 경우 트리거를 바꿔주기.
 
 	EnemyKind Kind;
+
+	int EnemyImageError;//이미지 위치 오류나는거 보정용 
 
 public:
 
@@ -153,10 +169,12 @@ public:
 	Enemy_State* getEnemyStateInfo() { return _state; }
 	Enemy_State_enum getEnemyStateEnumInfo() { return _enum_state; }
 	EnemyKind getEnemyKind() { return Kind; }
+	EnemyTrigger_Boss getBOSS_AI_TRIGGER() { return _AI_BOSS; }
 	//==========================================================================
 
 	//에너미 정보 수정용(setter)
 	void setEnemyImage(image* _image) { _EnemyInfo._image = _image; }//이미지 수정
+	void setEnemyImageError(int num) { EnemyImageError = num; }
 
 	void setEnemyPointX(float _x) { _EnemyInfo.x = _x; }
 	void setEnemyPointY(float _y) { _EnemyInfo.y = _y; }
@@ -186,6 +204,9 @@ public:
 
 
 	void setEnemyRandomCountReset(){ updateTriggerCount = RND->getFromIntTo(200, 300); }
+
+
+	void setBossSpecialCount() { _EnemyInfo.Special_Attack_Count -- ; }
 	//==========================================================================
 
 	//디버깅용
