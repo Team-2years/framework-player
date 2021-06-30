@@ -2,6 +2,7 @@
 #include "Enemy_Basic.h"
 #include "Enemy_Idle_Boss.h"
 #include "Enemy_Jump_Attack_not_stun.h"
+#include "Enemy_Tount_Boss.h"
 
 Enemy_State * Enemy_Jump_Attack_not_stun::input_state(Enemy_Basic * _Enemy, bool reverse, int targetX, int targetY)
 {
@@ -49,8 +50,9 @@ void Enemy_Jump_Attack_not_stun::ImageUpdateFunc(Enemy_Basic * _Enemy)
 			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()-1)
 			{
 				Enemy_State* IDLE;
-				IDLE = new Enemy_Idle_Boss();
+				IDLE = new Enemy_Tount_Boss();
 
+				_Enemy->setEnemyAiTrigger_Boss(OBSERVE_STATE_TRIGGER_BOSS);
 				_Enemy->set_Enemy_State(IDLE);
 			}
 		}
@@ -62,8 +64,9 @@ void Enemy_Jump_Attack_not_stun::ImageUpdateFunc(Enemy_Basic * _Enemy)
 			if (_Enemy->getEnemyInfo()->CurrentframeX > _Enemy->getEnemyInfo()->_image->getMaxFrameX()-1)
 			{
 				Enemy_State* IDLE;
-				IDLE = new Enemy_Idle_Boss();
+				IDLE = new Enemy_Tount_Boss();
 
+				_Enemy->setEnemyAiTrigger_Boss(OBSERVE_STATE_TRIGGER_BOSS);
 				_Enemy->set_Enemy_State(IDLE);
 			}
 		}

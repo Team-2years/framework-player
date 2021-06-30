@@ -41,7 +41,11 @@ void Enemy_Attack_3_Boss::enter_this_state(Enemy_Basic * _Enemy)
 	_Enemy->setEnemyImage(IMAGEMANAGER->findImage(str));
 
 	frameCount = 0;
-	frameUpdateCount =3;
+
+
+	//frameUpdateCount =3;
+
+	frameUpdateCount = _Enemy->getBOSS_AI_TRIGGER() == POWER_ATTACK_TRIGGER_BOSS ? 4 : 3;
 
 	_Enemy->setEnemyFrameX(0);
 	//_Enemy->setEnemyImageError(0);
@@ -71,6 +75,8 @@ void Enemy_Attack_3_Boss::ImageUpdateFunc(Enemy_Basic * _Enemy)
 			{
 				Enemy_State* IDLE;
 				IDLE = new Enemy_Idle_Boss();
+
+				_Enemy->setEnemyAiTrigger_Boss(OBSERVE_STATE_TRIGGER_BOSS);
 				_Enemy->set_Enemy_State(IDLE);
 			}
 
@@ -84,6 +90,7 @@ void Enemy_Attack_3_Boss::ImageUpdateFunc(Enemy_Basic * _Enemy)
 			{
 				Enemy_State* IDLE;
 				IDLE = new Enemy_Idle_Boss();
+				_Enemy->setEnemyAiTrigger_Boss(OBSERVE_STATE_TRIGGER_BOSS);
 				_Enemy->set_Enemy_State(IDLE);
 			}
 		

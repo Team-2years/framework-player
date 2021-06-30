@@ -67,6 +67,7 @@ void Enemy_Jump_Attack_stun_Boss::ImageUpdateFunc(Enemy_Basic * _Enemy)
 				Enemy_State* IDLE;
 				IDLE = new Enemy_Idle_Boss();
 
+				_Enemy->setEnemyAiTrigger_Boss(OBSERVE_STATE_TRIGGER_BOSS);
 				_Enemy->set_Enemy_State(IDLE);
 			}
 		}

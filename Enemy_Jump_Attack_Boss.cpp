@@ -31,13 +31,18 @@ Enemy_State * Enemy_Jump_Attack_Boss::input_state(Enemy_Basic * _Enemy, bool rev
 void Enemy_Jump_Attack_Boss::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 {
 
-	if(_Enemy->getEnemyInfo()->gravity > BOSS_JUMP_SPEED)  
-		 _Enemy->setEnemyImage(IMAGEMANAGER->findImage("Misuzu_Jump_Down"));
-	
-	float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
+	if (_Enemy->getEnemyInfo()->gravity > BOSS_JUMP_SPEED)
+	{
+		_Enemy->setEnemyImage(IMAGEMANAGER->findImage("Misuzu_Jump_Down"));
 
-	_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT*0.7f);
-	_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_UP_DOWN*0.7f);
+		float angle = getAngle(_Enemy->getEnemyInfo()->x, _Enemy->getEnemyInfo()->y, targetX, targetY);
+
+		_Enemy->setEnemyPointX(_Enemy->getEnemyInfo()->x + cosf(angle)*MOVESPEED_LEFT_RIGHT*1.2f);
+		_Enemy->setEnemyPointY(_Enemy->getEnemyInfo()->y - sinf(angle)*MOVESPEED_UP_DOWN*1.2f);
+	}
+	
+
+	
 
 
 	ImageUpdateFunc(_Enemy);

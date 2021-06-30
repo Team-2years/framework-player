@@ -45,7 +45,12 @@ Enemy_State * Enemy_Idle_Boss::input_state(Enemy_Basic * _Enemy, bool reverse, i
 
 void Enemy_Idle_Boss::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 {
+	if (_Enemy->getEnemyInfo()->x < targetX) _Enemy->setEnemyReverse(true);
+	else _Enemy->setEnemyReverse(false);
+
 	ImageUpdateFunc(_Enemy);
+
+
 }
 
 void Enemy_Idle_Boss::release(Enemy_Basic * _Enemy)
