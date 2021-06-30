@@ -11,7 +11,7 @@
 
 #define BOSS_SPEED 3.0f
 #define BOSS_JUMP_SPEED 20.0f
-#define BOSS_GRAVITY 0.27f
+#define BOSS_GRAVITY 0.4f
 
 
 
@@ -201,7 +201,7 @@ public:
 	void setEnemyReverse(bool isRight_) { _EnemyInfo.isRight = isRight_; }
 
 	void setEnemyAiTrigger(EnemyTrigger new_AI) { _AI = new_AI; }
-
+	void setEnemyAiTrigger_Boss(EnemyTrigger_Boss new_AI) { _AI_BOSS = new_AI; }
 
 	void setEnemyRandomCountReset(){ updateTriggerCount = RND->getFromIntTo(200, 300); }
 

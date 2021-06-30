@@ -120,7 +120,7 @@ void Enemy_Basic::update(int targetX, int targetY)
 					break;
 				}
 
-				randomPattern = 5;
+				randomPattern = 4;//RND->getFromIntTo(1, 5);
 
 				//보스 패턴 지정
 				switch (randomPattern)
@@ -135,11 +135,11 @@ void Enemy_Basic::update(int targetX, int targetY)
 					_AI_BOSS = POWER_ATTACK_2_TRIGGER_BOSS;
 					break;
 				case 4:
-					_AI_BOSS = TAKKLE_TRIGGER_BOSS;
+					_AI_BOSS = METEOR_JUMP_TRIGGER_BOSS;
 					_EnemyInfo.Special_Attack_Count = 1;
 					break;
 				case 5:
-					_AI_BOSS = METEOR_JUMP_TRIGGER_BOSS;
+					_AI_BOSS = TAKKLE_TRIGGER_BOSS;
 					break;
 				case 6:
 					_AI_BOSS = SUPER_METEOR_JUMP_TRIGGER_BOSS;

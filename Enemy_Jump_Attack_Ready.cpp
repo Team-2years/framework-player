@@ -13,6 +13,8 @@ Enemy_State * Enemy_Jump_Attack_Ready::input_state(Enemy_Basic * _Enemy, bool re
 void Enemy_Jump_Attack_Ready::update(Enemy_Basic * _Enemy, int targetX, int targetY)
 {
 	ImageUpdateFunc(_Enemy);
+	if (_Enemy->getEnemyInfo()->x < targetX) _Enemy->setEnemyReverse(true);
+	else _Enemy->setEnemyReverse(false);
 }
 
 void Enemy_Jump_Attack_Ready::release(Enemy_Basic * _Enemy)
