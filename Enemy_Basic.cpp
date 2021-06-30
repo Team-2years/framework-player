@@ -120,7 +120,7 @@ void Enemy_Basic::update(int targetX, int targetY)
 					break;
 				}
 
-				randomPattern = 4;//RND->getFromIntTo(1, 5);
+				randomPattern = 5;//RND->getFromIntTo(1, 5);
 
 				//보스 패턴 지정
 				switch (randomPattern)

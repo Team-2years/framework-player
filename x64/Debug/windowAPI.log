@@ -1,1 +1,13 @@
-﻿  windowAPI.vcxproj -> C:\Users\KGA_PM_02\Documents\fsaf\x64\Debug\windowAPI.exe
+﻿  Enemy_Basic.cpp
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(26): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(27): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(39): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(86): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(111): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(117): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(212): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(226): warning C4101: 'str' :참조되지 않은 지역 변수입니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(314): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\kga_am_25\documents\framework-player\enemy_basic.cpp(334): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  windowAPI.vcxproj -> C:\Users\KGA_AM_25\Documents\framework-player\x64\Debug\windowAPI.exe
